@@ -1,4 +1,4 @@
-## aframe-react-boilerplate
+## PATH_WAYS
 
 A WeirdVR Game experiment built on [aframe-react-boilerplate](https://github.com/ngokevin/aframe-react-boilerplate)
 
