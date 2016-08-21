@@ -35,21 +35,38 @@ class BoilerplateScene extends React.Component {
         <Entity light={{type: 'ambient', color: '#888'}}/>
         <Entity light={{type: 'directional', intensity: 0.5}} position={[-1, 1, 0]}/>
 
+        <Entity geometry="primitive: plane; height: 1.5; width: 3.5"
+          material="side: double" material={{src: '#search'}}
+                onClick={this.changeTexture}
+                position="-2 0 -1">
+        </Entity>
+
+        <Entity geometry="primitive: box;" material={{src: '#vid'}}
+                onClick={this.changeTexture}
+                position="5 0 -2">
+        <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
+        </Entity>
+
         <Entity geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.1" material={{src: this.state.texture}}
                 onClick={this.changeTexture}
-                position="0 0 -2">
+                position="10 0 -2">
         <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
         </Entity>
 
         <Entity geometry="primitive: box" material={{src: this.state.texture}}
                 onClick={this.changeTexture}
                 position="4 3 -5">
-        <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
+        <Animation attribute="rotation" dur="4000" repeat="indefinite" to="0 360 360"/>
         </Entity>
         <Entity geometry="primitive: box" material={{src: this.state.texture}}
                 onClick={this.changeTexture}
                 position="1 2 -5">
-        <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
+        <Animation attribute="rotation" dur="8000" repeat="indefinite" to="0 360 360"/>
+        </Entity>
+        <Entity geometry="primitive: box" material={{src: this.state.texture}}
+                onClick={this.changeTexture}
+                position="1 2 -5">
+        <Animation attribute="rotation" dur="3000" repeat="indefinite" to="0 360 360"/>
         </Entity>
       </Scene>
     );
