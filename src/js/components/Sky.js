@@ -1,7 +1,7 @@
 import {Entity} from 'aframe-react';
 import React    from 'react';
 
-export default props => (
+export default ({ color='#73CFF0' }) => (
   <Entity
     geometry={{
       primitive: 'sphere',
@@ -9,8 +9,9 @@ export default props => (
     }}
 
     material={{
-      src: "#sky",
+      color,
       shader: 'flat'
     }}
-    scale="1 1 -1" />
+
+    scale={[1, 1, -1]} />
 );

@@ -11,6 +11,7 @@ import ReactDOM     from 'react-dom';
 import Camera       from './components/Camera';
 import Cursor       from './components/Cursor';
 import Sky          from './components/Sky';
+import Platform     from './components/Platform';
 
 class RootScene extends React.Component {
   constructor(props) {
@@ -32,46 +33,19 @@ class RootScene extends React.Component {
   render () {
     return (
       <Scene>
-        <Camera><Cursor/></Camera>
 
-        <Sky/>
+        <Camera position={[-1,1,2]}>
+          <Cursor />
+        </Camera>
 
-        <Entity light={{type: 'ambient', color: '#888'}}/>
-        <Entity light={{type: 'directional', intensity: 0.5}} position={[-1, 1, 0]}/>
+        <Sky />
 
-        <Entity geometry="primitive: plane; height: 1.5; width: 3.5"
-          material="side: double" material={{src: '#search'}}
-                onClick={this.changeTexture}
-                position="-2 0 -1">
-        </Entity>
+          <Platform
+            width={3}
+            height={1}
+            depth={1}
+            position={[0, 0, 0]} />
 
-        <Entity geometry="primitive: box;" material={{src: '#vid'}}
-                onClick={this.changeTexture}
-                position="5 0 -2">
-        <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
-        </Entity>
-
-        <Entity geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.1" material={{src: this.state.texture}}
-                onClick={this.changeTexture}
-                position="10 0 -2">
-        <Animation attribute="rotation" dur="5000" repeat="indefinite" to="0 360 360"/>
-        </Entity>
-
-        <Entity geometry="primitive: box" material={{src: this.state.texture}}
-                onClick={this.changeTexture}
-                position="4 3 -5">
-        <Animation attribute="rotation" dur="4000" repeat="indefinite" to="0 360 360"/>
-        </Entity>
-        <Entity geometry="primitive: box" material={{src: this.state.texture}}
-                onClick={this.changeTexture}
-                position="1 2 -5">
-        <Animation attribute="rotation" dur="8000" repeat="indefinite" to="0 360 360"/>
-        </Entity>
-        <Entity geometry="primitive: box" material={{src: this.state.texture}}
-                onClick={this.changeTexture}
-                position="1 2 -5">
-        <Animation attribute="rotation" dur="3000" repeat="indefinite" to="0 360 360"/>
-        </Entity>
       </Scene>
     );
   }
