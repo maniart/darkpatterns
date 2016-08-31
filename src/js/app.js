@@ -1,14 +1,18 @@
 import 'aframe';
 import 'babel-polyfill';
-import {Animation, Entity, Scene} from 'aframe-react';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {
+  Animation,
+  Entity,
+  Scene
+}                   from 'aframe-react';
+import React        from 'react';
+import ReactDOM     from 'react-dom';
 
-import Camera from './components/Camera';
-import Cursor from './components/Cursor';
-import Sky from './components/Sky';
+import Camera       from './components/Camera';
+import Cursor       from './components/Cursor';
+import Sky          from './components/Sky';
 
-class BoilerplateScene extends React.Component {
+class RootScene extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,4 +77,7 @@ class BoilerplateScene extends React.Component {
   }
 }
 
-ReactDOM.render(<BoilerplateScene/>, document.querySelector('.scene-container'));
+ReactDOM.render(
+  <RootScene />,
+  document.querySelector('.scene-container')
+);
