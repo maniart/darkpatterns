@@ -12,7 +12,7 @@ export default props => {
   };
 
   const material = {
-    color: props.color,
+    color: props.color || 'white',
     shader: 'flat',
     opacity: props.opacity || 0.9,
     transparent: true
@@ -23,6 +23,7 @@ export default props => {
       cursor={props}
       geometry={geometry}
       material={material}
+      raycaster=""
       position="0 0 -1">
 
       <Animation
@@ -31,7 +32,7 @@ export default props => {
         dur="150"
         fill="backwards"
         to="0 0 0" />
-      
+
     </Entity>
   );
 }
