@@ -7,25 +7,23 @@ export default ({
   active="true",
   ...props
 }) => (
-  <Entity>
-    <Entity
-      id={id}
-      active={active}
-      camera=""
-      position={position}
+  <Entity
+    id={id}
+    active={active}
+    camera=""
+    position={position}
 
-      universal-controls=""
-      touch-controls=""
-      hmd-controls=""
-      mouse-controls=""
-      look-controls=""
-      wasd-controls=""
+    universal-controls=""
+    touch-controls=""
+    hmd-controls=""
+    mouse-controls=""
+    look-controls=""
+    wasd-controls=""
 
-      kinematic-body=""
-      jump-ability={{enableDoubleJump: true, distance: 3}}
+    kinematic-body=""
+    jump-ability={{enableDoubleJump: true, distance: 3}}
 
-      {...props}/>
-  </Entity>
+    {...props}/>
 );
 /*
 <a-entity id="camera" camera="active:true" universal-controls="" kinematic-body="" jump-ability="enableDoubleJump: true; distance: 3;" position="117.53998359625292 1.4515555555555555 -1.2450643819391507" velocity="0 0 0" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" rotation="-11.344564343590337 -96.8298673771091 0">
