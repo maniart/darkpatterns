@@ -2,9 +2,12 @@ import {Entity} from 'aframe-react';
 import React    from 'react';
 
 export default ({
-  width = 1,
-  height = 1,
+  width = 7,
+  height = 7,
   depth = 1,
+  color="rgb(240, 240, 240)",
+  rotation=[0, 0, 0],
+  shader="standard",
   position=[0, 0, 0]
 }) => (
   <Entity
@@ -13,12 +16,14 @@ export default ({
       primitive: 'box',
       width,
       height,
-      depth
+      depth,
     }}
 
+    rotation={rotation}
+
     material={{
-      color: '#666',
-      shader: 'flat'
+      color,
+      shader
     }}
 
     position={position}/>

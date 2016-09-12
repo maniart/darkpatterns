@@ -5,14 +5,17 @@ export default ({
   position=[0, 0, 0],
   id="camera",
   active="true",
+  userHeight="4.8",
+  velocity=[0, 0, 3],
   ...props
 }) => (
   <Entity
     id={id}
     active={active}
     camera=""
+    user-height={userHeight}
     position={position}
-
+    velocity={velocity}
     universal-controls=""
     touch-controls=""
     hmd-controls=""

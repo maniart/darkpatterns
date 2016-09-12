@@ -1,4 +1,5 @@
-import 'aframe';
+// import 'aframe';
+// import 'aframe-extras';
 import 'babel-polyfill';
 import {
   Animation,
@@ -13,6 +14,8 @@ import Cursor       from './components/Cursor';
 import Sky          from './components/Sky';
 import Platform     from './components/Platform';
 import Roof         from './components/Roof';
+import Light        from './components/Light';
+import Wall         from './components/Wall';
 
 /*
   TODO: create multiple scenes?
@@ -32,19 +35,23 @@ class RootScene extends React.Component {
         canvas=""
         vr-mode-ui="">
 
-        <Roof />
+        <Roof color="green" />
 
-        <Camera position={[-1,1,2]}>
+        <Wall />
+
+        <Camera
+          position={[-1,1,15]}
+          userHeight={4}>
           <Cursor />
         </Camera>
 
         <Sky />
 
-          <Platform
-            width={10}
-            height={1}
-            depth={30}
-            position={[0, 0, 0]} />
+        <Platform
+          width={50}
+          height={1}
+          depth={50}
+          position={[0, 0, 0]} />
 
       </Scene>
     );
