@@ -17,6 +17,8 @@ import Roof         from './components/Roof';
 import Light        from './components/Light';
 import Wall         from './components/Wall';
 
+// k = 5
+// e.g: width = 155 => 31
 /*
   TODO: create multiple scenes?
 */
@@ -30,28 +32,63 @@ class RootScene extends React.Component {
   render () {
     return (
       <Scene
-        physics=""
+        physics={{debug:true}}
         keyboard-shortcuts=""
         canvas=""
         vr-mode-ui="">
 
-        <Roof color="green" />
+        <Entity id="room">
+          <Roof
+            color="#fff"
+            position={[0, 6, 0]}
+            width={34}
+            height={1}
+            depth={31} />
 
-        <Wall />
 
-        <Camera
-          position={[-1,1,15]}
-          userHeight={4}>
-          <Cursor />
-        </Camera>
+          <Wall
+            color="yellow"
+            height={6}
+            width={26.6}
+            depth={0.1}
+            position={[-3.7, 3, 10]} />
 
-        <Sky />
+          <Entity
+            static-body=""
+            geometry={{
+              primitive: 'box',
+              width: 1,
+              height: 1,
+              depth: 1
+            }}
 
-        <Platform
-          width={50}
-          height={1}
-          depth={50}
-          position={[0, 0, 0]} />
+            rotation={[0, 45, 90]}
+
+            material={{
+              color: 'red',
+              shader: 'flat'
+            }}
+
+            position={[2, 2, 2]}/>
+
+          <Camera
+            position={[-1, 1, 15]}
+            userHeight={1.02}>
+            <Cursor />
+          </Camera>
+
+          <Sky />
+
+          <Platform
+            color="#fff"
+            width={34}
+            height={1}
+            depth={30}
+            position={[0, 0, 0]} />
+
+
+        </Entity>
+
 
       </Scene>
     );

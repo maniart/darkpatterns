@@ -2,12 +2,12 @@ import {Entity} from 'aframe-react';
 import React    from 'react';
 
 export default ({
-  width = 7,
-  height = 7,
+  width = 1,
+  height = 1,
   depth = 1,
   color="rgb(240, 240, 240)",
   rotation=[0, 0, 0],
-  shader="standard",
+  shader="flat",
   position=[0, 0, 0]
 }) => (
   <Entity

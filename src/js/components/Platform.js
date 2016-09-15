@@ -5,6 +5,8 @@ export default ({
   width = 1,
   height = 1,
   depth = 1,
+  shader = 'flat',
+  color = "#fff",
   position=[0, 0, 0]
 }) => (
   <Entity
@@ -17,8 +19,8 @@ export default ({
     }}
 
     material={{
-      color: '#666',
-      shader: 'flat'
+      color,
+      shader
     }}
 
     position={position}/>

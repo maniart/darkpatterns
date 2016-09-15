@@ -8,7 +8,7 @@ export default ({
   color="rgb(240, 240, 240)",
   rotation=[0, 0, 0],
   shader="standard",
-  position=[0, 7, -3.1]
+  position=[0, 0.5, -3.1]
 }) => (
   <Entity
     static-body=""
