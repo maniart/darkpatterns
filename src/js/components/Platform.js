@@ -5,12 +5,13 @@ export default ({
   width = 1,
   height = 1,
   depth = 1,
-  shader = 'flat',
-  color = "#fff",
+  shader = 'standard',
+  color = '#fff',
   position=[0, 0, 0]
 }) => (
   <Entity
     static-body=""
+
     geometry={{
       primitive: 'box',
       width,
@@ -23,5 +24,5 @@ export default ({
       shader
     }}
 
-    position={position}/>
+    position={position} />
 );

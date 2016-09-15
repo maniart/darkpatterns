@@ -5,10 +5,10 @@ export default ({
   width = 15.5,
   height = 1,
   depth = 17,
-  color="rgb(240, 240, 240)",
+  color='#fff',
   rotation=[0, 0, 0],
-  shader="standard",
-  position=[0, 0.5, -3.1]
+  shader='standard',
+  position=[0, 0, 0]
 }) => (
   <Entity
     static-body=""
