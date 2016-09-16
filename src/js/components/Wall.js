@@ -5,7 +5,7 @@ export default ({
   width = 1,
   height = 1,
   depth = 1,
-  color="rgb(240, 240, 240)",
+  color="rgb(250, 250, 250)",
   rotation=[0, 0, 0],
   shader="flat",
   position=[0, 0, 0]

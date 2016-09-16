@@ -38,7 +38,7 @@ class RootScene extends React.Component {
 
         <Entity
           id="outside"
-          position={[0, -2, 0]}>
+          position={[0, -0.1, 0]}>
           <Platform
             width={200}
             height={1}
@@ -49,11 +49,12 @@ class RootScene extends React.Component {
         <Entity
           id="room"
           position={[0, 0, 0]}>
+
           <Roof
             width={ scale(155) }
             height={ 1 }
             depth={ scale(170) }
-            position={[0, 6, 0]} />
+            position={[0, 10, 0]} />
 
           <Platform
             width={ scale(155) }
@@ -64,14 +65,14 @@ class RootScene extends React.Component {
           {/* South Wall */}
           <Wall
             width={ scale(39 + 55 + 24) }
-            height={ 6 }
+            height={ 14 }
             depth={ 0.1 }
             position={[-3.68, 3, 17]} />
 
           {/* West Wall: Segment I */}
           <Wall
             width={ scale(22) }
-            height={ 6 }
+            height={ 14 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
             position={[-15.5, 3, 14.8]} />
@@ -79,10 +80,10 @@ class RootScene extends React.Component {
           {/* West Wall: Segment II: Bottom of window */}
           <Wall
             width={ scale(38) }
-            height={ 1.5 }
+            height={ 2 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 1, 8.8]} />
+            position={[-15.5, 0.5, 8.8]} />
 
           {/* West Wall: Segment II: Top of window */}
           <Wall
@@ -90,12 +91,12 @@ class RootScene extends React.Component {
             height={ 1.5 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 5.4, 8.8]} />
+            position={[-15.5, 9, 8.8]} />
 
           {/* West Wall: Segment III */}
           <Wall
             width={ scale(45) }
-            height={ 6 }
+            height={ 14 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
             position={[-15.5, 3, 0.5]} />
@@ -103,10 +104,10 @@ class RootScene extends React.Component {
           {/* West Wall: Segment IV: Bottom of window */}
           <Wall
             width={ scale(38) }
-            height={ 1.5 }
+            height={ 2 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 1, -7.8]} />
+            position={[-15.5, 0.5, -7.8]} />
 
           {/* West Wall: Segment IV: Top of window */}
           <Wall
@@ -114,12 +115,12 @@ class RootScene extends React.Component {
             height={ 1.5 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 5.4, -7.8]} />
+            position={[-15.5, 9, -7.8]} />
 
           {/* West Wall: Segment I */}
           <Wall
             width={ scale(27) }
-            height={ 6 }
+            height={ 14 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
             position={[-15.5, 3, -14.3]} />
@@ -127,28 +128,29 @@ class RootScene extends React.Component {
           {/* South Wall */}
           <Wall
             width={ scale(155) }
-            height={ 6 }
+            height={ 14 }
             depth={ 0.1 }
             position={[0, 3, -17]} />
 
           {/* East Wall */}
           <Wall
             width={ scale(170) }
-            height={ 6 }
+            height={ 14 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
             position={[15.5, 3, 0]} />
 
-          <Camera
-            position={[-15.5, 1.5, 25]}
-            userHeight={ scale(5.5) }>
-            <Cursor />
-          </Camera>
 
-          <Sky />
 
         </Entity>
 
+        <Camera
+          position={[0, 2, 25]}
+          userHeight={ scale(5.5) }>
+          <Cursor />
+        </Camera>
+
+        <Sky />
 
       </Scene>
     );
