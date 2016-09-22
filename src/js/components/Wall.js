@@ -8,6 +8,7 @@ export default ({
   color="rgb(250, 250, 250)",
   rotation=[0, 0, 0],
   shader="flat",
+  src="",
   position=[0, 0, 0]
 }) => (
   <Entity
@@ -23,7 +24,8 @@ export default ({
 
     material={{
       color,
-      shader
+      shader,
+      src
     }}
 
     position={position}/>
