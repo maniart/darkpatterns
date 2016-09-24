@@ -1,12 +1,13 @@
 {
   "name": "darkpatterns",
-  "main": "app.js",
+  "main": "index.js",
   "version": "1.0.0",
   "description": "A cardboard VR game about the internet, privacy and encryption.",
   "dependencies": {
     "aframe": "^0.3.0",
     "aframe-extras": "^2.4.0",
     "aframe-react": "^1.2.0",
+    "babel-cli": "^6.14.0",
     "babel-polyfill": "^6.3.14",
     "express": "^4.14.0",
     "gamepad": "^1.2.2",
@@ -15,10 +16,9 @@
     "ws": "^1.1.1"
   },
   "scripts": {
-    "start": "npm run prod",
-    "dev": "npm run serve",
-    "prod": "./node_modules/.bin/nodemon",
-    "build": "webpack",
+    "start": "npm run serve",
+    "prod": "npm run build && ./node_modules/.bin/nodemon",
+    "build": "webpack && cp ./src/index.html ./public/ && cp -r ./src/assets ./public/",
     "preghpages": "npm run build && rm -rf gh-pages && cp -r src gh-pages && cp index.html build/bundle.js gh-pages",
     "ghpages": "npm run preghpages && ghpages -p gh-pages",
     "gh-pages": "npm run ghpages",

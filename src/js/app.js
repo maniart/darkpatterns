@@ -38,7 +38,7 @@ class RootScene extends React.Component {
 
         <a-assets>
           <img id="east-wall-texture"
-            src="../img/east-wall-texture.png" />
+            src="../assets/east-wall-texture.png" />
         </a-assets>
 
         <Entity

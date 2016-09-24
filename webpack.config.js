@@ -31,8 +31,8 @@ module.exports = {
     // Bundle will be served at /bundle.js locally.
     filename: 'bundle.js',
     // Bundle will be built at ./src/media/js.
-    path: './js',
-    publicPath: '/public',
+    path: './public/build',
+    publicPath: '/',
   },
   module: {
     loaders: [
