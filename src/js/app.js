@@ -36,6 +36,11 @@ class RootScene extends React.Component {
         canvas=""
         vr-mode-ui="">
 
+        <a-assets>
+          <img id="east-wall-texture"
+            src="../img/east-wall-texture.png" />
+        </a-assets>
+
         <Entity
           id="outside"
           position={[0, -0.1, 0]}>
@@ -134,6 +139,7 @@ class RootScene extends React.Component {
 
           {/* East Wall */}
           <Wall
+            src="#east-wall-texture"
             width={ scale(170) }
             height={ scale(110) }
             depth={ 0.1 }
