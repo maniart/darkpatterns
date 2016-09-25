@@ -31,10 +31,10 @@ class RootScene extends React.Component {
     return (
 
       <Scene
-        physics={{debug:true}}
+        physics={{debug:false}}
         keyboard-shortcuts=""
         canvas=""
-        vr-mode-ui="">
+        vr-mode-ui={{enabled: true }}>
 
         <a-assets>
           <img id="east-wall-texture"

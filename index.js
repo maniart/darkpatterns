@@ -9,7 +9,7 @@ const app = express()
 const server = createServer(app)
   .listen(7878, () => {
     console.log(`
-      App is running on 7878
+      dark patterns is running on 7878
     `);
   });
 
