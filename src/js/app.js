@@ -19,6 +19,14 @@ import Wall         from './components/Wall';
 
 import { scale }    from './utils';
 
+// setup websockets
+const host = window.document.location.host.replace(/:.*/, '');
+const ws = new WebSocket('ws://' + host + ':7878');
+ws.onmessage = function({data}) {
+  console.log(JSON.parse(data));
+};
+
+
 /*
   TODO: create multiple scenes?
 */
@@ -31,7 +39,7 @@ class RootScene extends React.Component {
     return (
 
       <Scene
-        physics={{debug:false}}
+        physics={{debug:true}}
         keyboard-shortcuts=""
         canvas=""
         vr-mode-ui={{enabled: true }}>
