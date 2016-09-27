@@ -20,10 +20,11 @@ export default ({
     hmd-controls=""
     mouse-controls=""
     look-controls=""
-    universal-controls=""
-
     kinematic-body=""
     jump-ability={{enableDoubleJump: true, distance: 3}}
 
     {...props}/>
 );
+/*
+  add back `universal-controls=""` to `Entity` to enable universal control again
+*/
