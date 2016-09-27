@@ -1,5 +1,6 @@
-import {Entity} from 'aframe-react';
-import React    from 'react';
+import {Entity}     from 'aframe-react';
+import React        from 'react';
+import Wsgamepad    from './Wsgamepad';
 
 export default ({
   position=[0, 0, 0],
@@ -19,6 +20,7 @@ export default ({
     touch-controls=""
     hmd-controls=""
     mouse-controls=""
+    ws-gamepad={{endpoint: "ws://192.168.0.9:7878"}}
     look-controls=""
     kinematic-body=""
     jump-ability={{enableDoubleJump: true, distance: 3}}

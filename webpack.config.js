@@ -30,8 +30,9 @@ module.exports = {
   output: {
     // Bundle will be served at /bundle.js locally.
     filename: 'bundle.js',
-    // Bundle will be built at ./src/media/js.
+    // the actual location of file in build
     path: './public/build',
+    // the path used to reference the asset in the browser
     publicPath: '/',
   },
   module: {

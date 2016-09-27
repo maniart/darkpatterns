@@ -11,7 +11,6 @@
     "babel-polyfill": "^6.3.14",
     "express": "^4.14.0",
     "gamepad": "^1.2.2",
-    "nodemon": "^1.10.2",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "ws": "^1.1.1"
@@ -20,9 +19,6 @@
     "start": "npm run serve",
     "prod": "npm run build && ./node_modules/.bin/nodemon",
     "build": "webpack && cp ./src/index.html ./public/ && cp -r ./src/assets ./public/",
-    "preghpages": "npm run build && rm -rf gh-pages && cp -r src gh-pages && cp index.html build/bundle.js gh-pages",
-    "ghpages": "npm run preghpages && ghpages -p gh-pages",
-    "gh-pages": "npm run ghpages",
     "serve": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot --host 0.0.0.0 --port 9090"
   },
   "repository": {
@@ -56,6 +52,7 @@
     "css-loader": "^0.23.0",
     "ghpages": "0.0.3",
     "json-loader": "^0.5.4",
+    "nodemon": "^1.10.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"

@@ -39,7 +39,9 @@ AFRAME.registerComponent('ws-gamepad', {
    * Called when component is attached and when component data changes.
    * Generally modifies the entity based on the data.
    */
-  update: function (oldData) { },
+  update: function (oldData) {
+    console.log(this.el);
+  },
 
   /**
    * Called when a component is removed (e.g., via removeAttribute).
