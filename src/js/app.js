@@ -60,6 +60,7 @@ class RootScene extends React.Component {
           id="room"
           position={[0, 0, 0]}>
 
+          {/* Roof + Ceiling */}
           <Roof
             id="ceiling"
             src="#east-wall-texture"
@@ -67,34 +68,58 @@ class RootScene extends React.Component {
             height={ 1 }
             depth={ 34 }
             position={[0, 22, 0]} />
+          <Roof
+            id="roof"
+            width={ 31 }
+            height={ 1 }
+            depth={ 34 }
+            position={[0, 22.14, 0]} />
+
 
           <Platform
             id="floor"
+            src="#east-wall-texture"
             width={ 31 }
             height={ 1 }
             depth={ 34 }
             position={[0, -0.34, 0]} />
 
-          {/* South Wall */}
+
+          {/* South Wall: in & out */}
           <Wall
             id="wall-south-inner"
             src="#east-wall-texture"
             width={ 22.6 }
-            height={ 22 }
+            height={ 22.84 }
             depth={ 0.1 }
-            position={[-4.2, 11, 17]} />
+            position={[-4.2, 11.21, 17]} />
+          <Wall
+            id="wall-south-outer"
+            width={ 22.6 }
+            height={ 22.84 }
+            depth={ 0.1 }
+            position={[-4.2, 11.21, 17.04]} />
 
-          {/* West Wall: Segment I */}
+
+          {/* West Wall: Segment I: in & out */}
           <Wall
             id="wall-west-segment-1-inner"
             src="#east-wall-texture"
             width={ 6 }
-            height={ 22 }
+            height={ 22.6 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 11, 14.0]} />
+            position={[-15.53, 11.37, 14.08]} />
+          <Wall
+            id="wall-west-segment-1-outer"
+            width={ 6 }
+            height={ 22.6 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[-15.55, 11.37, 14.08]} />
 
-          {/* West Wall: Segment II: Bottom of window */}
+
+          {/* West Wall: Segment II: Bottom of window: in & out */}
           <Wall
             id="wall-west-segment-2-1-inner"
             src="#east-wall-texture"
@@ -102,27 +127,54 @@ class RootScene extends React.Component {
             height={ 5.6 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 2.9, 8]} />
+            position={[-15.53, 2.9, 8]} />
+          <Wall
+            id="wall-west-segment-2-1-outer"
+            width={ 6.8 }
+            height={ 5.6 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[-15.55, 2.9, 8]} />
+
+
 
           {/* West Wall: Segment II: Top of window */}
           <Wall
             id="wall-west-segment-2-2-inner"
             src="#east-wall-texture"
             width={ 6.8 }
-            height={ 3.4 }
+            height={ 3.72 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 20.3, 8]} />
+            position={[-15.53, 20.79, 8]} />
+          <Wall
+            id="wall-west-segment-2-2-outer"
+            width={ 6.8 }
+            height={ 3.72 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[-15.58, 20.79, 8]} />
+
+
 
           {/* West Wall: Segment III */}
           <Wall
             id="wall-west-segment-3-inner"
             src="#east-wall-texture"
             width={ 9.6 }
-            height={ 22 }
+            height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 11, -0.1]} />
+            position={[-15.53, 11.35, -0.1]} />
+          <Wall
+            id="wall-west-segment-3-outer"
+            width={ 9.6 }
+            height={ 22.66 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[-15.55, 11.35, -0.1]} />
+
+
 
           {/* West Wall: Segment IV: Bottom of window */}
           <Wall
@@ -132,36 +184,69 @@ class RootScene extends React.Component {
             height={ 5.6 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 2.9, -8.26]} />
+            position={[-15.53, 2.79, -8.20]} />
+          <Wall
+            id="wall-west-segment-4-1-outer"
+            width={ 6.8 }
+            height={ 5.6 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[-15.55, 2.79, -8.20]} />
+
+
 
           {/* West Wall: Segment IV: Top of window */}
           <Wall
             id="wall-west-segment-4-2-inner"
             src="#east-wall-texture"
             width={ 6.8 }
-            height={ 3.4 }
+            height={ 3.72 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 20.3, -8.2]} />
+            position={[-15.53, 20.79, -8.2]} />
+          <Wall
+            id="wall-west-segment-4-2-outer"
+            width={ 6.8 }
+            height={ 3.72 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[-15.55, 20.79, -8.2]} />
+
+
 
           {/* West Wall: Segment V */}
           <Wall
             id="wall-west-segment-5-inner"
             src="#east-wall-texture"
             width={ 5.4 }
-            height={ 22 }
+            height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.5, 11, -14.3]} />
+            position={[-15.53, 11.35, -14.3]} />
+          <Wall
+            id="wall-west-segment-5-outer"
+            width={ 5.4 }
+            height={ 22.66 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[-15.55, 11.35, -14.3]} />
 
-          {/* South Wall */}
+
+
+          {/* North Wall */}
           <Wall
             id="wall-south-inner"
             src="#east-wall-texture"
             width={ 31 }
-            height={ 22 }
+            height={ 22.66 }
             depth={ 0.1 }
-            position={[0, 11, -17]} />
+            position={[0, 11.35, -17]} />
+          <Wall
+            id="wall-south-outer"
+            width={ 31 }
+            height={ 22.66 }
+            depth={ 0.1 }
+            position={[0, 11.35, -17.02]} />
 
 
           {/* East Wall */}
@@ -169,17 +254,17 @@ class RootScene extends React.Component {
             id="wall-east-inner"
             src="#east-wall-texture"
             width={ 34 }
-            height={ 22 }
+            height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[15.5, 11, 0]} />
+            position={[15.5, 11.35, 0]} />
           <Wall
             id="wall-east-outer"
             width={ 34 }
-            height={ 22 }
+            height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[15.54, 11, 0]} />
+            position={[15.54, 11.35, 0]} />
 
 
         </Entity>
