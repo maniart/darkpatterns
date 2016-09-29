@@ -36,21 +36,27 @@ wsServer.on('connection', (ws) => {
   // Listen for move events on all gamepads
   gamepad.on('move', (id, axis, value) => {
     const cmd = { id, axis, value, name: 'move' };
-    ws.send(JSON.stringify(cmd));
+    ws.send(JSON.stringify(cmd), (err)=> {
+      console.log('___ error in WS: ', err);
+    });
     console.log(cmd);
   });
 
   // Listen for button up events on all gamepads
   gamepad.on('up', (id, num) => {
     const cmd = { id, num, name: 'up' };
-    ws.send(JSON.stringify(cmd));
+    ws.send(JSON.stringify(cmd), (err)=> {
+      console.log('___ error in WS: ', err);
+    });
     console.log(cmd);
   });
 
   // Listen for button down events on all gamepads
   gamepad.on('down', (id, num) => {
     const cmd = { id, num, name: 'down' };
-    ws.send(JSON.stringify(cmd));
+    ws.send(JSON.stringify(cmd), (err)=> {
+      console.log('___ error in WS: ', err);
+    });
     console.log(cmd);
   });
 

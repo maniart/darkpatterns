@@ -22,6 +22,8 @@ export default ({
     mouse-controls=""
     ws-gamepad={{endpoint: "ws://192.168.0.9:7878"}}
     look-controls=""
+    universal-controls=""
+    gamepad-controls=""
     kinematic-body=""
     jump-ability={{enableDoubleJump: true, distance: 3}}
 
