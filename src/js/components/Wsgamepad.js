@@ -38,7 +38,7 @@ AFRAME.registerComponent('ws-gamepad', {
    * Called once when component is attached. Generally for initial setup.
    */
   init: function () {
-    console.log('_____ WS GAME PAD INIT. Endpoint is: ', this);
+    // console.log('_____ WS GAME PAD INIT. Endpoint is: ', this);
     // setup websockets
     const host = this.data.endpoint;
     this.ws = new WebSocket(host);

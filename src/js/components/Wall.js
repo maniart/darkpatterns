@@ -7,7 +7,7 @@ export default ({
   depth = 1,
   color="rgb(250, 250, 250)",
   rotation=[0, 0, 0],
-  shader="flat",
+  shader="standard",
   src="",
   position=[0, 0, 0]
 }) => (
