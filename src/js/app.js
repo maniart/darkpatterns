@@ -266,8 +266,23 @@ class RootScene extends React.Component {
             rotation={[0, 90, 0]}
             position={[15.54, 11.35, 0]} />
 
+          {/* Murphy bed */}
+          <Entity
+            id="murphy-bed"
+            position={[-0.92, 9, -14.46]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            geometry={{
+              primitive: 'box',
+              height: 18,
+              width: 13.4,
+              depth:5}} />
+
 
         </Entity>
+        {/* Room ends */}
 
         <Camera
           id="camera-kinetic"
