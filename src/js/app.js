@@ -281,6 +281,38 @@ class RootScene extends React.Component {
               depth:5}} />
 
 
+          {/* Couch */}
+          <Entity
+            id="couch"
+            position={[0, 2, -10]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, -90, 0]}
+            position={[12.46, 2.00, 0.83]}
+            geometry={{
+              primitive: 'box',
+              height: 4,
+              width: 16.8,
+              depth: 6}} />
+
+          {/* Amp table */}
+          <Entity
+            id="amp-table"
+            position={[12.46, 2.00, -9.98]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, -90, 0]}
+            geometry={{
+              primitive: 'box',
+              height: 4,
+              width: 4.8,
+              depth: 4 }} />
+
+
         </Entity>
         {/* Room ends */}
 
