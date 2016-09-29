@@ -39,6 +39,10 @@ class RootScene extends React.Component {
         <a-assets>
           <img id="east-wall-texture"
             src="../assets/east-wall-texture.png" />
+          <img id="starry-night-sky-texture"
+            src="../assets/starry-night.jpg" />
+          <img id="pgp-texture"
+            src="../assets/pgp.png" />
         </a-assets>
 
         <Entity
@@ -49,7 +53,7 @@ class RootScene extends React.Component {
             width={200}
             height={1}
             depth={200}
-            color="green" />
+            src="#pgp-texture" />
         </Entity>
 
         <Entity
@@ -76,7 +80,7 @@ class RootScene extends React.Component {
             width={ 22.6 }
             height={ 22 }
             depth={ 0.1 }
-            position={[-3.68, 11, 17]} />
+            position={[-4.2, 11, 17]} />
 
           {/* West Wall: Segment I */}
           <Wall
@@ -170,7 +174,25 @@ class RootScene extends React.Component {
           <Cursor />
         </Camera>
 
-        <Sky />
+        <Sky src="#starry-night-sky-texture" />
+
+        <Light
+          id="light-room-ceiling"
+          type="point"
+          decay={0}
+          distance={0}
+          intensity={0.8}
+          position={[0, 19.3, 0]}
+          angle={60} />
+
+        <Light
+          id="light-moon"
+          type="ambient"
+          decay={0}
+          distance={0}
+          intensity={0.8}
+          position={[0, 77.2, 0]}
+          angle={60} />
 
       </Scene>
     );
@@ -181,5 +203,3 @@ ReactDOM.render(
   <RootScene />,
   document.querySelector('.scene-container')
 );
-
-(function(){var script=document.createElement('script'); script.src='https://aframe.io/releases/0.3.0/aframe-inspector.min.js';document.head.appendChild(script);})()
