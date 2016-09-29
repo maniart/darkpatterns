@@ -5,6 +5,7 @@ export default ({
   width = 15.5,
   height = 1,
   depth = 17,
+  src="",
   color='#fff',
   rotation=[0, 0, 0],
   shader='standard',
@@ -23,7 +24,8 @@ export default ({
 
     material={{
       color,
-      shader
+      shader,
+      src
     }}
 
     position={position}/>

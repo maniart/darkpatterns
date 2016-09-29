@@ -61,7 +61,8 @@ class RootScene extends React.Component {
           position={[0, 0, 0]}>
 
           <Roof
-            id="roof"
+            id="ceiling"
+            src="#east-wall-texture"
             width={ 31 }
             height={ 1 }
             depth={ 34 }
