@@ -290,12 +290,12 @@ class RootScene extends React.Component {
               shader: 'standard'
             }}
             rotation={[0, -90, 0]}
-            position={[12.46, 2.00, 0.83]}
+            position={[12.9, 2.00, 0.83]}
             geometry={{
               primitive: 'box',
-              height: 4,
+              height: 4.8,
               width: 16.8,
-              depth: 6}} />
+              depth: 6.6 }} />
 
           {/* Amp table */}
           <Entity
@@ -308,9 +308,25 @@ class RootScene extends React.Component {
             rotation={[0, -90, 0]}
             geometry={{
               primitive: 'box',
-              height: 4,
+              height: 3.6,
               width: 4.8,
-              depth: 4 }} />
+              depth: 3.6 }} />
+
+
+          {/* Bike */}
+          <Entity
+            id="bike"
+            position={[12.46, 17.8, 1.8]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, -90, 0]}
+            geometry={{
+              primitive: 'box',
+              height: 8.6,
+              width: 12.6,
+              depth: 2.2 }} />
 
 
         </Entity>
