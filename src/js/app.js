@@ -290,7 +290,7 @@ class RootScene extends React.Component {
               shader: 'standard'
             }}
             rotation={[0, -90, 0]}
-            position={[12.9, 2.00, 0.83]}
+            position={[12.18, 2.00, 0.83]}
             geometry={{
               primitive: 'box',
               height: 4.8,
@@ -316,7 +316,7 @@ class RootScene extends React.Component {
           {/* Bike */}
           <Entity
             id="bike"
-            position={[12.46, 17.8, 1.8]}
+            position={[14.20, 17.8, 1.8]}
             material={{
               color: '#fff',
               shader: 'standard'
