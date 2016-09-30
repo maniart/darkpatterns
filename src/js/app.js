@@ -328,6 +328,20 @@ class RootScene extends React.Component {
               width: 12.6,
               depth: 2.2 }} />
 
+            {/* Coffee Table */}
+          <Entity
+            id="coffee-table"
+            position={[2.37, 2, 1.41]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, -90, 0]}
+            geometry={{
+              primitive: 'box',
+              height: (16/5),
+              width: (48/5),
+              depth: (18/5) }} />
 
         </Entity>
         {/* Room ends */}
