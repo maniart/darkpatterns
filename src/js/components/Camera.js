@@ -23,7 +23,7 @@ export default ({
     hmd-controls=""
     mouse-controls=""
     ws-gamepad={{
-      endpoint: "ws://192.168.0.9:7878"
+      endpoint: "ws://192.168.0.14:7878"
     }}
     look-controls=""
     universal-controls=""

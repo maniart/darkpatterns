@@ -328,7 +328,7 @@ class RootScene extends React.Component {
               width: 12.6,
               depth: 2.2 }} />
 
-            {/* Coffee Table */}
+          {/* Coffee Table */}
           <Entity
             id="coffee-table"
             position={[2.37, 2, 1.41]}
@@ -342,6 +342,36 @@ class RootScene extends React.Component {
               height: (16/5),
               width: (48/5),
               depth: (18/5) }} />
+
+          {/* Drawer */}
+          <Entity
+            id="drawer"
+            position={[2.37, 3.42, 14.83]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, 0, 0]}
+            geometry={{
+              primitive: 'box',
+              height: (32/5),
+              width: (32/5),
+              depth: (21/5) }} />
+
+          {/* TV */}
+          <Entity
+            id="tv"
+            position={[-14.90, 7.77, 0.05]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, -90, 0]}
+            geometry={{
+              primitive: 'box',
+              height: (20/5),
+              width: (35/5),
+              depth: (5.5/5) }} />
 
         </Entity>
         {/* Room ends */}
