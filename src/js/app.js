@@ -346,7 +346,7 @@ class RootScene extends React.Component {
           {/* Drawer */}
           <Entity
             id="drawer"
-            position={[2.37, 3.42, 14.83]}
+            position={[3.7, 3.42, 14.83]}
             material={{
               color: '#fff',
               shader: 'standard'
@@ -357,6 +357,21 @@ class RootScene extends React.Component {
               height: (32/5),
               width: (32/5),
               depth: (21/5) }} />
+
+          {/* Closet */}
+          <Entity
+            id="closet"
+            position={[-4.70, 10.98, 14.95]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, 0, 0]}
+            geometry={{
+              primitive: 'box',
+              height: 21.5,
+              width: 10.4,
+              depth: 4.20 }} />
 
           {/* TV */}
           <Entity
