@@ -336,7 +336,7 @@ class RootScene extends React.Component {
           <Entity
             id="coffee-table"
             static-body=""
-            position={[2.37, 2, 1.41]}
+            position={[2.37, 1.76, 1.41]}
             material={{
               color: '#fff',
               shader: 'standard'
@@ -395,6 +395,54 @@ class RootScene extends React.Component {
               height: (20/5),
               width: (35/5),
               depth: (5.5/5) }} />
+
+          {/* Heater */}
+          <Entity
+            id="heater"
+            static-body=""
+            position={[-14.90, 2.27, 0.05]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, -90, 0]}
+            geometry={{
+              primitive: 'box',
+              height: (21/5),
+              width: (16/5),
+              depth: (18/5) }} />
+
+            {/* Sound Bar */}
+          <Entity
+            id="sound-bar"
+            static-body=""
+            position={[-14.90, 5.41, 0.05]}
+            material={{
+              color: '#fff',
+              shader: 'standard'
+            }}
+            rotation={[0, -90, 0]}
+            geometry={{
+              primitive: 'box',
+              height: (3/5),
+              width: (37/5),
+              depth: (2/5) }} />
+
+            {/* Night Stand */}
+            <Entity
+              id="night-stand"
+              static-body=""
+              position={[-11.44, 1.7, -13.57]}
+              material={{
+                color: '#fff',
+                shader: 'standard'
+              }}
+              rotation={[0, -90, 0]}
+              geometry={{
+                primitive: 'cylinder',
+                height: 3.2,
+                radius: 1.9
+              }} />
 
         </Entity>
         {/* Room ends */}
