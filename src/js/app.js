@@ -55,6 +55,8 @@ class RootScene extends React.Component {
             src="../assets/tv.png" />
           <img id="sound-bar"
             src="../assets/sound-bar.png" />
+          <img id="bare-wall"
+            src="../assets/bare-wall.png" />
         </a-assets>
 
         <Entity
@@ -100,7 +102,8 @@ class RootScene extends React.Component {
           {/* South Wall: in & out */}
           <Wall
             id="wall-south-inner"
-            src="#south-wall"
+            src="#bare-wall"
+            repeat='1 20'
             width={ 22.6 }
             height={ 22.84 }
             depth={ 0.1 }
@@ -116,7 +119,7 @@ class RootScene extends React.Component {
           {/* West Wall: Segment I: in & out */}
           <Wall
             id="wall-west-segment-1-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 6 }
             height={ 22.6 }
             depth={ 0.1 }
@@ -134,7 +137,7 @@ class RootScene extends React.Component {
           {/* West Wall: Segment II: Bottom of window: in & out */}
           <Wall
             id="wall-west-segment-2-1-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 6.8 }
             height={ 5.6 }
             depth={ 0.1 }
@@ -153,7 +156,7 @@ class RootScene extends React.Component {
           {/* West Wall: Segment II: Top of window */}
           <Wall
             id="wall-west-segment-2-2-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 6.8 }
             height={ 3.72 }
             depth={ 0.1 }
@@ -172,7 +175,7 @@ class RootScene extends React.Component {
           {/* West Wall: Segment III */}
           <Wall
             id="wall-west-segment-3-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 9.6 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -191,7 +194,7 @@ class RootScene extends React.Component {
           {/* West Wall: Segment IV: Bottom of window */}
           <Wall
             id="wall-west-segment-4-1-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 6.8 }
             height={ 5.6 }
             depth={ 0.1 }
@@ -210,7 +213,7 @@ class RootScene extends React.Component {
           {/* West Wall: Segment IV: Top of window */}
           <Wall
             id="wall-west-segment-4-2-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 6.8 }
             height={ 3.72 }
             depth={ 0.1 }
@@ -229,7 +232,7 @@ class RootScene extends React.Component {
           {/* West Wall: Segment V */}
           <Wall
             id="wall-west-segment-5-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 5.4 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -248,7 +251,7 @@ class RootScene extends React.Component {
           {/* North Wall */}
           <Wall
             id="wall-south-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 31 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -264,7 +267,7 @@ class RootScene extends React.Component {
           {/* East Wall */}
           <Wall
             id="wall-east-inner"
-            src="#east-wall-texture"
+            src="#bare-wall"
             width={ 34 }
             height={ 22.66 }
             depth={ 0.1 }
