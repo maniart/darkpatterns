@@ -269,6 +269,7 @@ class RootScene extends React.Component {
           {/* Murphy bed */}
           <Entity
             id="murphy-bed"
+            static-body=""
             position={[-0.92, 9, -14.46]}
             material={{
               color: '#fff',
@@ -284,6 +285,7 @@ class RootScene extends React.Component {
           {/* Couch */}
           <Entity
             id="couch"
+            static-body=""
             position={[0, 2, -10]}
             material={{
               color: '#fff',
@@ -300,6 +302,7 @@ class RootScene extends React.Component {
           {/* Amp table */}
           <Entity
             id="amp-table"
+            static-body=""
             position={[12.46, 2.00, -9.98]}
             material={{
               color: '#fff',
@@ -316,6 +319,7 @@ class RootScene extends React.Component {
           {/* Bike */}
           <Entity
             id="bike"
+            static-body=""
             position={[14.20, 17.8, 1.8]}
             material={{
               color: '#fff',
@@ -331,6 +335,7 @@ class RootScene extends React.Component {
           {/* Coffee Table */}
           <Entity
             id="coffee-table"
+            static-body=""
             position={[2.37, 2, 1.41]}
             material={{
               color: '#fff',
@@ -346,6 +351,7 @@ class RootScene extends React.Component {
           {/* Drawer */}
           <Entity
             id="drawer"
+            static-body=""
             position={[3.7, 3.42, 14.83]}
             material={{
               color: '#fff',
@@ -361,6 +367,7 @@ class RootScene extends React.Component {
           {/* Closet */}
           <Entity
             id="closet"
+            static-body=""
             position={[-4.70, 10.98, 14.95]}
             material={{
               color: '#fff',
@@ -376,6 +383,7 @@ class RootScene extends React.Component {
           {/* TV */}
           <Entity
             id="tv"
+            static-body=""
             position={[-14.90, 7.77, 0.05]}
             material={{
               color: '#fff',
