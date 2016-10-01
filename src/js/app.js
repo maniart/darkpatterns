@@ -447,16 +447,16 @@ class RootScene extends React.Component {
         </Entity>
         {/* Room ends */}
 
+        {/* Camera */}
         <Camera
           id="camera-kinetic"
           active={true}
           position={[-8.5, 7.45, 27]}
           userHeight={5}
-          velocity={[0, 0, 10]}
-          fov={80}
-          far={100}>
+          velocity={[0, 0, 10]}>
           <Cursor />
         </Camera>
+
 
         <Sky src="#starry-night-sky-texture" />
 
