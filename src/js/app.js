@@ -400,7 +400,7 @@ class RootScene extends React.Component {
           <Entity
             id="heater"
             static-body=""
-            position={[-14.90, 2.27, 0.05]}
+            position={[-13.79, 2.27, 0.05]}
             material={{
               color: '#fff',
               shader: 'standard'
