@@ -43,6 +43,18 @@ class RootScene extends React.Component {
             src="../assets/starry-night.jpg" />
           <img id="pgp-texture"
             src="../assets/pgp.png" />
+          <img id="ceiling-1"
+            src="../assets/guitarceiling.png" />
+          <img id="south-wall"
+            src="../assets/south-wall.png" />
+          <img id="rocking-chair"
+            src="../assets/rocking-chair.png" />
+          <img id="murphy-bed"
+            src="../assets/murphy-bed.png" />
+          <img id="tv"
+            src="../assets/tv.png" />
+          <img id="sound-bar"
+            src="../assets/sound-bar.png" />
         </a-assets>
 
         <Entity
@@ -63,7 +75,7 @@ class RootScene extends React.Component {
           {/* Roof + Ceiling */}
           <Roof
             id="ceiling"
-            src="#east-wall-texture"
+            src="#ceiling-1"
             width={ 31 }
             height={ 1 }
             depth={ 34 }
@@ -88,7 +100,7 @@ class RootScene extends React.Component {
           {/* South Wall: in & out */}
           <Wall
             id="wall-south-inner"
-            src="#east-wall-texture"
+            src="#south-wall"
             width={ 22.6 }
             height={ 22.84 }
             depth={ 0.1 }
@@ -273,7 +285,8 @@ class RootScene extends React.Component {
             position={[-0.92, 9, -14.46]}
             material={{
               color: '#fff',
-              shader: 'standard'
+              shader: 'standard',
+              src: '#murphy-bed'
             }}
             geometry={{
               primitive: 'box',
@@ -387,7 +400,8 @@ class RootScene extends React.Component {
             position={[-14.90, 7.77, 0.05]}
             material={{
               color: '#fff',
-              shader: 'standard'
+              shader: 'standard',
+              src: '#tv'
             }}
             rotation={[0, -90, 0]}
             geometry={{
@@ -412,14 +426,33 @@ class RootScene extends React.Component {
               width: (16/5),
               depth: (18/5) }} />
 
+
+            {/* Rocking Chair */}
+          <Entity
+            id="rocking-chair"
+            static-body=""
+            position={[-7.04, 2.27, -6.74]}
+            material={{
+              color: '#fff',
+              shader: 'standard',
+              src: '#rocking-chair'
+            }}
+            rotation={[0, -90, 0]}
+            geometry={{
+              primitive: 'box',
+              height: (26/5),
+              width: (27/5),
+              depth: (16/5) }} />
+
             {/* Sound Bar */}
           <Entity
             id="sound-bar"
             static-body=""
             position={[-14.90, 5.41, 0.05]}
             material={{
-              color: '#fff',
-              shader: 'standard'
+              color: '#000',
+              shader: 'standard',
+              src: '#sound-bar'
             }}
             rotation={[0, -90, 0]}
             geometry={{
