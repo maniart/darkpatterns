@@ -41,10 +41,15 @@ class RootScene extends React.Component {
             src="../assets/starry-night.jpg" />
           <img id="pgp-texture"
             src="../assets/pgp.png" />
-          <img id="one"
-            src="../assets/whitetvscreen.png" />
-          <img id="two"
-            src="../assets/whitetvscreen_closeup.png" />
+
+
+          <img id="west-wall-texture-0"
+            src="../assets/west-wall-textures/0.png" />
+          <img id="west-wall-texture-1"
+            src="../assets/west-wall-textures/1.png" />
+          <img id="west-wall-texture-2"
+            src="../assets/west-wall-textures/2.png" />
+
         </a-assets>
 
         <Entity
@@ -101,128 +106,21 @@ class RootScene extends React.Component {
             position={[-4.2, 11.21, 17.04]} />
 
 
-          {/* West Wall: Segment I: in & out */}
-          <Wall
-            id="wall-west-segment-1-inner"
-            width={ 6 }
-            height={ 22.6 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.53, 11.37, 14.08]} />
-          <Wall
-            id="wall-west-segment-1-outer"
-            width={ 6 }
-            height={ 22.6 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.55, 11.37, 14.08]} />
-
-
-          {/* West Wall: Segment II: Bottom of window: in & out */}
-          <Wall
-            id="wall-west-segment-2-1-inner"
-            width={ 6.8 }
-            height={ 5.6 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.53, 2.9, 8]} />
-          <Wall
-            id="wall-west-segment-2-1-outer"
-            width={ 6.8 }
-            height={ 5.6 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.55, 2.9, 8]} />
-
-
-
-          {/* West Wall: Segment II: Top of window */}
-          <Wall
-            id="wall-west-segment-2-2-inner"
-            width={ 6.8 }
-            height={ 3.72 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.53, 20.79, 8]} />
-          <Wall
-            id="wall-west-segment-2-2-outer"
-            width={ 6.8 }
-            height={ 3.72 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.58, 20.79, 8]} />
-
-
-
-          {/* West Wall: Segment III */}
-          <Wall
-            id="wall-west-segment-3-inner"
-            width={ 9.6 }
-            height={ 22.66 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.53, 11.35, -0.1]} />
-          <Wall
-            id="wall-west-segment-3-outer"
-            width={ 9.6 }
-            height={ 22.66 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.55, 11.35, -0.1]} />
-
-
-
-          {/* West Wall: Segment IV: Bottom of window */}
-          <Wall
-            id="wall-west-segment-4-1-inner"
-            width={ 6.8 }
-            height={ 5.6 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.53, 2.79, -8.20]} />
-          <Wall
-            id="wall-west-segment-4-1-outer"
-            width={ 6.8 }
-            height={ 5.6 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.55, 2.79, -8.20]} />
-
-
-
-          {/* West Wall: Segment IV: Top of window */}
-          <Wall
-            id="wall-west-segment-4-2-inner"
-            width={ 6.8 }
-            height={ 3.72 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.53, 20.79, -8.2]} />
-          <Wall
-            id="wall-west-segment-4-2-outer"
-            width={ 6.8 }
-            height={ 3.72 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.55, 20.79, -8.2]} />
-
-
-
-          {/* West Wall: Segment V */}
-          <Wall
-            id="wall-west-segment-5-inner"
-            width={ 5.4 }
-            height={ 22.66 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.53, 11.35, -14.3]} />
-          <Wall
-            id="wall-west-segment-5-outer"
-            width={ 5.4 }
-            height={ 22.66 }
-            depth={ 0.1 }
-            rotation={[0, 90, 0]}
-            position={[-15.55, 11.35, -14.3]} />
+          {/* West Wall */}
+            <Wall
+              id="wall-west-inner"
+              width={ 34 }
+              height={ 22.66 }
+              depth={ 0.1 }
+              rotation={[0, 90, 0]}
+              position={[15.5, 11.35, 0]} />
+            <Wall
+              id="wall-west-outer"
+              width={ 34 }
+              height={ 22.66 }
+              depth={ 0.1 }
+              rotation={[0, 90, 0]}
+              position={[15.54, 11.35, 0]} />
 
 
 
@@ -241,55 +139,46 @@ class RootScene extends React.Component {
             position={[0, 11.35, -17.02]} />
 
 
-          {/* East Wall */}
+          {/* West Wall */}
           <Wall
             id="wall-east-inner"
             width={ 34 }
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[15.5, 11.35, 0]} />
+            position={[-15.40, 11.35, 0]} />
           <Wall
             id="wall-east-outer"
             width={ 34 }
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[15.54, 11.35, 0]} />
+            position={[-15.45, 11.35, 0]} />
 
-          <Entity
-            id="one"
-            material={{
-              shader: 'standard',
-              color: '#fff',
-              src: '#one'
-            }}
-            rotation={[0, 90, 0]}
-            position={[-15.18, 11.08, -0.18]}
-            static-body=""
-            geometry={{
-              primitive: 'box',
-              width: 33.84,
-              height: 20.88,
-              depth: 0.01
-            }} />
+          {/* BEGIN Warholian Texture Maps */}
+          {/* BEGIN East Wall Textures */}
+          <Entity id="west-wall-texture-group">
 
             <Entity
-              id="two"
+              id="west-wall-plane-0"
               material={{
                 shader: 'standard',
                 color: '#fff',
-                src: '#two'
+                src: '#west-wall-texture-0'
               }}
               rotation={[0, 90, 0]}
-              position={[-15.05, 11.08, -1]}
-              static-body=""
+              position={[-15.34, 11.39, 0]}
               geometry={{
-                primitive: 'box',
-                width: 33.84,
-                height: 20.88,
-                depth: 0.01
+                primitive: 'plane',
+                width: 34,
+                height: 22.66
               }} />
+            
+
+          </Entity>
+          {/* ENF East Wall Textures */}
+          {/* END Warholian Texture Maps */}
+
 
         </Entity>
         {/* Room ends */}
