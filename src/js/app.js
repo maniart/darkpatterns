@@ -37,26 +37,14 @@ class RootScene extends React.Component {
         vr-mode-ui={{enabled: true }}>
 
         <a-assets>
-          <img id="east-wall-texture"
-            src="../assets/east-wall-texture.png" />
           <img id="starry-night-sky-texture"
             src="../assets/starry-night.jpg" />
           <img id="pgp-texture"
             src="../assets/pgp.png" />
-          <img id="ceiling-1"
-            src="../assets/guitarceiling.png" />
-          <img id="south-wall"
-            src="../assets/south-wall.png" />
-          <img id="rocking-chair"
-            src="../assets/rocking-chair.png" />
-          <img id="murphy-bed"
-            src="../assets/murphy-bed.png" />
-          <img id="tv"
-            src="../assets/tv.png" />
-          <img id="sound-bar"
-            src="../assets/sound-bar.png" />
-          <img id="bare-wall"
-            src="../assets/bare-wall.png" />
+          <img id="one"
+            src="../assets/whitetvscreen.png" />
+          <img id="two"
+            src="../assets/whitetvscreen_closeup.png" />
         </a-assets>
 
         <Entity
@@ -77,7 +65,6 @@ class RootScene extends React.Component {
           {/* Roof + Ceiling */}
           <Roof
             id="ceiling"
-            src="#ceiling-1"
             width={ 31 }
             height={ 1 }
             depth={ 34 }
@@ -92,7 +79,6 @@ class RootScene extends React.Component {
 
           <Platform
             id="floor"
-            src="#east-wall-texture"
             width={ 31 }
             height={ 1 }
             depth={ 34 }
@@ -102,7 +88,6 @@ class RootScene extends React.Component {
           {/* South Wall: in & out */}
           <Wall
             id="wall-south-inner"
-            src="#bare-wall"
             repeat='1 20'
             width={ 22.6 }
             height={ 22.84 }
@@ -119,7 +104,6 @@ class RootScene extends React.Component {
           {/* West Wall: Segment I: in & out */}
           <Wall
             id="wall-west-segment-1-inner"
-            src="#bare-wall"
             width={ 6 }
             height={ 22.6 }
             depth={ 0.1 }
@@ -137,7 +121,6 @@ class RootScene extends React.Component {
           {/* West Wall: Segment II: Bottom of window: in & out */}
           <Wall
             id="wall-west-segment-2-1-inner"
-            src="#bare-wall"
             width={ 6.8 }
             height={ 5.6 }
             depth={ 0.1 }
@@ -156,7 +139,6 @@ class RootScene extends React.Component {
           {/* West Wall: Segment II: Top of window */}
           <Wall
             id="wall-west-segment-2-2-inner"
-            src="#bare-wall"
             width={ 6.8 }
             height={ 3.72 }
             depth={ 0.1 }
@@ -175,7 +157,6 @@ class RootScene extends React.Component {
           {/* West Wall: Segment III */}
           <Wall
             id="wall-west-segment-3-inner"
-            src="#bare-wall"
             width={ 9.6 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -194,7 +175,6 @@ class RootScene extends React.Component {
           {/* West Wall: Segment IV: Bottom of window */}
           <Wall
             id="wall-west-segment-4-1-inner"
-            src="#bare-wall"
             width={ 6.8 }
             height={ 5.6 }
             depth={ 0.1 }
@@ -213,7 +193,6 @@ class RootScene extends React.Component {
           {/* West Wall: Segment IV: Top of window */}
           <Wall
             id="wall-west-segment-4-2-inner"
-            src="#bare-wall"
             width={ 6.8 }
             height={ 3.72 }
             depth={ 0.1 }
@@ -232,7 +211,6 @@ class RootScene extends React.Component {
           {/* West Wall: Segment V */}
           <Wall
             id="wall-west-segment-5-inner"
-            src="#bare-wall"
             width={ 5.4 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -251,7 +229,6 @@ class RootScene extends React.Component {
           {/* North Wall */}
           <Wall
             id="wall-south-inner"
-            src="#bare-wall"
             width={ 31 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -267,7 +244,6 @@ class RootScene extends React.Component {
           {/* East Wall */}
           <Wall
             id="wall-east-inner"
-            src="#bare-wall"
             width={ 34 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -281,7 +257,39 @@ class RootScene extends React.Component {
             rotation={[0, 90, 0]}
             position={[15.54, 11.35, 0]} />
 
-        
+          <Entity
+            id="one"
+            material={{
+              shader: 'standard',
+              color: '#fff',
+              src: '#one'
+            }}
+            rotation={[0, 90, 0]}
+            position={[-15.18, 11.08, -0.18]}
+            static-body=""
+            geometry={{
+              primitive: 'box',
+              width: 33.84,
+              height: 20.88,
+              depth: 0.01
+            }} />
+
+            <Entity
+              id="two"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#two'
+              }}
+              rotation={[0, 90, 0]}
+              position={[-15.05, 11.08, -1]}
+              static-body=""
+              geometry={{
+                primitive: 'box',
+                width: 33.84,
+                height: 20.88,
+                depth: 0.01
+              }} />
 
         </Entity>
         {/* Room ends */}
