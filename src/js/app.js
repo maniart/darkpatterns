@@ -106,21 +106,21 @@ class RootScene extends React.Component {
             position={[-4.2, 11.21, 17.04]} />
 
 
-          {/* West Wall */}
-            <Wall
-              id="wall-west-inner"
-              width={ 34 }
-              height={ 22.66 }
-              depth={ 0.1 }
-              rotation={[0, 90, 0]}
-              position={[15.5, 11.35, 0]} />
-            <Wall
-              id="wall-west-outer"
-              width={ 34 }
-              height={ 22.66 }
-              depth={ 0.1 }
-              rotation={[0, 90, 0]}
-              position={[15.54, 11.35, 0]} />
+          {/* East Wall */}
+          <Wall
+            id="wall-east-inner"
+            width={ 34 }
+            height={ 22.66 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[15.5, 11.35, 0]} />
+          <Wall
+            id="wall-east-outer"
+            width={ 34 }
+            height={ 22.66 }
+            depth={ 0.1 }
+            rotation={[0, 90, 0]}
+            position={[15.54, 11.35, 0]} />
 
 
 
@@ -141,14 +141,14 @@ class RootScene extends React.Component {
 
           {/* West Wall */}
           <Wall
-            id="wall-east-inner"
+            id="wall-west-inner"
             width={ 34 }
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
             position={[-15.40, 11.35, 0]} />
           <Wall
-            id="wall-east-outer"
+            id="wall-west-outer"
             width={ 34 }
             height={ 22.66 }
             depth={ 0.1 }
@@ -156,7 +156,7 @@ class RootScene extends React.Component {
             position={[-15.45, 11.35, 0]} />
 
           {/* BEGIN Warholian Texture Maps */}
-          {/* BEGIN East Wall Textures */}
+          {/* BEGIN West Wall Textures */}
           <Entity id="west-wall-texture-group">
 
             <Entity
@@ -173,10 +173,25 @@ class RootScene extends React.Component {
                 width: 34,
                 height: 22.66
               }} />
-            
+
+            <Entity
+              id="west-wall-plane-1"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#west-wall-texture-1'
+              }}
+              rotation={[0, 90, 0]}
+              position={[-15.30, 11.39, 0]}
+              geometry={{
+                primitive: 'plane',
+                width: 34,
+                height: 22.66
+              }} />
+
 
           </Entity>
-          {/* ENF East Wall Textures */}
+          {/* ENF West Wall Textures */}
           {/* END Warholian Texture Maps */}
 
 
