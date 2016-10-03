@@ -39,8 +39,7 @@ class RootScene extends React.Component {
         <a-assets>
           <img id="starry-night-sky-texture"
             src="../assets/starry-night.jpg" />
-          <img id="pgp-texture"
-            src="../assets/pgp.png" />
+
 
 
           <img id="west-wall-texture-0"
@@ -102,7 +101,7 @@ class RootScene extends React.Component {
           <img id="south-wall-texture-5"
             src="../assets/south-wall-textures/5.png" />
 
-
+          <a-asset-item id="key" src="../assets/key.dae" />
 
 
         </a-assets>
@@ -112,10 +111,38 @@ class RootScene extends React.Component {
           position={[0, -0.5, 0]}>
           <Platform
             id="earth"
-            color="#000"
+            src="#starry-night-sky-texture"
             width={200}
             height={1}
             depth={200} />
+
+          <Platform
+            id="key-platform"
+            color="#fff"
+            position={[0, 13, 76]}
+            width={20}
+            height={1}
+            depth={20} />
+
+          <a-collada-model
+            src="#key"
+            scale="0.02 0.02 0.02"
+            rotation="0 0 90"
+            position="4.78 17.72 71.61">
+
+          </a-collada-model>
+
+
+        {/*
+          <Light
+            id="key-light"
+            type="point"
+            decay={0}
+            distance={0}
+            intensity={0.8}
+            position={[0, 38.5, 73.95]}
+            angle={60} />*/}
+
         </Entity>
 
         <Entity
