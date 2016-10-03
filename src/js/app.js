@@ -31,7 +31,7 @@ class RootScene extends React.Component {
     return (
 
       <Scene
-        physics={{debug:true}}
+        physics={{debug:false}}
         keyboard-shortcuts=""
         canvas=""
         vr-mode-ui={{enabled: true }}>
@@ -91,7 +91,7 @@ class RootScene extends React.Component {
             width={200}
             height={1}
             depth={200}
-            src="#pgp-texture" />
+            src="#starry-night-sky-texture" />
         </Entity>
 
         <Entity
@@ -174,7 +174,7 @@ class RootScene extends React.Component {
 
 
           {/* West Wall */}
-          { /*
+
           <Wall
             id="wall-west-inner"
             width={ 34 }
@@ -188,12 +188,12 @@ class RootScene extends React.Component {
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.45, 11.35, 0]} /> */ }
+            position={[-15.45, 11.35, 0]} />
 
 
           {/* BEGIN Hockneyan Texture Maps */}
           {/* BEGIN West Wall Textures */}
-          { /*
+
           <Entity id="west-wall-texture-group">
 
             <Entity
@@ -359,7 +359,7 @@ class RootScene extends React.Component {
 
           </Entity>
 
-          */}
+
           {/* BEGIN East Wall Textures */}
 
           <Entity id="east-wall-texture-group">
@@ -469,23 +469,8 @@ class RootScene extends React.Component {
                 height: 9.52
               }} />
 
-            {/*<Entity
-              id="east-wall-plane-2"
-              material={{
-                shader: 'standard',
-                color: '#fff',
-                src: '#east-wall-texture-2'
-              }}
-              rotation={[0, -90, 0]}
-              position={[13.44, 8.71, -2.71]}
-              geometry={{
-                primitive: 'plane',
-                width: 26.8,
-                height: 16.82
-              }} />*/}
-
           </Entity>
-          {/* END West Wall Textures */}
+          {/* END east Wall Textures */}
           {/* END Hockneyan Texture Maps */}
 
 
