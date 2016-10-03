@@ -97,6 +97,11 @@ class RootScene extends React.Component {
             src="../assets/south-wall-textures/2.png" />
           <img id="south-wall-texture-3"
             src="../assets/south-wall-textures/3.png" />
+          <img id="south-wall-texture-4"
+            src="../assets/south-wall-textures/4.png" />
+          <img id="south-wall-texture-5"
+            src="../assets/south-wall-textures/5.png" />
+
 
 
 
@@ -617,27 +622,45 @@ class RootScene extends React.Component {
                 src: '#south-wall-texture-1'
               }}
               rotation={[0, -180, 0]}
-              position={[-6.8, 5.33, 14.84]}
+              position={[-6.02, 4.94, 14.92]}
               geometry={{
                 primitive: 'plane',
-                width: 15.4,
-                height: 11.86
+                width: 12.16,
+                height: 8.98
               }} />
 
+            {/*
             <Entity
-              id="south-wall-plane-0"
+              id="south-wall-plane-4"
               material={{
                 shader: 'standard',
                 color: '#fff',
-                src: '#south-wall-texture-0'
+                src: '#south-wall-texture-4'
               }}
               rotation={[0, -180, 0]}
-              position={[-6.8, 5.33, 14.34]}
+              position={[-6.5, 3.02, 12.84]}
               geometry={{
                 primitive: 'plane',
-                width: 15.4,
-                height: 11.86
+                width: 12.04,
+                height: 6.7
+              }} /> */}
+
+            <Entity
+              id="south-wall-plane-5"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#south-wall-texture-5'
+              }}
+              rotation={[0, -180, 0]}
+              position={[-0.21, 6.46, 14.27]}
+              geometry={{
+                primitive: 'plane',
+                width: 14.20,
+                height: 11.68
               }} />
+
+
 
 
 
