@@ -80,6 +80,16 @@ class RootScene extends React.Component {
           <img id="east-wall-texture-6"
             src="../assets/east-wall-textures/6.png" />
 
+          <img id="north-wall-texture-0"
+            src="../assets/north-wall-textures/0.png" />
+          <img id="north-wall-texture-1"
+            src="../assets/north-wall-textures/1.png" />
+          <img id="north-wall-texture-2"
+            src="../assets/north-wall-textures/2.png" />
+          <img id="north-wall-texture-3"
+            src="../assets/north-wall-textures/3.png" />
+
+
 
         </a-assets>
 
@@ -470,7 +480,77 @@ class RootScene extends React.Component {
               }} />
 
           </Entity>
-          {/* END east Wall Textures */}
+          {/* END East Wall Textures */}
+
+
+          {/* BEGIN North Wall Textures */}
+
+          <Entity id="north-wall-texture-group">
+
+            <Entity
+              id="north-wall-plane-0"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#north-wall-texture-0'
+              }}
+              rotation={[0, 0, 0]}
+              position={[0.57, 11.41, -16.58]}
+              geometry={{
+                primitive: 'plane',
+                width: 27.56,
+                height: 16.14
+              }} />
+
+
+              <Entity
+                id="north-wall-plane-1"
+                material={{
+                  shader: 'standard',
+                  color: '#fff',
+                  src: '#north-wall-texture-1'
+                }}
+                rotation={[0, 0, 0]}
+                position={[-3.49, 7.23, -16.7]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 21.18,
+                  height: 13.30
+                }} />
+
+              <Entity
+                id="north-wall-plane-2"
+                material={{
+                  shader: 'standard',
+                  color: '#fff',
+                  src: '#north-wall-texture-2'
+                }}
+                rotation={[0, 0, 0]}
+                position={[-8.83, 2.65, -16.75]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 13.14,
+                  height: 6.24
+                }} />
+
+              <Entity
+                id="north-wall-plane-3"
+                material={{
+                  shader: 'standard',
+                  color: '#fff',
+                  src: '#north-wall-texture-3'
+                }}
+                rotation={[-90, 0, 0]}
+                position={[5.31, 0.4, 2.75]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 13.26,
+                  height: 14.90
+                }} />
+
+
+          </Entity>
+          {/* END North Wall Textures */}
           {/* END Hockneyan Texture Maps */}
 
 
