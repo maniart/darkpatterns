@@ -64,6 +64,21 @@ class RootScene extends React.Component {
           <img id="west-wall-texture-9"
             src="../assets/west-wall-textures/9.png" />
 
+
+          <img id="east-wall-texture-0"
+            src="../assets/east-wall-textures/0.png" />
+          <img id="east-wall-texture-1"
+            src="../assets/east-wall-textures/1.png" />
+          <img id="east-wall-texture-2"
+            src="../assets/east-wall-textures/2.png" />
+          <img id="east-wall-texture-3"
+            src="../assets/east-wall-textures/3.png" />
+          <img id="east-wall-texture-4"
+            src="../assets/east-wall-textures/4.png" />
+          <img id="east-wall-texture-5"
+            src="../assets/east-wall-textures/5.png" />
+
+
         </a-assets>
 
         <Entity
@@ -121,7 +136,7 @@ class RootScene extends React.Component {
 
 
           {/* East Wall */}
-          { /*
+
           <Wall
             id="wall-east-inner"
             width={ 34 }
@@ -135,7 +150,7 @@ class RootScene extends React.Component {
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[15.54, 11.35, 0]} /> */ }
+            position={[15.54, 11.35, 0]} /> 
 
 
 
@@ -155,6 +170,7 @@ class RootScene extends React.Component {
 
 
           {/* West Wall */}
+          { /*
           <Wall
             id="wall-west-inner"
             width={ 34 }
@@ -168,12 +184,12 @@ class RootScene extends React.Component {
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[-15.45, 11.35, 0]} />
+            position={[-15.45, 11.35, 0]} /> */ }
 
 
           {/* BEGIN Hockneyan Texture Maps */}
           {/* BEGIN West Wall Textures */}
-
+          { /*
           <Entity id="west-wall-texture-group">
 
             <Entity
@@ -280,7 +296,7 @@ class RootScene extends React.Component {
                 }}
                 scale={[0.43, 0.46, 1]}
                 rotation={[0, 90, 0]}
-                position={[-9.2, 9.2, 0.61]}
+                position={[-9.2, 8, 0.61]}
                 geometry={{
                   primitive: 'plane',
                   width: 34,
@@ -328,18 +344,20 @@ class RootScene extends React.Component {
                 }}
                 scale={[1, 1, 1]}
                 rotation={[0, 90, 0]}
-                position={[-11.37, 12.63, 10.33]}
+                position={[-11.46, 7.23, 12.29]}
                 geometry={{
                   primitive: 'plane',
-                  width: 34,
-                  height: 22.66
+                  width: 7.16,
+                  height: 11.56
                 }} />
+
+
 
           </Entity>
 
-
+          */}
           {/* BEGIN East Wall Textures */}
-          {/*
+
           <Entity id="east-wall-texture-group">
 
             <Entity
@@ -357,7 +375,7 @@ class RootScene extends React.Component {
                 height: 22.66
               }} />
 
-          </Entity> */}
+          </Entity>
           {/* END West Wall Textures */}
           {/* END Hockneyan Texture Maps */}
 
