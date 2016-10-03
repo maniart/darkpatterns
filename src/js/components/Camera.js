@@ -7,6 +7,7 @@ export default ({
   id="camera",
   active="false",
   userHeight="4.8",
+  rotation=[0, 0, 0],
   far="10000",
   looksControlsEnabeld="true",
   fov="80",
@@ -26,6 +27,7 @@ export default ({
           fov,
           near
         }}
+        rotation={rotation}
         mouse-controls=""
         touch-controls=""
         hmd-controls=""

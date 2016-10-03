@@ -389,9 +389,10 @@ class RootScene extends React.Component {
         <Camera
           id="camera-kinetic"
           active={true}
-          position={[-8.5, 7.45, 27]}
+          rotation={[0, -80, 0]}
+          position={[-9.45, 5, 12.55]}
           userHeight={5}
-          velocity={[0, 0, 10]}>
+          velocity={[0, -83.08, 10]}>
           <Cursor />
         </Camera>
 
