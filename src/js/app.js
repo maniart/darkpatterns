@@ -369,13 +369,103 @@ class RootScene extends React.Component {
                 color: '#fff',
                 src: '#east-wall-texture-0'
               }}
-              rotation={[0, 90, 0]}
-              position={[-15.34, 11.39, 0]}
+              rotation={[0, -90, 0]}
+              position={[15.34, 14.44, 0]}
               geometry={{
                 primitive: 'plane',
-                width: 34,
-                height: 22.66
+                width: 24.14,
+                height: 14.22
               }} />
+
+            <Entity
+              id="east-wall-plane-1"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-1'
+              }}
+              rotation={[0, -90, 0]}
+              position={[15.0, 14, 0]}
+              geometry={{
+                primitive: 'plane',
+                width: 22.48,
+                height: 13.54
+              }} />
+
+            <Entity
+              id="east-wall-plane-2"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-2'
+              }}
+              rotation={[0, -90, 0]}
+              position={[14.5, 10, 0]}
+              geometry={{
+                primitive: 'plane',
+                width: 25.02,
+                height: 14.98
+              }} />
+
+            <Entity
+              id="east-wall-plane-3"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-3'
+              }}
+              rotation={[0, -90, 0]}
+              position={[14.49, 5.42, 0.05]}
+              geometry={{
+                primitive: 'plane',
+                width: 22.98,
+                height: 9.52
+              }} />
+
+            <Entity
+              id="east-wall-plane-4"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-4'
+              }}
+              rotation={[-85, -90, 0]}
+              position={[9.65, 1.22, 0.05]}
+              geometry={{
+                primitive: 'plane',
+                width: 22.98,
+                height: 9.52
+              }} />
+
+            <Entity
+              id="east-wall-plane-5"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-5'
+              }}
+              rotation={[-90, -90, 0]}
+              position={[7.28, 0.37, 0.08]}
+              geometry={{
+                primitive: 'plane',
+                width: 22.98,
+                height: 9.52
+              }} />
+
+            {/*<Entity
+              id="east-wall-plane-2"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-2'
+              }}
+              rotation={[0, -90, 0]}
+              position={[13.44, 8.71, -2.71]}
+              geometry={{
+                primitive: 'plane',
+                width: 26.8,
+                height: 16.82
+              }} />*/}
 
           </Entity>
           {/* END West Wall Textures */}
