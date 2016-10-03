@@ -27,7 +27,7 @@ export default ({
       color,
       shader,
       src,
-      
+
     }}
 
     position={position}/>

@@ -89,6 +89,15 @@ class RootScene extends React.Component {
           <img id="north-wall-texture-3"
             src="../assets/north-wall-textures/3.png" />
 
+          <img id="south-wall-texture-0"
+            src="../assets/south-wall-textures/0.png" />
+          <img id="south-wall-texture-1"
+            src="../assets/south-wall-textures/1.png" />
+          <img id="south-wall-texture-2"
+            src="../assets/south-wall-textures/2.png" />
+          <img id="south-wall-texture-3"
+            src="../assets/south-wall-textures/3.png" />
+
 
 
         </a-assets>
@@ -132,7 +141,7 @@ class RootScene extends React.Component {
 
 
           {/* South Wall: in & out */}
-          { /*
+
           <Wall
             id="wall-south-inner"
             repeat='1 20'
@@ -146,7 +155,7 @@ class RootScene extends React.Component {
             height={ 22.84 }
             depth={ 0.1 }
             position={[-4.2, 11.21, 17.04]} />
-            */ }
+
 
 
           {/* East Wall */}
@@ -169,6 +178,7 @@ class RootScene extends React.Component {
 
 
           {/* North Wall */}
+          { /*
           <Wall
             id="wall-south-inner"
             width={ 31 }
@@ -180,7 +190,7 @@ class RootScene extends React.Component {
             width={ 31 }
             height={ 22.66 }
             depth={ 0.1 }
-            position={[0, 11.35, -17.02]} />
+            position={[0, 11.35, -17.02]} /> */}
 
 
           {/* West Wall */}
@@ -261,7 +271,7 @@ class RootScene extends React.Component {
                 src: '#west-wall-texture-3'
               }}
               scale={[1, 0.2, 1]}
-              rotation={[-80, 90, 0]}
+              rotation={[-90, 90, 0]}
               position={[-9.45, 1.27, 0]}
               geometry={{
                 primitive: 'plane',
@@ -484,7 +494,7 @@ class RootScene extends React.Component {
 
 
           {/* BEGIN North Wall Textures */}
-
+          {/*
           <Entity id="north-wall-texture-group">
 
             <Entity
@@ -549,8 +559,34 @@ class RootScene extends React.Component {
                 }} />
 
 
-          </Entity>
+          </Entity> */}
           {/* END North Wall Textures */}
+
+
+          {/* BEGIN South Wall Textures */}
+
+          <Entity id="south-wall-texture-group">
+
+            <Entity
+              id="south-wall-plane-2"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#south-wall-texture-2'
+              }}
+              rotation={[0, -180, 0]}
+              position={[-7.63, 15.61, 16.78]}
+              geometry={{
+                primitive: 'plane',
+                width: 15.4,
+                height: 11.86
+              }} />
+
+          
+
+
+          </Entity>
+          {/* END South Wall Textures */}
           {/* END Hockneyan Texture Maps */}
 
 
