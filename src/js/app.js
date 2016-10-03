@@ -144,7 +144,6 @@ class RootScene extends React.Component {
 
           <Wall
             id="wall-south-inner"
-            repeat='1 20'
             width={ 22.6 }
             height={ 22.84 }
             depth={ 0.1 }
@@ -155,6 +154,19 @@ class RootScene extends React.Component {
             height={ 22.84 }
             depth={ 0.1 }
             position={[-4.2, 11.21, 17.04]} />
+          <Wall
+            id="wall-south-top-door-inner"
+            width={ 10.10 }
+            height={ 5.32 }
+            depth={ 0.1 }
+            position={[10.54, 19.21, 17]} />
+          <Wall
+            id="wall-south-top-door-outer"
+            width={ 10.10 }
+            height={ 5.32 }
+            depth={ 0.1 }
+            position={[10.54, 19.21, 17.04]} />
+
 
 
 
@@ -272,7 +284,7 @@ class RootScene extends React.Component {
               }}
               scale={[1, 0.2, 1]}
               rotation={[-90, 90, 0]}
-              position={[-9.45, 1.27, 0]}
+              position={[-9.45, 0.27, 0]}
               geometry={{
                 primitive: 'plane',
                 width: 34,
@@ -575,14 +587,59 @@ class RootScene extends React.Component {
                 src: '#south-wall-texture-2'
               }}
               rotation={[0, -180, 0]}
-              position={[-7.63, 15.61, 16.78]}
+              position={[-7.63, 12.48, 15.05]}
               geometry={{
                 primitive: 'plane',
                 width: 15.4,
                 height: 11.86
               }} />
 
-          
+            <Entity
+              id="south-wall-plane-3"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#south-wall-texture-3'
+              }}
+              rotation={[0, -180, 0]}
+              position={[-5.43, 15.61, 16.78]}
+              geometry={{
+                primitive: 'plane',
+                width: 15.4,
+                height: 11.86
+              }} />
+
+            <Entity
+              id="south-wall-plane-1"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#south-wall-texture-1'
+              }}
+              rotation={[0, -180, 0]}
+              position={[-6.8, 5.33, 14.84]}
+              geometry={{
+                primitive: 'plane',
+                width: 15.4,
+                height: 11.86
+              }} />
+
+            <Entity
+              id="south-wall-plane-0"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#south-wall-texture-0'
+              }}
+              rotation={[0, -180, 0]}
+              position={[-6.8, 5.33, 14.34]}
+              geometry={{
+                primitive: 'plane',
+                width: 15.4,
+                height: 11.86
+              }} />
+
+
 
 
           </Entity>
