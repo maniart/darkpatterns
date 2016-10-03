@@ -49,6 +49,8 @@ class RootScene extends React.Component {
             src="../assets/west-wall-textures/1.png" />
           <img id="west-wall-texture-2"
             src="../assets/west-wall-textures/2.png" />
+          <img id="west-wall-texture-3"
+            src="../assets/west-wall-textures/3.png" />
 
         </a-assets>
 
@@ -107,6 +109,7 @@ class RootScene extends React.Component {
 
 
           {/* East Wall */}
+          { /*
           <Wall
             id="wall-east-inner"
             width={ 34 }
@@ -120,7 +123,7 @@ class RootScene extends React.Component {
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[15.54, 11.35, 0]} />
+            position={[15.54, 11.35, 0]} /> */ }
 
 
 
@@ -181,8 +184,41 @@ class RootScene extends React.Component {
                 color: '#fff',
                 src: '#west-wall-texture-1'
               }}
+              scale={[0.93, 0.83, 1]}
               rotation={[0, 90, 0]}
-              position={[-15.30, 11.39, 0]}
+              position={[-11.50, 8.59, 0.43]}
+              geometry={{
+                primitive: 'plane',
+                width: 34,
+                height: 22.66
+              }} />
+
+            <Entity
+              id="west-wall-plane-2"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#west-wall-texture-2'
+              }}
+              scale={[0.43, 0.46, 1]}
+              rotation={[0, 90, 0]}
+              position={[-9.5, 9.53, 0.61]}
+              geometry={{
+                primitive: 'plane',
+                width: 34,
+                height: 22.66
+              }} />
+
+            <Entity
+              id="west-wall-plane-3"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#west-wall-texture-3'
+              }}
+              scale={[1, 0.2, 1]}
+              rotation={[-80, 90, 0]}
+              position={[-9.45, 1.27, 0]}
               geometry={{
                 primitive: 'plane',
                 width: 34,
