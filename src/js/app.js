@@ -77,6 +77,8 @@ class RootScene extends React.Component {
             src="../assets/east-wall-textures/4.png" />
           <img id="east-wall-texture-5"
             src="../assets/east-wall-textures/5.png" />
+          <img id="east-wall-texture-6"
+            src="../assets/east-wall-textures/6.png" />
 
 
         </a-assets>
@@ -430,7 +432,7 @@ class RootScene extends React.Component {
                 src: '#east-wall-texture-4'
               }}
               rotation={[-85, -90, 0]}
-              position={[9.65, 1.22, 0.05]}
+              position={[9.65, 0.77, 0.05]}
               geometry={{
                 primitive: 'plane',
                 width: 22.98,
@@ -445,7 +447,22 @@ class RootScene extends React.Component {
                 src: '#east-wall-texture-5'
               }}
               rotation={[-90, -90, 0]}
-              position={[7.28, 0.37, 0.08]}
+              position={[6.68, 0.23, 0.66]}
+              geometry={{
+                primitive: 'plane',
+                width: 21.64,
+                height: 11.28
+              }} />
+
+            <Entity
+              id="east-wall-plane-6"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-6'
+              }}
+              rotation={[-90, -90, 0]}
+              position={[-0.13, 0.2, 1.16]}
               geometry={{
                 primitive: 'plane',
                 width: 22.98,
