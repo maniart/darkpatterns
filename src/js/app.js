@@ -55,6 +55,14 @@ class RootScene extends React.Component {
             src="../assets/west-wall-textures/4.png" />
           <img id="west-wall-texture-5"
             src="../assets/west-wall-textures/5.png" />
+          <img id="west-wall-texture-6"
+            src="../assets/west-wall-textures/6.png" />
+          <img id="west-wall-texture-7"
+            src="../assets/west-wall-textures/7.png" />
+          <img id="west-wall-texture-8"
+            src="../assets/west-wall-textures/8.png" />
+          <img id="west-wall-texture-9"
+            src="../assets/west-wall-textures/9.png" />
 
         </a-assets>
 
@@ -162,8 +170,10 @@ class RootScene extends React.Component {
             rotation={[0, 90, 0]}
             position={[-15.45, 11.35, 0]} />
 
-          {/* BEGIN Warholian Texture Maps */}
+
+          {/* BEGIN Hockneyan Texture Maps */}
           {/* BEGIN West Wall Textures */}
+
           <Entity id="west-wall-texture-group">
 
             <Entity
@@ -261,10 +271,95 @@ class RootScene extends React.Component {
                 height: 22.66
               }} />
 
+              <Entity
+                id="west-wall-plane-6"
+                material={{
+                  shader: 'standard',
+                  color: '#fff',
+                  src: '#west-wall-texture-6'
+                }}
+                scale={[0.43, 0.46, 1]}
+                rotation={[0, 90, 0]}
+                position={[-9.2, 9.2, 0.61]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 34,
+                  height: 22.66
+                }} />
+
+              <Entity
+                id="west-wall-plane-7"
+                material={{
+                  shader: 'standard',
+                  color: '#fff',
+                  src: '#west-wall-texture-7'
+                }}
+                scale={[0.43, 0.46, 1]}
+                rotation={[0, 90, 0]}
+                position={[-9.66, 9.33, 0.61]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 34,
+                  height: 22.66
+                }} />
+
+              <Entity
+                id="west-wall-plane-8"
+                material={{
+                  shader: 'standard',
+                  color: '#fff',
+                  src: '#west-wall-texture-8'
+                }}
+                scale={[1, 1, 1]}
+                rotation={[0, 90, 0]}
+                position={[-11.37, 12.63, 10.33]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 11.64,
+                  height: 14.58
+                }} />
+
+              <Entity
+                id="west-wall-plane-9"
+                material={{
+                  shader: 'standard',
+                  color: '#fff',
+                  src: '#west-wall-texture-9'
+                }}
+                scale={[1, 1, 1]}
+                rotation={[0, 90, 0]}
+                position={[-11.37, 12.63, 10.33]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 34,
+                  height: 22.66
+                }} />
 
           </Entity>
-          {/* ENF West Wall Textures */}
-          {/* END Warholian Texture Maps */}
+
+
+          {/* BEGIN East Wall Textures */}
+          {/*
+          <Entity id="east-wall-texture-group">
+
+            <Entity
+              id="east-wall-plane-0"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#east-wall-texture-0'
+              }}
+              rotation={[0, 90, 0]}
+              position={[-15.34, 11.39, 0]}
+              geometry={{
+                primitive: 'plane',
+                width: 34,
+                height: 22.66
+              }} />
+
+          </Entity> */}
+          {/* END West Wall Textures */}
+          {/* END Hockneyan Texture Maps */}
 
 
         </Entity>
