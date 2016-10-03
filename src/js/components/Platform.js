@@ -8,7 +8,7 @@ export default ({
   src='',
   repeat=true,
   shader = 'standard',
-  color = '#fff',
+  color = '#000',
   position=[0, 0, 0]
 }) => (
   <Entity

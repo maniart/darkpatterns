@@ -6,7 +6,7 @@ export default ({
   height = 1,
   depth = 1,
   repeat='10 10',
-  color="rgb(250, 250, 250)",
+  color="rgb(255, 255, 255)",
   rotation=[0, 0, 0],
   shader="standard",
   src="",

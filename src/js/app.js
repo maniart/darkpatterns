@@ -141,6 +141,7 @@ class RootScene extends React.Component {
             id="floor"
             width={ 31 }
             height={ 1 }
+            color="#fff"
             depth={ 34 }
             position={[0, -0.34, 0]} />
 
@@ -195,7 +196,7 @@ class RootScene extends React.Component {
 
 
           {/* North Wall */}
-          { /*
+
           <Wall
             id="wall-south-inner"
             width={ 31 }
@@ -207,7 +208,7 @@ class RootScene extends React.Component {
             width={ 31 }
             height={ 22.66 }
             depth={ 0.1 }
-            position={[0, 11.35, -17.02]} /> */}
+            position={[0, 11.35, -17.02]} />
 
 
           {/* West Wall */}
@@ -511,7 +512,7 @@ class RootScene extends React.Component {
 
 
           {/* BEGIN North Wall Textures */}
-          {/*
+
           <Entity id="north-wall-texture-group">
 
             <Entity
@@ -576,7 +577,7 @@ class RootScene extends React.Component {
                 }} />
 
 
-          </Entity> */}
+          </Entity>
           {/* END North Wall Textures */}
 
 
@@ -693,7 +694,16 @@ class RootScene extends React.Component {
           decay={0}
           distance={0}
           intensity={0.8}
-          position={[0, 19.3, 0]}
+          position={[-7.9, 19.3, 0]}
+          angle={60} />
+
+      <Light
+          id="window-right"
+          type="point"
+          decay={0}
+          distance={0}
+          intensity={0.3}
+          position={[-18.48, 9.52, -4.59]}
           angle={60} />
 
         <Light
