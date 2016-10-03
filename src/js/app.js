@@ -88,10 +88,10 @@ class RootScene extends React.Component {
           position={[0, -0.5, 0]}>
           <Platform
             id="earth"
+            color="#000"
             width={200}
             height={1}
-            depth={200}
-            src="#starry-night-sky-texture" />
+            depth={200} />
         </Entity>
 
         <Entity
