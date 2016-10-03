@@ -120,6 +120,7 @@ class RootScene extends React.Component {
 
 
           {/* South Wall: in & out */}
+          { /*
           <Wall
             id="wall-south-inner"
             repeat='1 20'
@@ -133,6 +134,7 @@ class RootScene extends React.Component {
             height={ 22.84 }
             depth={ 0.1 }
             position={[-4.2, 11.21, 17.04]} />
+            */ }
 
 
           {/* East Wall */}
@@ -150,7 +152,7 @@ class RootScene extends React.Component {
             height={ 22.66 }
             depth={ 0.1 }
             rotation={[0, 90, 0]}
-            position={[15.54, 11.35, 0]} /> 
+            position={[15.54, 11.35, 0]} />
 
 
 
