@@ -37,10 +37,7 @@ export default ({
         look-controls=""
         universal-controls=""
         gamepad-controls=""
-        jump-ability={{
-          enableDoubleJump: false,
-          distance: 3
-        }}
+
         kinematic-body=""
         {...props}/>
     </Entity>

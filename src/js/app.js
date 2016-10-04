@@ -27,8 +27,8 @@ class RootScene extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {
-      sceneReady: false
-    }
+
+    };
   }
 
   onSceneReady () {
@@ -38,25 +38,21 @@ class RootScene extends React.Component {
     });
   }
   componentDidMount () {
-    const scene = document.querySelector('a-scene')
+    const scene = document.querySelector('a-scene');
     if (scene.hasLoaded) {
       this.onSceneReady()
     } else {
       scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
-
-    // const assets = document.querySelector('a-assets');
-    // assets.addEventListener('loaded', () => {
-    //   console.debug('_____ assets loaded', arguments);
-    // })
   }
   render () {
     return (
       <div id="wrapper">
 
         <Loader visible={!this.state.sceneReady} />
-        <Scene
-          physics={{debug:false}}
+
+      <Scene
+          physics={{debug:true}}
           keyboard-shortcuts=""
           canvas=""
           vr-mode-ui={{enabled: true }}>
@@ -140,14 +136,6 @@ class RootScene extends React.Component {
               width={200}
               height={1}
               depth={200} />
-
-            <Platform
-              id="key-platform"
-              color="#fff"
-              position={[0, 13, 76]}
-              width={20}
-              height={1}
-              depth={20} />
 
             <a-collada-model
               src="#key"

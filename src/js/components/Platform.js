@@ -6,6 +6,7 @@ export default ({
   height = 1,
   depth = 1,
   src='',
+  visible='true',
   repeat=true,
   shader = 'standard',
   color = '#000',
@@ -14,6 +15,8 @@ export default ({
   <Entity
     static-body=""
 
+    visible={visible}
+    
     geometry={{
       primitive: 'box',
       width,
