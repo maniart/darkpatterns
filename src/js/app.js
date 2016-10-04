@@ -44,13 +44,18 @@ class RootScene extends React.Component {
         'alice_smartwallE_sneriz_5673fjslkaf',
         'alice_fridg4_sneriz_77fkladl'
       ],
+
       monitorTextIndex0: 0,
-      monitorTextIndex1: 0,
-      monitorTextIndex2: 0,
-      monitorTextIndex3: 0,
-      monitorTextIndex4: 0,
-      monitorTextIndex5: 0,
-      monitorTextIndex6: 0,
+      monitorTextIndex1: 2,
+      monitorTextIndex2: 4,
+      monitorTextIndex3: 2,
+      monitorTextIndex4: 7,
+      monitorTextIndex5: 3,
+      monitorTextIndex6: 1,
+
+      elapsedSeconds: 0,
+      elapsedMinutes: 0
+
     };
   }
 
@@ -77,7 +82,27 @@ class RootScene extends React.Component {
 
   }
 
+  clock() {
+    const self = this;
+    window.setInterval(() => {
+      this.setState({
+        elapsedSeconds: (this.state.elapsedSeconds + 1)
+      });
+      if (this.state.elapsedSeconds > 59) {
+        this.setState({
+          elapsedMinutes: this.state.elapsedMinutes + 1,
+          elapsedSeconds: 0
+        });
+      }
+      console.log(this.state.elapsedSeconds);
+      console.log(this.state.elapsedMinutes);
+
+
+    }, 10);
+  }
+
   componentDidMount () {
+    this.clock();
     const scene = document.querySelector('a-scene');
     const trentEmailTitle = document.querySelector('#ui-email-trent');
     const self = this;
