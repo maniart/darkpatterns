@@ -27,7 +27,7 @@ class RootScene extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {
-
+      solved: false
     };
   }
 
@@ -137,19 +137,20 @@ class RootScene extends React.Component {
               height={1}
               depth={200} />
 
-            <a-collada-model
-              src="#key"
-              scale="0.02 0.02 0.02"
-              rotation="0 0 90"
-              position="4.78 17.72 71.61">
-              <a-animation attribute="rotation"
-               dur="10000"
-               fill="both"
-               attribute="rotation"
-               ease="linear"
-               to="0 360 90"
-               repeat="indefinite"></a-animation>
-            </a-collada-model>
+              <a-collada-model
+                src="#key"
+                scale="0.02 0.02 0.02"
+                rotation="0 0 90"
+                position={this.state.solved ? "4.78 5.72 71.61" : "4.78 17.72 71.61"}>
+                <a-animation
+                 attribute="rotation"
+                 dur="20000"
+                 fill="both"
+                 ease="linear"
+                 to="0 360 90"
+                 repeat="indefinite"></a-animation>
+              </a-collada-model>
+
 
 
           {/*
