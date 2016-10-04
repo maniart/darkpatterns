@@ -31,12 +31,9 @@ export default ({
         mouse-controls=""
         touch-controls=""
         hmd-controls=""
-        ws-gamepad={{
-          endpoint: "ws://127.0.0.1:7878"
-        }}
-        look-controls=""
         universal-controls=""
-        gamepad-controls=""
+        look-controls=""
+
 
         kinematic-body=""
         {...props}/>
@@ -45,5 +42,13 @@ export default ({
 
 );
 /*
-  add back `universal-controls=""` to `Entity` to enable universal control again
+  Todo:
+  add back -
+  ws-gamepad={{
+    endpoint: "ws://127.0.0.1:7878"
+  }}
+*/
+/*
+  add back universal-controls=""
+  gamepad-controls="" `universal-controls=""` to `Entity` to enable universal control again
 */

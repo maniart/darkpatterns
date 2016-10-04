@@ -1,10 +1,13 @@
 import {Entity} from 'aframe-react';
 import React    from 'react';
+
+const THREE = window.THREE;
 /* global AFRAME */
 
 if (typeof AFRAME === 'undefined') {
   throw new Error('Component attempted to register before AFRAME was available.');
 }
+
 
 /**
  * Example component for A-Frame.
@@ -24,28 +27,22 @@ AFRAME.registerComponent('ws-gamepad', {
 
   ws: null,
 
-  buttons: {
-    right: false,
-    left: false,
-    up: false,
-    down: false,
-    a: false,
-    b: false,
-    start: false,
-    select: false
-  },
+
   /**
    * Called once when component is attached. Generally for initial setup.
    */
   init: function () {
     // console.log('_____ WS GAME PAD INIT. Endpoint is: ', this);
     // setup websockets
+    this.buttonStates = {};
+    this.axisState = [];
     const host = this.data.endpoint;
+    const self = this;
     this.ws = new WebSocket(host);
     this.ws.onmessage = function({data}) {
-      console.log(JSON.parse(data));
+      console.log(JSON.parse(data), self.el);
       if(data.num === 0 && data.name === 'down') {
-        this.buttons.a = true;
+        self.buttons.a = true;
       }
     };
   },
@@ -58,17 +55,15 @@ AFRAME.registerComponent('ws-gamepad', {
     console.log(this.el);
   },
 
-  tick: function(t, dt) {
-    const mesh = this.el.getObject3D('mesh');
-    // Update mesh animations.
-    if (mesh && mesh.update) { mesh.update(delta / 1000); }
-    this.updatePos(dt);
+  tick: function(time, delta) {
+    var mesh = this.el.getObject3D('mesh');
+    if (!mesh) { return; }
+    if (mesh.update) { mesh.update(delta / 1000); }
+    this.updatePose();
     this.updateButtons();
   },
 
-  updatePos(dt) {
 
-  },
 
   updateButtons() {
 

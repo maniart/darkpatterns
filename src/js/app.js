@@ -39,17 +39,21 @@ class RootScene extends React.Component {
   }
   componentDidMount () {
     const scene = document.querySelector('a-scene');
+    const browser = document.querySelector('#ui-web-browser');
+
     if (scene.hasLoaded) {
       this.onSceneReady()
     } else {
       scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
     const cursor = document.querySelector('#cursor');
-    const ui = document.querySelector('#ui-web-browser')
-    console.log(ui);
-    ui.addEventListener('mouseenter', ()=> {
-      alert('hovering');
+
+    browser.addEventListener('mouseenter', ()=> {
+      console.log('hovering on the browser window')
     });
+    browser.addEventListener('click', ()=> {
+      console.log('clicking on the browser window')
+    })
   }
   render () {
     return (
@@ -125,6 +129,10 @@ class RootScene extends React.Component {
               src="../assets/south-wall-textures/4.png" />
             <img id="south-wall-texture-5"
               src="../assets/south-wall-textures/5.png" />
+
+            <img id="browser-texture"
+              src="../assets/ui/browser.png" />
+            
 
             <a-asset-item id="key" src="../assets/key.dae" />
 
@@ -207,20 +215,23 @@ class RootScene extends React.Component {
               id="ui-web-browser"
 
               geometry={{
-                primitive: 'box',
-                width: 4,
-                height: 2.88,
-                depth: 0.2
+                primitive: 'plane',
+                width: 8,
+                height: 4
               }}
 
               rotation={[0, 90, 0]}
 
               material={{
                 color: this.state.color,
-                shader: 'flat'
+                shader: 'flat',
+                opacity: 0.7,
+                src: '#browser-texture'
               }}
 
-              position={[-1.95, 6.91, 1.65]}/>
+              position={[-1.95, 6, 1.65]}/>
+
+
 
             {/* South Wall: in & out */}
 
