@@ -329,7 +329,27 @@ class RootScene extends React.Component {
                 opacity: 0.7
               }}
 
-              position={[-1.25, 6.43, -4.46]}/>
+              position={[-1.25, 6.43, -4.25]}/>
+
+            <Entity
+              className="interactive"
+              id="ip"
+
+              geometry={{
+                primitive: 'plane',
+                width: 3.3,
+                height: 1.81
+              }}
+
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: 'rgb(19, 144, 249)',
+                shader: 'flat',
+                opacity: 0.7
+              }}
+
+              position={[-2.6, 7.91, 8.4]}/>
 
             <Entity
               className="interactive"
