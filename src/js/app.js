@@ -61,8 +61,6 @@ class RootScene extends React.Component {
             <img id="starry-night-sky-texture"
               src="../assets/starry-night.jpg" />
 
-
-
             <img id="west-wall-texture-0"
               src="../assets/west-wall-textures/0.png" />
             <img id="west-wall-texture-1"
@@ -198,7 +196,22 @@ class RootScene extends React.Component {
               height: 31
             }} />
 
+            <Entity
+              geometry={{
+                primitive: 'box',
+                width: 4,
+                height: 2.88,
+                depth: 0.2
+              }}
 
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: '#eee',
+                shader: 'flat'
+              }}
+
+              position={[-1.95, 6.91, 1.65]}/>
 
             {/* South Wall: in & out */}
 
