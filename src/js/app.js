@@ -39,7 +39,7 @@ class RootScene extends React.Component {
   }
   componentDidMount () {
     const scene = document.querySelector('a-scene');
-    const browser = document.querySelector('#ui-web-browser');
+    const trentEmailTitle = document.querySelector('#ui-email-trent');
 
     if (scene.hasLoaded) {
       this.onSceneReady()
@@ -48,12 +48,17 @@ class RootScene extends React.Component {
     }
     const cursor = document.querySelector('#cursor');
 
-    browser.addEventListener('mouseenter', ()=> {
-      console.log('hovering on the browser window')
+    // trentEmailTitle.addEventListener('mouseenter', ()=> {
+    //   trentEmailTitle.setAttribute('position', '-1.85 6.54 1.63');
+    // });
+    //
+    // trentEmailTitle.addEventListener('mouseleave', ()=> {
+    //   trentEmailTitle.setAttribute('position', '-1.6 6.54 1.63');
+    // });
+    trentEmailTitle.addEventListener('click', ()=> {
+      alert()
+      console.log('clicking on the trentEmailTitle')
     });
-    browser.addEventListener('click', ()=> {
-      console.log('clicking on the browser window')
-    })
   }
   render () {
     return (
@@ -132,7 +137,14 @@ class RootScene extends React.Component {
 
             <img id="browser-texture"
               src="../assets/ui/browser.png" />
-            
+            <img id="email-client-texture"
+              src="../assets/ui/email-client.png" />
+            <img id="email-trent-texture"
+              src="../assets/ui/email-trent.png" />
+            <img id="email-trent-open-enc-texture"
+              src="../assets/ui/trent-email-open-enc.png" />
+
+
 
             <a-asset-item id="key" src="../assets/key.dae" />
 
@@ -217,7 +229,7 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 8,
-                height: 4
+                height: 3.47
               }}
 
               rotation={[0, 90, 0]}
@@ -230,6 +242,69 @@ class RootScene extends React.Component {
               }}
 
               position={[-1.95, 6, 1.65]}/>
+
+          <Entity
+              className="interactive"
+              id="ui-email-client"
+
+              geometry={{
+                primitive: 'plane',
+                width: 8,
+                height: 2.9
+              }}
+
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: this.state.color,
+                shader: 'flat',
+                opacity: .9,
+                src: '#email-client-texture'
+              }}
+
+              position={[-1.9, 5.76, 1.63]}/>
+
+            <Entity
+              className="interactive"
+              id="ui-email-trent"
+
+              geometry={{
+                primitive: 'plane',
+                width: 8,
+                height: 0.26
+              }}
+
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: this.state.color,
+                shader: 'flat',
+                opacity: .9,
+                src: '#email-trent-texture'
+              }}
+
+              position={[-1.85, 6.54, 1.63]}/>
+
+          <Entity
+              className="interactive"
+              id="ui-email-trent-open-enc"
+
+              geometry={{
+                primitive: 'plane',
+                width: 12.69,
+                height: 8
+              }}
+
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: this.state.color,
+                shader: 'flat',
+                opacity: .9,
+                src: '#email-trent-open-enc-texture'
+              }}
+
+              position={[-1.85, 8.54, 2]}/>
 
 
 
