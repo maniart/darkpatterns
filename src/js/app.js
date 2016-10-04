@@ -184,13 +184,20 @@ class RootScene extends React.Component {
               position={[0, 22.14, 0]} />
 
 
-            <Platform
-              id="floor"
-              width={ 31 }
-              height={ 1 }
-              color="#fff"
-              depth={ 34 }
-              position={[0, -0.34, 0]} />
+          <Entity
+            id="floor"
+            material={{
+              shader: 'standard',
+              color: '#fff'
+            }}
+            rotation={[-90, 0, -90]}
+            position={[0, 0.06, 0]}
+            geometry={{
+              primitive: 'plane',
+              width: 34,
+              height: 31
+            }} />
+
 
 
             {/* South Wall: in & out */}
