@@ -5,6 +5,7 @@
   "description": "A cardboard VR game about the internet, privacy and encryption.",
   "dependencies": {
     "aframe": "^0.3.0",
+    "aframe-bmfont-text-component": "^0.1.4",
     "aframe-extras": "^2.5.3",
     "aframe-html-shader": "^0.1.1",
     "aframe-react": "^1.2.0",

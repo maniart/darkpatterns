@@ -18,6 +18,8 @@ import Light        from './components/Light';
 import Wall         from './components/Wall';
 import Loader       from './components/Loader';
 import { scale }    from './utils';
+import AframeTextComponent from 'aframe-bmfont-text-component';
+
 
 
 /*
@@ -30,7 +32,25 @@ class RootScene extends React.Component {
       solved: false,
       color: '#fff',
       encEmailVisible: false,
-      decrypted: true
+      decrypted: false,
+      monitorText: [
+        'ny-gov-dept-antipiracy-346fg',
+        'us-state-antiabuseregulation-5670nnn23',
+        'wif4_regula_traffic_friasd2df',
+        'bk_nyc_gov_datamanagement5d2d2-',
+        'snerizon-antivirus_firewall00w12',
+        'slamazon_cookies_add_9r89wjf',
+        'alice_laptop_c0nnectsnerizon',
+        'alice_smartwallE_sneriz_5673fjslkaf',
+        'alice_fridg4_sneriz_77fkladl'
+      ],
+      monitorTextIndex0: 0,
+      monitorTextIndex1: 0,
+      monitorTextIndex2: 0,
+      monitorTextIndex3: 0,
+      monitorTextIndex4: 0,
+      monitorTextIndex5: 0,
+      monitorTextIndex6: 0,
     };
   }
 
@@ -39,6 +59,24 @@ class RootScene extends React.Component {
       sceneReady: true
     });
   }
+
+  updateMonitorText () {
+    const self = this;
+    window.setInterval(() => {
+      self.setState({
+        monitorTextIndex0: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+        monitorTextIndex1: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+        monitorTextIndex2: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+        monitorTextIndex3: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+        monitorTextIndex4: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+        monitorTextIndex5: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+        monitorTextIndex6: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+      });
+      // console.log('')
+    }, 300);
+
+  }
+
   componentDidMount () {
     const scene = document.querySelector('a-scene');
     const trentEmailTitle = document.querySelector('#ui-email-trent');
@@ -48,6 +86,7 @@ class RootScene extends React.Component {
     } else {
       scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
+    this.updateMonitorText();
     const cursor = document.querySelector('#cursor');
 
     // trentEmailTitle.addEventListener('mouseenter', ()=> {
@@ -213,6 +252,50 @@ class RootScene extends React.Component {
               depth={ 34 }
               position={[0, 22.14, 0]} />
 
+            {/* activity monitor text */}
+            <Entity
+              id="line-0-monitor"
+              position={[-1.2, 7, -3.06]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex0]}} />
+            <Entity
+              id="line-1-monitor"
+              position={[-1.2, 6.8, -3.06]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex1]}} />
+            <Entity
+              id="line-2-monitor"
+              position={[-1.2, 6.6, -3.06]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex2]}} />
+            <Entity
+              id="line-3-monitor"
+              position={[-1.2, 6.4, -3.06]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex3]}} />
+            <Entity
+              id="line-4-monitor"
+              position={[-1.2, 6.2, -3.06]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex4]}} />
+            <Entity
+              id="line-5-monitor"
+              position={[-1.20, 6, -3.06]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex5]}} />
+            <Entity
+              id="line-6-monitor"
+              position={[-1.2, 5.8, -3.06]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex6]}} />
+
 
           <Entity
             id="floor"
@@ -227,6 +310,26 @@ class RootScene extends React.Component {
               width: 34,
               height: 31
             }} />
+
+            <Entity
+              className="interactive"
+              id="activity-monitor"
+
+              geometry={{
+                primitive: 'plane',
+                width: 3.3,
+                height: 1.81
+              }}
+
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: '#ffe400',
+                shader: 'flat',
+                opacity: 0.7
+              }}
+
+              position={[-1.25, 6.43, -4.46]}/>
 
             <Entity
               className="interactive"
