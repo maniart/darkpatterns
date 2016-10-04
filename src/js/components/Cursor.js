@@ -21,9 +21,10 @@ export default props => {
   return (
     <Entity
       cursor={props}
+      id="cursor"
+      raycaster="objects: .interactive"
       geometry={geometry}
       material={material}
-      raycaster=""
       position="0 0 -1">
 
       <Animation

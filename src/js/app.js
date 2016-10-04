@@ -27,12 +27,12 @@ class RootScene extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {
-      solved: false
+      solved: false,
+      color: '#fff'
     };
   }
 
   onSceneReady () {
-    console.debug('scene is ready');
     this.setState({
       sceneReady: true
     });
@@ -44,6 +44,12 @@ class RootScene extends React.Component {
     } else {
       scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
+    const cursor = document.querySelector('#cursor');
+    const ui = document.querySelector('#ui-web-browser')
+    console.log(ui);
+    ui.addEventListener('mouseenter', ()=> {
+      alert('hovering');
+    });
   }
   render () {
     return (
@@ -197,6 +203,9 @@ class RootScene extends React.Component {
             }} />
 
             <Entity
+              className="interactive"
+              id="ui-web-browser"
+
               geometry={{
                 primitive: 'box',
                 width: 4,
@@ -207,7 +216,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
 
               material={{
-                color: '#eee',
+                color: this.state.color,
                 shader: 'flat'
               }}
 
@@ -749,7 +758,9 @@ class RootScene extends React.Component {
             position={[-9.45, 5, 12.55]}
             userHeight={5}
             velocity={[0, -83.08, 10]}>
-            <Cursor />
+
+            <Cursor fuse="false" />
+
           </Camera>
 
 
