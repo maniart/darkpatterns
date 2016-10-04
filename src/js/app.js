@@ -291,8 +291,8 @@ class RootScene extends React.Component {
 
               geometry={{
                 primitive: 'plane',
-                width: 12.69,
-                height: 8
+                width: 4,
+                height: 6.34
               }}
 
               rotation={[0, 90, 0]}
@@ -304,7 +304,7 @@ class RootScene extends React.Component {
                 src: '#email-trent-open-enc-texture'
               }}
 
-              position={[-1.85, 8.54, 2]}/>
+              position={[-1.39, 5.88, 2]}/>
 
 
 
