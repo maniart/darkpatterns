@@ -28,7 +28,8 @@ class RootScene extends React.Component {
     super(props);
     this.state =  {
       solved: false,
-      color: '#fff'
+      color: '#fff',
+      encEmailVisible: false
     };
   }
 
@@ -40,7 +41,7 @@ class RootScene extends React.Component {
   componentDidMount () {
     const scene = document.querySelector('a-scene');
     const trentEmailTitle = document.querySelector('#ui-email-trent');
-
+    const self = this;
     if (scene.hasLoaded) {
       this.onSceneReady()
     } else {
@@ -56,8 +57,10 @@ class RootScene extends React.Component {
     //   trentEmailTitle.setAttribute('position', '-1.6 6.54 1.63');
     // });
     trentEmailTitle.addEventListener('click', ()=> {
-      alert()
-      console.log('clicking on the trentEmailTitle')
+      self.setState({
+        encEmailVisible: true
+      });
+      console.log('open the enc email');
     });
   }
   render () {
@@ -296,7 +299,7 @@ class RootScene extends React.Component {
               }}
 
               rotation={[0, 90, 0]}
-
+              visible={this.state.encEmailVisible}
               material={{
                 color: this.state.color,
                 shader: 'flat',
