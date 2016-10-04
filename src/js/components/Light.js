@@ -11,7 +11,6 @@ export default ({
   distance="50",
   ...props
 }) => {
-  console.log('_____ TYPE IS: ', type);
   return (
     <Entity
       light={{
