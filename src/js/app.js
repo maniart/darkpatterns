@@ -29,7 +29,8 @@ class RootScene extends React.Component {
     this.state =  {
       solved: false,
       color: '#fff',
-      encEmailVisible: false
+      encEmailVisible: false,
+      decrypted: true
     };
   }
 
@@ -146,6 +147,8 @@ class RootScene extends React.Component {
               src="../assets/ui/email-trent.png" />
             <img id="email-trent-open-enc-texture"
               src="../assets/ui/trent-email-open-enc.png" />
+            <img id="email-trent-open-dec-texture"
+              src="../assets/ui/trent-email-open-dec.png" />
 
 
 
@@ -299,12 +302,33 @@ class RootScene extends React.Component {
               }}
 
               rotation={[0, 90, 0]}
-              visible={this.state.encEmailVisible}
+              visible={this.state.encEmailVisible && !this.state.decrypted}
               material={{
                 color: this.state.color,
                 shader: 'flat',
                 opacity: .9,
                 src: '#email-trent-open-enc-texture'
+              }}
+
+              position={[-1.39, 5.88, 2]}/>
+
+            <Entity
+              className="interactive"
+              id="ui-email-trent-open-dec"
+
+              geometry={{
+                primitive: 'plane',
+                width: 4,
+                height: 6.34
+              }}
+
+              rotation={[0, 90, 0]}
+              visible={this.state.decrypted}
+              material={{
+                color: this.state.color,
+                shader: 'flat',
+                opacity: .9,
+                src: '#email-trent-open-dec-texture'
               }}
 
               position={[-1.39, 5.88, 2]}/>
