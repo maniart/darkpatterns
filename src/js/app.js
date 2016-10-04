@@ -16,8 +16,9 @@ import Platform     from './components/Platform';
 import Roof         from './components/Roof';
 import Light        from './components/Light';
 import Wall         from './components/Wall';
-
+import Loader       from './components/Loader';
 import { scale }    from './utils';
+
 
 /*
   TODO: create multiple scenes?
@@ -25,40 +26,35 @@ import { scale }    from './utils';
 class RootScene extends React.Component {
   constructor(props) {
     super(props);
+    this.state =  {
+      sceneReady: false
+    }
   }
 
+  onSceneReady () {
+    console.debug('scene is ready');
+    this.setState({
+      sceneReady: true
+    });
+  }
   componentDidMount () {
-    console.debug('_____ componentDidMount');
-    const assets = document.querySelector('a-assets');
-    assets.addEventListener('loaded', () => {
-      console.debug('_____ assets loaded', arguments);
-    })
+    const scene = document.querySelector('a-scene')
+    if (scene.hasLoaded) {
+      this.onSceneReady()
+    } else {
+      scene.addEventListener('loaded', this.onSceneReady.bind(this))
+    }
+
+    // const assets = document.querySelector('a-assets');
+    // assets.addEventListener('loaded', () => {
+    //   console.debug('_____ assets loaded', arguments);
+    // })
   }
   render () {
     return (
       <div id="wrapper">
-        <div style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            backgroundColor: 'black',
-            color: 'white',
-            fontFamily: 'monospace',
-            fontSize: '2em',
-            textAlign: 'center'
-          }}>
-          <div style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-          }}>
-            Loading Dark Patterns ...
-          </div>
-        </div>
 
+        <Loader visible={!this.state.sceneReady} />
         <Scene
           physics={{debug:false}}
           keyboard-shortcuts=""
