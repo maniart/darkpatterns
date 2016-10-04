@@ -142,7 +142,13 @@ class RootScene extends React.Component {
               scale="0.02 0.02 0.02"
               rotation="0 0 90"
               position="4.78 17.72 71.61">
-
+              <a-animation attribute="rotation"
+               dur="10000"
+               fill="both"
+               attribute="rotation"
+               ease="linear"
+               to="0 360 90"
+               repeat="indefinite"></a-animation>
             </a-collada-model>
 
 
