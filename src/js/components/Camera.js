@@ -32,7 +32,7 @@ export default ({
         touch-controls=""
         hmd-controls=""
         ws-gamepad={{
-          endpoint: "ws://192.168.0.14:7878"
+          endpoint: "ws://127.0.0.1:7878"
         }}
         look-controls=""
         universal-controls=""
