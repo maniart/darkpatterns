@@ -116,8 +116,8 @@ class RootScene extends React.Component {
   revealUI () {
     // this.initIP(); // kick off IP
     // this.initBrowser(); // kick off Browser
-    this.initMonitor(); // kick off monitor
-    // this.initSMS(); // kick off SMS
+    // this.initMonitor(); // kick off monitor
+    this.initSMS(); // kick off SMS
   }
 
   initIP () {
@@ -138,7 +138,7 @@ class RootScene extends React.Component {
     this.setState({
       monitorRevealed: true
     });
-    // this.updateMonitorText();
+    this.updateMonitorText();
   }
 
   initSMS () {
@@ -158,7 +158,7 @@ class RootScene extends React.Component {
     } else {
       scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
-    
+
     const cursor = document.querySelector('#cursor');
 
 
@@ -324,12 +324,13 @@ class RootScene extends React.Component {
 
             <Entity
               className="interactive"
-              id="activity-monitor"
+              id="activity-monitor mergeto-target"
 
               geometry={{
                 primitive: 'plane',
                 width: 3.3,
-                height: 1.81
+                height: 1.81,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -397,7 +398,8 @@ class RootScene extends React.Component {
             geometry={{
               primitive: 'plane',
               width: 34,
-              height: 31
+              height: 31,
+              mergeTo: '#mergeto-target'
             }} />
 
           {/* BEGIN SMS WRAPPER */}
@@ -411,7 +413,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 4.81,
-                  height: 3.58
+                  height: 3.58,
+                  mergeTo: '#mergeto-target'
                 }}
 
                 rotation={[0, 90, 0]}
@@ -465,7 +468,8 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 3.46,
-                height: 1.29
+                height: 1.29,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -523,7 +527,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 1,
-                  height: 0.2
+                  height: 0.2,
+                  mergeTo: '#mergeto-target'
                 }}
                 material= {{
                   color: '#fff',
@@ -535,7 +540,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 0.2,
-                  height: 0.2
+                  height: 0.2,
+                  mergeTo: '#mergeto-target'
                 }}
                 material= {{
                   color: '#ccc',
@@ -548,7 +554,8 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 3.46,
-                height: 0.85
+                height: 0.85,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -603,7 +610,8 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 8,
-                height: 3.47
+                height: 3.47,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -624,7 +632,8 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 8,
-                height: 2.9
+                height: 2.9,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -633,7 +642,8 @@ class RootScene extends React.Component {
                 color: '#fff',
                 shader: 'flat',
                 opacity: .9,
-                src: '#email-client-texture'
+                src: '#email-client-texture',
+                mergeTo: '#mergeto-target'
               }}
 
               position={[-1.9, 5.76, 1.63]}/>
@@ -645,7 +655,8 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 8,
-                height: 0.26
+                height: 0.26,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -666,7 +677,8 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 4,
-                height: 6.34
+                height: 6.34,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -687,7 +699,8 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 4,
-                height: 6.34
+                height: 6.34,
+                mergeTo: '#mergeto-target'
               }}
 
               rotation={[0, 90, 0]}
@@ -805,7 +818,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 34,
-                  height: 22.66
+                  height: 22.66,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -821,7 +835,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 34,
-                  height: 22.66
+                  height: 22.66,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -837,7 +852,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 34,
-                  height: 22.66
+                  height: 22.66,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -853,7 +869,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 34,
-                  height: 22.66
+                  height: 22.66,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -869,7 +886,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 34,
-                  height: 22.66
+                  height: 22.66,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -885,7 +903,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 34,
-                  height: 22.66
+                  height: 22.66,
+                  mergeTo: '#mergeto-target'
                 }} />
 
                 <Entity
@@ -901,7 +920,8 @@ class RootScene extends React.Component {
                   geometry={{
                     primitive: 'plane',
                     width: 34,
-                    height: 22.66
+                    height: 22.66,
+                    mergeTo: '#mergeto-target'
                   }} />
 
                 <Entity
@@ -917,7 +937,8 @@ class RootScene extends React.Component {
                   geometry={{
                     primitive: 'plane',
                     width: 34,
-                    height: 22.66
+                    height: 22.66,
+                    mergeTo: '#mergeto-target'
                   }} />
 
                 <Entity
@@ -933,7 +954,8 @@ class RootScene extends React.Component {
                   geometry={{
                     primitive: 'plane',
                     width: 11.64,
-                    height: 14.58
+                    height: 14.58,
+                    mergeTo: '#mergeto-target'
                   }} />
 
                 <Entity
@@ -949,7 +971,8 @@ class RootScene extends React.Component {
                   geometry={{
                     primitive: 'plane',
                     width: 7.16,
-                    height: 11.56
+                    height: 11.56,
+                    mergeTo: '#mergeto-target'
                   }} />
 
 
@@ -973,7 +996,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 24.14,
-                  height: 14.22
+                  height: 14.22,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -988,7 +1012,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 22.48,
-                  height: 13.54
+                  height: 13.54,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -1003,7 +1028,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 25.02,
-                  height: 14.98
+                  height: 14.98,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -1018,7 +1044,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 22.98,
-                  height: 9.52
+                  height: 9.52,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -1033,7 +1060,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 22.98,
-                  height: 9.52
+                  height: 9.52,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -1048,7 +1076,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 21.64,
-                  height: 11.28
+                  height: 11.28,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -1063,7 +1092,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 22.98,
-                  height: 9.52
+                  height: 9.52,
+                  mergeTo: '#mergeto-target'
                 }} />
 
             </Entity>
@@ -1086,7 +1116,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 27.56,
-                  height: 16.14
+                  height: 16.14,
+                  mergeTo: '#mergeto-target'
                 }} />
 
 
@@ -1102,7 +1133,8 @@ class RootScene extends React.Component {
                   geometry={{
                     primitive: 'plane',
                     width: 21.18,
-                    height: 13.30
+                    height: 13.30,
+                    mergeTo: '#mergeto-target'
                   }} />
 
                 <Entity
@@ -1117,7 +1149,8 @@ class RootScene extends React.Component {
                   geometry={{
                     primitive: 'plane',
                     width: 13.14,
-                    height: 6.24
+                    height: 6.24,
+                    mergeTo: '#mergeto-target'
                   }} />
 
                 <Entity
@@ -1132,7 +1165,8 @@ class RootScene extends React.Component {
                   geometry={{
                     primitive: 'plane',
                     width: 13.26,
-                    height: 14.90
+                    height: 14.90,
+                    mergeTo: '#mergeto-target'
                   }} />
 
 
@@ -1156,7 +1190,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 15.4,
-                  height: 11.86
+                  height: 11.86,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -1171,7 +1206,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 15.4,
-                  height: 11.86
+                  height: 11.86,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               <Entity
@@ -1186,7 +1222,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 12.16,
-                  height: 8.98
+                  height: 8.98,
+                  mergeTo: '#mergeto-target'
                 }} />
 
               {/*
@@ -1217,7 +1254,8 @@ class RootScene extends React.Component {
                 geometry={{
                   primitive: 'plane',
                   width: 14.20,
-                  height: 11.68
+                  height: 11.68,
+                  mergeTo: '#mergeto-target'
                 }} />
 
 
