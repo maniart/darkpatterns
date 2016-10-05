@@ -30,7 +30,8 @@ class RootScene extends React.Component {
     super(props);
     this.state =  {
       solved: false,
-      encEmailVisible: false,
+      showCreditWarning: false,
+      encEmailVisible: true,
       decrypted: false,
       monitorText: [
         'ny-gov-dept-antipiracy-346fg',
@@ -73,7 +74,6 @@ class RootScene extends React.Component {
     this.setState({
       sceneReady: true
     });
-    $('.a-enter-vr').click();
   }
 
   updateMonitorText () {
@@ -126,7 +126,7 @@ class RootScene extends React.Component {
       ipRevealed: true
     });
     this.clockRef = null;
-    // this.initClock();
+    this.initClock();
   }
 
   initBrowser () {
@@ -139,7 +139,7 @@ class RootScene extends React.Component {
     this.setState({
       monitorRevealed: true
     });
-    // this.updateMonitorText();
+    this.updateMonitorText();
   }
 
   initSMS () {
@@ -163,7 +163,20 @@ class RootScene extends React.Component {
 
     const cursor = document.querySelector('#cursor');
 
+    const decryptBtn = document.querySelector('#decrypt-button')
 
+    decryptBtn.addEventListener('click', () => {
+      if(self.state.credit < 7000) {
+        self.setState({
+          showCreditWarning: true
+        });
+      } else {
+        self.setState({
+          decrypted: true
+        })
+      }
+
+    });
 
     // KICK OFF ALL UI
     window.setTimeout(() => {
@@ -191,6 +204,7 @@ class RootScene extends React.Component {
         <Loader visible={!this.state.sceneReady} />
 
       <Scene
+          stats=""
           physics={{debug:true}}
           keyboard-shortcuts=""
           canvas=""
@@ -271,6 +285,9 @@ class RootScene extends React.Component {
               src="../assets/ui/trent-email-open-dec.png" />
 
 
+              <img id="decrypt-btn"
+                src="../assets/ui/decrypt-btn.png" />
+
 
 
 
@@ -350,43 +367,43 @@ class RootScene extends React.Component {
               position={[-1.2, 7, -3.06]}
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex0]}} />
+              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex0]}} />
             <Entity
               id="line-1-monitor"
               position={[-1.2, 6.8, -3.06]}
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex1]}} />
+              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex1]}} />
             <Entity
               id="line-2-monitor"
               position={[-1.2, 6.6, -3.06]}
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex2]}} />
+              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex2]}} />
             <Entity
               id="line-3-monitor"
               position={[-1.2, 6.4, -3.06]}
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex3]}} />
+              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex3]}} />
             <Entity
               id="line-4-monitor"
               position={[-1.2, 6.2, -3.06]}
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex4]}} />
+              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex4]}} />
             <Entity
               id="line-5-monitor"
               position={[-1.20, 6, -3.06]}
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex5]}} />
+              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex5]}} />
             <Entity
               id="line-6-monitor"
               position={[-1.2, 5.8, -3.06]}
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex6]}} />
+              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex6]}} />
           </Entity>
           {/* END monitor wrappr */}
 
@@ -628,7 +645,32 @@ class RootScene extends React.Component {
 
               position={[-1.95, 6, 1.65]}/>
 
-          <Entity
+            <Entity
+              id="warning-wrapper"
+              visible={this.state.showCreditWarning}>
+              <Entity
+                id="warning-credit"
+
+                geometry={{
+                  primitive: 'plane',
+                  width: 8,
+                  height: 2.9,
+                  mergeTo: '#mergeto-target'
+                }}
+
+                rotation={[0, 90, 0]}
+
+                material={{
+                  color: '#ff0033',
+                  shader: 'flat',
+                  opacity: .9,
+                }}
+
+                position={[-1.9, 5.76, 1.63]}/>
+            </Entity>
+
+
+            <Entity
               className="interactive"
               id="ui-email-client"
 
@@ -693,6 +735,50 @@ class RootScene extends React.Component {
               }}
 
               position={[-1.39, 4.57, 2]}/>
+
+              <Entity
+                  className="interactive"
+                  id="ui-email-trent-open-enc"
+
+                  geometry={{
+                    primitive: 'plane',
+                    width: 4,
+                    height: 6.34,
+                    mergeTo: '#mergeto-target'
+                  }}
+
+                  rotation={[0, 90, 0]}
+                  visible={this.state.encEmailVisible && !this.state.decrypted}
+                  material={{
+                    color: '#fff',
+                    shader: 'flat',
+                    opacity: .9,
+                    src: '#email-trent-open-enc-texture'
+                  }}
+
+                  position={[-1.39, 4.57, 2]}/>
+
+              <Entity
+                className="interactive"
+                id="decrypt-button"
+                visible={this.state.encEmailVisible && !this.state.decrypted}
+                geometry={{
+                  primitive: 'plane',
+                  width: 2,
+                  height: 0.4,
+                  mergeTo: '#mergeto-target'
+                }}
+
+                rotation={[0, 90, 0]}
+
+                material={{
+                  shader: 'flat',
+                  opacity: 1,
+                  src:"#decrypt-btn"
+                }}
+
+                position={[-1.35, 5.1, 2.09]}/>
+
 
             <Entity
               className="interactive"
