@@ -58,7 +58,10 @@ class RootScene extends React.Component {
 
       smsScreenVisible: false,
       trentSmsOneVisible: false,
-      trentSmsTwoVisible: false
+      trentSmsTwoVisible: false,
+
+      // unravelling the UI
+      
 
     };
   }
@@ -105,6 +108,10 @@ class RootScene extends React.Component {
         return;
       }
     }, 1000);
+
+  }
+
+  revealUI () {
 
   }
 
@@ -233,7 +240,6 @@ class RootScene extends React.Component {
 
 
 
-            <a-asset-item id="key" src="../assets/key.dae" />
 
 
           </a-assets>
@@ -247,21 +253,6 @@ class RootScene extends React.Component {
               width={200}
               height={1}
               depth={200} />
-
-              <a-collada-model
-                src="#key"
-                scale="0.02 0.02 0.02"
-                rotation="0 0 90"
-                position={this.state.solved ? "4.78 5.72 71.61" : "4.78 17.72 71.61"}>
-                <a-animation
-                 attribute="rotation"
-                 dur="20000"
-                 fill="both"
-                 ease="linear"
-                 to="0 360 90"
-                 repeat="indefinite"></a-animation>
-              </a-collada-model>
-
 
 
           {/*
