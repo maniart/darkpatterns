@@ -32,7 +32,14 @@ AFRAME.registerComponent('ws-gamepad', {
    * Called once when component is attached. Generally for initial setup.
    */
   init: function () {
+    this.forward = false;
+    this.backward = false;
+    this.left = false;
+    this.right = false;
     // console.log('_____ WS GAME PAD INIT. Endpoint is: ', this);
+    // Movement
+    this.velocity = new THREE.Vector3(0, 0, 0);
+    this.direction = new THREE.Vector3(0, 0, 0);
     // setup websockets
     this.buttonStates = {};
     this.axisState = [];
@@ -44,18 +51,21 @@ AFRAME.registerComponent('ws-gamepad', {
       let parsedData = JSON.parse(data);
       // console.log(JSON.parse(data));
       if (parsedData.name === 'move' && parsedData.value === 1 && parsedData.axis === 1) {
-        console.log('Vetical arrow bk')
-        self.updatePosition(-0.1);
+        console.log('Vetical arrow Backward')
+        self.backward = true;
       }
       if (parsedData.name === 'move' && parsedData.value === -1 && parsedData.axis === 1) {
-        console.log('Vetical arrow fw')
-        self.updatePosition(0.1);
-
+        console.log('Vetical arrow Forward')
+        self.forward = true
+      }
+      // stopped moving back and forth
+      if (parsedData.name === 'move' && Math.floor(Math.abs(parsedData.value)) ===  0 && parsedData.axis === 1) {
+        console.log('Stopped')
+        self.backward = false;
+        self.forward = false;
       }
 
-      // if(data.num === 0 && data.name === 'down') {
-      //   self.buttons.a = true;
-      // }
+
     };
   },
 
@@ -67,7 +77,16 @@ AFRAME.registerComponent('ws-gamepad', {
     //console.log(this.el);
   },
 
-  tick: function(time, delta) {
+  tick: function(t, dt) {
+    if (this.forward) {
+      this.updatePosition({dx: 0, dy: 0, dz: -0.1});
+    }
+    if(this.backward) {
+      this.updatePosition({dx: 0, dy: 0, dz: 0.1});
+    }
+
+    // this.updatePosition(dt);
+    // this.updateButtonState();
     //this.updatePosition();
     //var mesh = this.el.getObject3D('mesh');
     //if (!mesh) { return; }
@@ -78,15 +97,19 @@ AFRAME.registerComponent('ws-gamepad', {
 
 
   updatePosition(value) {
+    const data = this.data;
+    // const { acceleration, easing, rollAxis, pitchAxis } = data;
+    // console.log(acceleration, easing, rollAxis, pitchAxis);
+
     const el = this.el;
     const position = el.getComputedAttribute('position');
     let { x, y, z} = position;
-    console.log(x, y, z);
-
+    let { dx, dy, dz} = value;
+    console.log(dx, dy, dz);
     el.setAttribute('position', {
-      x: x,
-      y: y,
-      z: z + value
+      x: x + dx,
+      y: y + dy,
+      z: z + dz
     });
 
   },
