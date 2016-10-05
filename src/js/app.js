@@ -30,8 +30,9 @@ class RootScene extends React.Component {
     super(props);
     this.state =  {
       solved: false,
+      notifActive: true,
       showCreditWarning: false,
-      encEmailVisible: true,
+      encEmailVisible: false,
       decrypted: false,
       monitorText: [
         'ny-gov-dept-antipiracy-346fg',
@@ -107,7 +108,7 @@ class RootScene extends React.Component {
       }
       if (this.state.elapsedMinutes === 3) {
         window.clearInterval(self.clockRef);
-        alert('times up');
+        // alert('times up');
         return;
       }
     }, 1000);
@@ -164,9 +165,33 @@ class RootScene extends React.Component {
     const cursor = document.querySelector('#cursor');
 
     const decryptBtn = document.querySelector('#decrypt-button')
+    const denyBtn = document.querySelector('#deny-button');
+    const agreeBtn = document.querySelector('#agree-button');
+    const notif = document.querySelector('#notif-wrapper');
+
+    notif.addEventListener('click', () =>  {
+      self.setState({
+        notifActive: false
+      });
+      self.revealUI();
+    });
+
+    denyBtn.addEventListener('click', () =>  {
+      self.setState({
+        showCreditWarning: false
+      });
+    });
+
+    agreeBtn.addEventListener('click', () =>  {
+      self.setState({
+        credit: this.state.credit + 1000,
+        showCreditWarning: false
+      });
+    });
 
     decryptBtn.addEventListener('click', () => {
       if(self.state.credit < 7000) {
+
         self.setState({
           showCreditWarning: true
         });
@@ -179,9 +204,10 @@ class RootScene extends React.Component {
     });
 
     // KICK OFF ALL UI
-    window.setTimeout(() => {
-      self.revealUI();
-    }, 5000);
+    // window.setTimeout(() => {
+    //
+    //   self.revealUI();
+    // }, 5000);
 
     // trentEmailTitle.addEventListener('mouseenter', ()=> {
     //   trentEmailTitle.setAttribute('position', '-1.85 6.54 1.63');
@@ -204,8 +230,8 @@ class RootScene extends React.Component {
         <Loader visible={!this.state.sceneReady} />
 
       <Scene
-          stats=""
-          physics={{debug:true}}
+
+          physics={{debug:false}}
           keyboard-shortcuts=""
           canvas=""
           vr-mode-ui={{enabled: true }}>
@@ -287,6 +313,12 @@ class RootScene extends React.Component {
 
               <img id="decrypt-btn"
                 src="../assets/ui/decrypt-btn.png" />
+              <img id="credit-warning-texture"
+                src="../assets/ui/browsing-credit-warning.png" />
+              <img id="privacy-agree"
+                src="../assets/ui/agree-btn.png" />
+              <img id="privacy-deny"
+                src="../assets/ui/deny-btn.png" />
 
 
 
@@ -406,6 +438,43 @@ class RootScene extends React.Component {
               bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex6]}} />
           </Entity>
           {/* END monitor wrappr */}
+
+
+
+          {/* notification */}
+          <Entity
+            id="notif-wrapper"
+            visible={this.state.notifActive}
+            position={[-2.64, 7.8, 0]}>
+
+          <Entity
+            className="interactive"
+            id="notif-bg"
+
+            geometry={{
+              primitive: 'plane',
+              width: 3.46,
+              height: 0.7,
+              mergeTo: '#mergeto-target'
+            }}
+
+            rotation={[0, 90, 0]}
+
+            material={{
+              color: 'rgb(19, 144, 249)',
+              shader: 'flat',
+              opacity: 1
+            }}
+
+            position={[-0, 0, 0]}/>
+
+            <Entity
+              id="notif-text"
+              position={[0, 0, 1.14]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'white', text: 'You have 1 new message. Click to read.'}} />
+        </Entity>
 
           <Entity
             id="floor"
@@ -648,25 +717,67 @@ class RootScene extends React.Component {
             <Entity
               id="warning-wrapper"
               visible={this.state.showCreditWarning}>
+
               <Entity
                 id="warning-credit"
 
                 geometry={{
                   primitive: 'plane',
-                  width: 8,
-                  height: 2.9,
+                  width: 6.3,
+                  height: 2.8,
                   mergeTo: '#mergeto-target'
                 }}
 
                 rotation={[0, 90, 0]}
 
                 material={{
-                  color: '#ff0033',
+                  src: '#credit-warning-texture',
                   shader: 'flat',
-                  opacity: .9,
+                  opacity: 1,
                 }}
 
-                position={[-1.9, 5.76, 1.63]}/>
+                position={[0, 4.87, 0]}/>
+
+
+
+                  <Entity
+                    className="interactive"
+                    id="agree-button"
+                    geometry={{
+                      primitive: 'plane',
+                      width: 2,
+                      height: 0.4,
+                      mergeTo: '#mergeto-target'
+                    }}
+
+                    rotation={[0, 90, 0]}
+
+                    material={{
+                      shader: 'flat',
+                      opacity: 1,
+                      src:"#privacy-agree"
+                    }}
+
+                    position={[0.28, 3.48, -0.88]}/>
+                    <Entity
+                      className="interactive"
+                      id="deny-button"
+                      geometry={{
+                        primitive: 'plane',
+                        width: 2,
+                        height: 0.4,
+                        mergeTo: '#mergeto-target'
+                      }}
+
+                      rotation={[0, 90, 0]}
+
+                      material={{
+                        shader: 'flat',
+                        opacity: 1,
+                        src:"#privacy-deny"
+                      }}
+
+                      position={[0.28, 3.43, 1.14]}/>
             </Entity>
 
 
@@ -786,8 +897,8 @@ class RootScene extends React.Component {
 
               geometry={{
                 primitive: 'plane',
-                width: 4,
-                height: 6.34,
+                width: 6.3,
+                height: 2.6,
                 mergeTo: '#mergeto-target'
               }}
 
