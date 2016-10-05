@@ -387,6 +387,13 @@ class RootScene extends React.Component {
                 bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
 
             <Entity
+                id="ip-title"
+                position={[-2.56, 8.46, 10]}
+                scale={[1.3, 1.3, 1.3]}
+                rotation={[0, 90, 0]}
+                bmfont-text={{ color: 'white', text: 'Alice\'s Internet Passport'}} />
+
+            <Entity
               className="interactive"
               id="ui-web-browser"
 
