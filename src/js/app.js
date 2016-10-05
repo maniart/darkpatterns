@@ -594,7 +594,7 @@ class RootScene extends React.Component {
             <Entity
               id="browser-wrapper"
               visible={this.state.browserRevealed}
-              position={[0, -1.3, 0]}>
+              position={[0, -0.5, 0]}>
 
             <Entity
               className="interactive"
@@ -678,7 +678,7 @@ class RootScene extends React.Component {
                 src: '#email-trent-open-enc-texture'
               }}
 
-              position={[-1.39, 5.88, 2]}/>
+              position={[-1.39, 4.57, 2]}/>
 
             <Entity
               className="interactive"
