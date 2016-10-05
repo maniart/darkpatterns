@@ -365,7 +365,7 @@ class RootScene extends React.Component {
 
               geometry={{
                 primitive: 'plane',
-                width: 3.3,
+                width: 3.46,
                 height: 1.81
               }}
 
@@ -377,14 +377,14 @@ class RootScene extends React.Component {
                 opacity: 0.7
               }}
 
-              position={[-2.6, 7.91, 8.4]}/>
+              position={[-2.6, 7.9, 8.4]}/>
 
-              <Entity
-                id="clock-display"
-                position={[-2.56, 8.17, 9.06]}
-                scale={[1, 1, 1]}
-                rotation={[0, 90, 0]}
-                bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
+            <Entity
+              id="clock-display"
+              position={[-2.56, 7.20, 9.97]}
+              scale={[1, 1, 1]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
 
             <Entity
                 id="ip-title"
@@ -392,6 +392,34 @@ class RootScene extends React.Component {
                 scale={[1.3, 1.3, 1.3]}
                 rotation={[0, 90, 0]}
                 bmfont-text={{ color: 'white', text: 'Alice\'s Internet Passport'}} />
+
+            <Entity
+              id="ip-location"
+              position={[-2.56, 8.23, 10]}
+              scale={[1, 1, 1]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'white', text: 'Loc.: NY, NY'}} />
+
+              <Entity
+                id="ip-reg"
+                position={[-2.56, 7.99, 10]}
+                scale={[1, 1, 1]}
+                rotation={[0, 90, 0]}
+                bmfont-text={{ color: 'white', text: 'Reg.: Snerizon'}} />
+
+            <Entity
+              id="ip-enc-title"
+              position={[-2.56, 7.65, 10]}
+              scale={[1, 1, 1]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'white', text: 'Encrypted'}} />
+
+          <Entity
+              id="ip-unenc-title"
+              position={[-2.56, 7.65, 8.46]}
+              scale={[1, 1, 1]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: '#ccc', text: 'Unencrypted'}} />
 
             <Entity
               className="interactive"
