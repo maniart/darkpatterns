@@ -33,7 +33,9 @@ export default ({
         hmd-controls=""
         universal-controls=""
         look-controls=""
-
+        ws-gamepad={{
+          endpoint: "ws://192.168.0.14:7878"
+        }}
 
         kinematic-body=""
         {...props}/>
