@@ -40,10 +40,22 @@ AFRAME.registerComponent('ws-gamepad', {
     const self = this;
     this.ws = new WebSocket(host);
     this.ws.onmessage = function({data}) {
-      console.log(JSON.parse(data), self.el);
-      if(data.num === 0 && data.name === 'down') {
-        self.buttons.a = true;
+      //console.log(self.el.emit)
+      let parsedData = JSON.parse(data);
+      // console.log(JSON.parse(data));
+      if (parsedData.name === 'move' && parsedData.value === 1 && parsedData.axis === 1) {
+        console.log('Vetical arrow bk')
+        self.updatePosition(-0.1);
       }
+      if (parsedData.name === 'move' && parsedData.value === -1 && parsedData.axis === 1) {
+        console.log('Vetical arrow fw')
+        self.updatePosition(0.1);
+
+      }
+
+      // if(data.num === 0 && data.name === 'down') {
+      //   self.buttons.a = true;
+      // }
     };
   },
 
@@ -52,19 +64,32 @@ AFRAME.registerComponent('ws-gamepad', {
    * Generally modifies the entity based on the data.
    */
   update: function (oldData) {
-    console.log(this.el);
+    //console.log(this.el);
   },
 
   tick: function(time, delta) {
-    var mesh = this.el.getObject3D('mesh');
-    if (!mesh) { return; }
-    if (mesh.update) { mesh.update(delta / 1000); }
-    this.updatePose();
-    this.updateButtons();
+    //this.updatePosition();
+    //var mesh = this.el.getObject3D('mesh');
+    //if (!mesh) { return; }
+    //if (mesh.update) { mesh.update(delta / 1000); }
+    //this.updatePose();
+    //this.updateButtons();
   },
 
 
+  updatePosition(value) {
+    const el = this.el;
+    const position = el.getComputedAttribute('position');
+    let { x, y, z} = position;
+    console.log(x, y, z);
 
+    el.setAttribute('position', {
+      x: x,
+      y: y,
+      z: z + value
+    });
+
+  },
   updateButtons() {
 
   },
