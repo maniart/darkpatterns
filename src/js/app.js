@@ -277,12 +277,14 @@ class RootScene extends React.Component {
           <Entity
             id="outside"
             position={[0, -0.5, 0]}>
+
             <Platform
               id="earth"
               src="#starry-night-sky-texture"
               width={200}
-              height={1}
-              depth={200} />
+              height={5}
+              depth={200}
+              position={[0, -1.95, 0]} />
 
 
           {/*

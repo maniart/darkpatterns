@@ -8,7 +8,7 @@ export default ({
   src='',
   visible='true',
   repeat=true,
-  shader = 'standard',
+  shader = 'flat',
   color = '#000',
   position=[0, 0, 0]
 }) => (
@@ -16,7 +16,7 @@ export default ({
     static-body=""
 
     visible={visible}
-    
+
     geometry={{
       primitive: 'box',
       width,
