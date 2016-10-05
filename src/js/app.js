@@ -108,6 +108,7 @@ class RootScene extends React.Component {
     this.clock();
     const scene = document.querySelector('a-scene');
     const trentEmailTitle = document.querySelector('#ui-email-trent');
+    const encToggle = document.querySelector('#enc-toggle');
     const self = this;
     if (scene.hasLoaded) {
       this.onSceneReady()
@@ -358,6 +359,36 @@ class RootScene extends React.Component {
               }}
 
               position={[-1.25, 6.43, -4.25]}/>
+
+
+              <Entity
+                className="interactive"
+                id="sms-screen"
+
+                geometry={{
+                  primitive: 'plane',
+                  width: 4.81,
+                  height: 5.46
+                }}
+
+                rotation={[0, 90, 0]}
+
+                material={{
+                  color: '#42f465',
+                  shader: 'flat',
+                  opacity: 0.7
+                }}
+
+                position={[-0.44, 8.9, -1.27]}>
+
+                <Entity
+                  id="sms-trent-1"
+                  position={[0, 0, 0.04]}
+                  scale={[1, 1, 1]}
+                  rotation={[0, , 0]}
+                  bmfont-text={{ color: 'white', text: '>> [Trent] Just sent you an email. '}} />
+
+              </Entity>
 
             <Entity
               className="interactive"
