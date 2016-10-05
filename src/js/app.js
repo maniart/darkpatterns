@@ -115,8 +115,8 @@ class RootScene extends React.Component {
 
   revealUI () {
     // this.initIP(); // kick off IP
-    this.initBrowser(); // kick off Browser
-    // this.initMonitor(); // kick off monitor
+    // this.initBrowser(); // kick off Browser
+    this.initMonitor(); // kick off monitor
     // this.initSMS(); // kick off SMS
   }
 
@@ -125,7 +125,7 @@ class RootScene extends React.Component {
       ipRevealed: true
     });
     this.clockRef = null;
-    // this.initClock();
+    this.initClock();
   }
 
   initBrowser () {
@@ -158,7 +158,7 @@ class RootScene extends React.Component {
     } else {
       scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
-    this.updateMonitorText();
+    
     const cursor = document.querySelector('#cursor');
 
 
