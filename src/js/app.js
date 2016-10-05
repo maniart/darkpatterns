@@ -73,6 +73,7 @@ class RootScene extends React.Component {
     this.setState({
       sceneReady: true
     });
+    $('.a-enter-vr').click();
   }
 
   updateMonitorText () {
@@ -88,7 +89,7 @@ class RootScene extends React.Component {
         monitorTextIndex5: getRandomIndex(),
         monitorTextIndex6: getRandomIndex(),
       });
-    }, 300);
+    }, 1000);
 
   }
 
@@ -114,9 +115,9 @@ class RootScene extends React.Component {
   }
 
   revealUI () {
-    // this.initIP(); // kick off IP
-    // this.initBrowser(); // kick off Browser
-    // this.initMonitor(); // kick off monitor
+    this.initIP(); // kick off IP
+    this.initBrowser(); // kick off Browser
+    this.initMonitor(); // kick off monitor
     this.initSMS(); // kick off SMS
   }
 
@@ -125,7 +126,7 @@ class RootScene extends React.Component {
       ipRevealed: true
     });
     this.clockRef = null;
-    this.initClock();
+    // this.initClock();
   }
 
   initBrowser () {
@@ -138,7 +139,7 @@ class RootScene extends React.Component {
     this.setState({
       monitorRevealed: true
     });
-    this.updateMonitorText();
+    // this.updateMonitorText();
   }
 
   initSMS () {
@@ -149,14 +150,15 @@ class RootScene extends React.Component {
   }
 
   componentDidMount () {
-    const scene = document.querySelector('a-scene');
+    this.scene = document.querySelector('a-scene');
+    console.log('scene b is: ', this.scene.behaviors);
     const trentEmailTitle = document.querySelector('#ui-email-trent');
     //const encToggle = document.querySelector('#enc-toggle');
     const self = this;
-    if (scene.hasLoaded) {
+    if (this.scene.hasLoaded) {
       this.onSceneReady()
     } else {
-      scene.addEventListener('loaded', this.onSceneReady.bind(this))
+      this.scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
 
     const cursor = document.querySelector('#cursor');
@@ -189,7 +191,6 @@ class RootScene extends React.Component {
         <Loader visible={!this.state.sceneReady} />
 
       <Scene
-          stats=""
           physics={{debug:true}}
           keyboard-shortcuts=""
           canvas=""
@@ -337,9 +338,10 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
 
               material={{
-                color: '#ffe400',
+                color: 'rgb(19, 144, 249)',
                 shader: 'flat',
-                opacity: 1
+                opacity: 1,
+                side: 'double'
               }}
 
               position={[-1.25, 6.43, -4.25]}/>
@@ -421,7 +423,7 @@ class RootScene extends React.Component {
                 rotation={[0, 90, 0]}
 
                 material={{
-                  color: '#43c17a',
+                  color: 'rgb(19, 144, 249)',
                   shader: 'flat',
                   opacity: 1
                 }}
@@ -644,7 +646,6 @@ class RootScene extends React.Component {
                 shader: 'flat',
                 opacity: .9,
                 src: '#email-client-texture',
-                mergeTo: '#mergeto-target'
               }}
 
               position={[-1.9, 5.76, 1.63]}/>
