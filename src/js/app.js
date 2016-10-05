@@ -56,12 +56,17 @@ class RootScene extends React.Component {
       elapsedSeconds: 0,
       elapsedMinutes: 0,
 
+      credit: 6873,
+
       smsScreenVisible: false,
       trentSmsOneVisible: false,
       trentSmsTwoVisible: false,
 
       // unravelling the UI
-      
+      browserRevealed: false,
+      ipRevealed: false,
+      smsRevealed: false,
+      monitorRevealed: false
 
     };
   }
@@ -90,7 +95,7 @@ class RootScene extends React.Component {
 
   }
 
-  clock() {
+  initClock() {
     const self = this;
     this.clockRef = window.setInterval(() => {
       this.setState({
@@ -115,12 +120,20 @@ class RootScene extends React.Component {
 
   }
 
+  initIP () {
+    this.setState({
+      ipRevealed: true
+    });
+    this.initClock();
+
+  }
+
   componentDidMount () {
     this.clockRef = null;
-    this.clock();
+    this.initClock();
     const scene = document.querySelector('a-scene');
     const trentEmailTitle = document.querySelector('#ui-email-trent');
-    const encToggle = document.querySelector('#enc-toggle');
+    //const encToggle = document.querySelector('#enc-toggle');
     const self = this;
     if (scene.hasLoaded) {
       this.onSceneReady()
@@ -411,7 +424,7 @@ class RootScene extends React.Component {
               geometry={{
                 primitive: 'plane',
                 width: 3.46,
-                height: 1.81
+                height: 1.29
               }}
 
               rotation={[0, 90, 0]}
@@ -422,14 +435,7 @@ class RootScene extends React.Component {
                 opacity: 0.7
               }}
 
-              position={[-2.6, 7.9, 8.4]}/>
-
-            <Entity
-              id="clock-display"
-              position={[-2.56, 7.20, 9.97]}
-              scale={[1, 1, 1]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
+              position={[-2.60, 8.10, 8.4]}/>
 
             <Entity
                 id="ip-title"
@@ -495,6 +501,50 @@ class RootScene extends React.Component {
                   shader: 'flat'
                 }} />
             </Entity>
+
+            <Entity
+              id="ip-stats"
+              geometry={{
+                primitive: 'plane',
+                width: 3.46,
+                height: 0.85
+              }}
+
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: 'rgb(19, 144, 249)',
+                shader: 'flat',
+                opacity: 0.7
+              }}
+
+              position={[-2.6, 6.98, 8.4]} />
+
+            <Entity
+              id="clock-title"
+              position={[-2.56, 7.2, 9.86]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: '#ccc', text: 'Time online'}} />
+            <Entity
+              id="clock-display"
+              position={[-2.56, 6.77, 9.96]}
+              scale={[2, 2, 2]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
+
+            <Entity
+              id="credit-title"
+              position={[-2.56, 7.2, 7.84]}
+              scale={[0.7, 0.7, 0.7]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: '#ccc', text: 'Browsing Credit'}} />
+            <Entity
+              id="credit-display"
+              position={[-2.56, 6.77, 7.62]}
+              scale={[2, 2, 2]}
+              rotation={[0, 90, 0]}
+              bmfont-text={{ color: 'white', text: this.state.credit}} />
 
             <Entity
               className="interactive"
