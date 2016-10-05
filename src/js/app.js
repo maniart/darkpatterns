@@ -117,20 +117,18 @@ class RootScene extends React.Component {
   }
 
   revealUI () {
-
+    this.initIP(); // kick off IP
   }
 
   initIP () {
     this.setState({
       ipRevealed: true
     });
+    this.clockRef = null;
     this.initClock();
-
   }
 
   componentDidMount () {
-    this.clockRef = null;
-    this.initClock();
     const scene = document.querySelector('a-scene');
     const trentEmailTitle = document.querySelector('#ui-email-trent');
     //const encToggle = document.querySelector('#enc-toggle');
@@ -150,6 +148,11 @@ class RootScene extends React.Component {
         trentSmsOneVisible: true
       });
     }, 5000);
+
+    // KICK OFF UI
+    window.setTimeout(() => {
+      self.revealUI();
+    }, 2000);
 
     // trentEmailTitle.addEventListener('mouseenter', ()=> {
     //   trentEmailTitle.setAttribute('position', '-1.85 6.54 1.63');
@@ -417,6 +420,11 @@ class RootScene extends React.Component {
 
               </Entity>
 
+            {/* BEGIN IP WRAPPER */}
+            <Entity
+              id="ip-wrapper"
+              visible={this.state.ipRevealed}>
+
             <Entity
               className="interactive"
               id="ip"
@@ -545,6 +553,10 @@ class RootScene extends React.Component {
               scale={[2, 2, 2]}
               rotation={[0, 90, 0]}
               bmfont-text={{ color: 'white', text: this.state.credit}} />
+
+            </Entity>
+            {/* END IP WRAPPER */}
+
 
             <Entity
               className="interactive"
