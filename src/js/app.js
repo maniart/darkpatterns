@@ -117,6 +117,7 @@ class RootScene extends React.Component {
 
   revealUI () {
     this.initIP(); // kick off IP
+    this.initBrowser(); // kick off Browser
   }
 
   initIP () {
@@ -128,7 +129,9 @@ class RootScene extends React.Component {
   }
 
   initBrowser () {
-
+    this.setState({
+      browserRevealed: true
+    })
   }
 
   componentDidMount () {
@@ -152,10 +155,10 @@ class RootScene extends React.Component {
       });
     }, 5000);
 
-    // KICK OFF UI
+    // KICK OFF ALL UI
     window.setTimeout(() => {
       self.revealUI();
-    }, 2000);
+    }, 5000);
 
     // trentEmailTitle.addEventListener('mouseenter', ()=> {
     //   trentEmailTitle.setAttribute('position', '-1.85 6.54 1.63');
@@ -562,6 +565,10 @@ class RootScene extends React.Component {
 
             {/* BEGIN BROWSER WRAPPER */}
             <Entity
+              id="browser-wrapper"
+              visible={this.state.browserRevealed}>
+
+            <Entity
               className="interactive"
               id="ui-web-browser"
 
@@ -666,6 +673,8 @@ class RootScene extends React.Component {
 
               position={[-1.39, 5.88, 2]}/>
 
+          </Entity>
+          {/* END BROWSER WRAPPER */}
 
 
             {/* South Wall: in & out */}
