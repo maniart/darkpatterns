@@ -30,7 +30,6 @@ class RootScene extends React.Component {
     super(props);
     this.state =  {
       solved: false,
-      color: '#fff',
       encEmailVisible: false,
       decrypted: false,
       monitorText: [
@@ -126,6 +125,10 @@ class RootScene extends React.Component {
     });
     this.clockRef = null;
     this.initClock();
+  }
+
+  initBrowser () {
+
   }
 
   componentDidMount () {
@@ -557,7 +560,7 @@ class RootScene extends React.Component {
             </Entity>
             {/* END IP WRAPPER */}
 
-
+            {/* BEGIN BROWSER WRAPPER */}
             <Entity
               className="interactive"
               id="ui-web-browser"
@@ -571,7 +574,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
 
               material={{
-                color: this.state.color,
+                color: '#fff',
                 shader: 'flat',
                 opacity: 0.7,
                 src: '#browser-texture'
@@ -592,7 +595,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
 
               material={{
-                color: this.state.color,
+                color: '#fff',
                 shader: 'flat',
                 opacity: .9,
                 src: '#email-client-texture'
@@ -613,7 +616,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
 
               material={{
-                color: this.state.color,
+                color: '#fff',
                 shader: 'flat',
                 opacity: .9,
                 src: '#email-trent-texture'
@@ -634,7 +637,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
               visible={this.state.encEmailVisible && !this.state.decrypted}
               material={{
-                color: this.state.color,
+                color: '#fff',
                 shader: 'flat',
                 opacity: .9,
                 src: '#email-trent-open-enc-texture'
@@ -655,7 +658,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
               visible={this.state.decrypted}
               material={{
-                color: this.state.color,
+                color: '#fff',
                 shader: 'flat',
                 opacity: .9,
                 src: '#email-trent-open-dec-texture'
