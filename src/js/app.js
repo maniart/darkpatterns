@@ -189,6 +189,7 @@ class RootScene extends React.Component {
         <Loader visible={!this.state.sceneReady} />
 
       <Scene
+          stats=""
           physics={{debug:true}}
           keyboard-shortcuts=""
           canvas=""
