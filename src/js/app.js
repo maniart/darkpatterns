@@ -412,14 +412,44 @@ class RootScene extends React.Component {
               position={[-2.56, 7.65, 10]}
               scale={[1, 1, 1]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: 'Encrypted'}} />
+              bmfont-text={{ color: '#ccc', text: 'Encrypted'}} />
 
           <Entity
               id="ip-unenc-title"
-              position={[-2.56, 7.65, 8.46]}
+              position={[-2.56, 7.65, 7.89]}
               scale={[1, 1, 1]}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: '#ccc', text: 'Unencrypted'}} />
+              bmfont-text={{ color: '#fff', text: 'Unencrypted'}} />
+
+            <Entity
+              position={[-2.56, 7.71, 8.5]}
+              rotation={[0, 90, 0]}
+              id="enc-toggle">
+              <Entity
+                id="enc-toggle-bg"
+                position={[0, 0, 0]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 1,
+                  height: 0.2
+                }}
+                material= {{
+                  color: '#fff',
+                  shader: 'flat'
+                }} />
+              <Entity
+                id="enc-toggle-btn"
+                position={[0.4, 0, 0.02]}
+                geometry={{
+                  primitive: 'plane',
+                  width: 0.2,
+                  height: 0.2
+                }}
+                material= {{
+                  color: '#ccc',
+                  shader: 'flat'
+                }} />
+            </Entity>
 
             <Entity
               className="interactive"
