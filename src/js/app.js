@@ -57,7 +57,6 @@ class RootScene extends React.Component {
 
       credit: 6873,
 
-      smsScreenVisible: false,
       trentSmsOneVisible: false,
       trentSmsTwoVisible: false,
 
@@ -89,7 +88,6 @@ class RootScene extends React.Component {
         monitorTextIndex5: getRandomIndex(),
         monitorTextIndex6: getRandomIndex(),
       });
-      // console.log('')
     }, 300);
 
   }
@@ -116,8 +114,10 @@ class RootScene extends React.Component {
   }
 
   revealUI () {
-    this.initIP(); // kick off IP
+    // this.initIP(); // kick off IP
     this.initBrowser(); // kick off Browser
+    // this.initMonitor(); // kick off monitor
+    // this.initSMS(); // kick off SMS
   }
 
   initIP () {
@@ -125,13 +125,27 @@ class RootScene extends React.Component {
       ipRevealed: true
     });
     this.clockRef = null;
-    this.initClock();
+    // this.initClock();
   }
 
   initBrowser () {
     this.setState({
       browserRevealed: true
     })
+  }
+
+  initMonitor () {
+    this.setState({
+      monitorRevealed: true
+    });
+    // this.updateMonitorText();
+  }
+
+  initSMS () {
+    this.setState({
+      smsRevealed: true,
+      trentSmsOneVisible: true
+    });
   }
 
   componentDidMount () {
@@ -147,13 +161,7 @@ class RootScene extends React.Component {
     this.updateMonitorText();
     const cursor = document.querySelector('#cursor');
 
-    // SHOW SMS STUFF
-    const showSMSTimeout = window.setTimeout(()=> {
-      self.setState({
-        smsScreenVisible: true,
-        trentSmsOneVisible: true
-      });
-    }, 5000);
+
 
     // KICK OFF ALL UI
     window.setTimeout(() => {
@@ -307,7 +315,30 @@ class RootScene extends React.Component {
               depth={ 34 }
               position={[0, 22.14, 0]} />
 
-            {/* activity monitor text */}
+            {/* BEGIN activity monitor wrapper */}
+            <Entity
+              id="activity-monitor-wrapper"
+              visible={this.state.monitorRevealed}>
+
+            <Entity
+              className="interactive"
+              id="activity-monitor"
+
+              geometry={{
+                primitive: 'plane',
+                width: 3.3,
+                height: 1.81
+              }}
+
+              rotation={[0, 90, 0]}
+
+              material={{
+                color: '#ffe400',
+                shader: 'flat',
+                opacity: 1
+              }}
+
+              position={[-1.25, 6.43, -4.25]}/>
             <Entity
               id="line-0-monitor"
               position={[-1.2, 7, -3.06]}
@@ -350,7 +381,8 @@ class RootScene extends React.Component {
               scale={[0.7, 0.7, 0.7]}
               rotation={[0, 90, 0]}
               bmfont-text={{ color: 'black', text: this.state.monitorText[this.state.monitorTextIndex6]}} />
-
+          </Entity>
+          {/* END monitor wrappr */}
 
           <Entity
             id="floor"
@@ -366,35 +398,18 @@ class RootScene extends React.Component {
               height: 31
             }} />
 
+          {/* BEGIN SMS WRAPPER */}
             <Entity
-              className="interactive"
-              id="activity-monitor"
-
-              geometry={{
-                primitive: 'plane',
-                width: 3.3,
-                height: 1.81
-              }}
-
-              rotation={[0, 90, 0]}
-
-              material={{
-                color: '#ffe400',
-                shader: 'flat',
-                opacity: 0.7
-              }}
-
-              position={[-1.25, 6.43, -4.25]}/>
-
+              id="sms-wrapper"
+              visible={this.state.smsRevealed}>
 
               <Entity
                 className="interactive"
                 id="sms-screen"
-                visible={this.state.smsScreenVisible}
                 geometry={{
                   primitive: 'plane',
                   width: 4.81,
-                  height: 5.46
+                  height: 3.58
                 }}
 
                 rotation={[0, 90, 0]}
@@ -402,16 +417,23 @@ class RootScene extends React.Component {
                 material={{
                   color: '#43c17a',
                   shader: 'flat',
-                  opacity: 0.7
+                  opacity: 1
                 }}
 
-                position={[-0.44, 7.94, -7.43]}>
+                position={[-0.44, 6.23, -7.43]}>
+
+                <Entity
+                  id="sms-header"
+                  position={[-1.98, 1.35, 0.04]}
+                  scale={[1, 1, 1]}
+                  rotation={[0, 0, 0]}
+                  bmfont-text={{ color: 'white', text: 'SMS with Trent'}} />
 
                 <Entity
                   id="sms-trent-1"
                   visible={this.state.trentSmsOneVisible}
-                  position={[-1.98, 1.94, 0.04]}
-                  scale={[1, 1, 1]}
+                  position={[-1.98, 0.84, 0.04]}
+                  scale={[0.8, 0.8, 0.8]}
                   rotation={[0, 0, 0]}
                   bmfont-text={{ color: 'white', text: '>> [Trent]:  Just sent you an email. '}} />
 
@@ -425,11 +447,14 @@ class RootScene extends React.Component {
 
 
               </Entity>
+            </Entity>
+            {/* END SMS WRAPPER */}
 
             {/* BEGIN IP WRAPPER */}
             <Entity
               id="ip-wrapper"
-              visible={this.state.ipRevealed}>
+              visible={this.state.ipRevealed}
+              position={[0, -1.29, 0]}>
 
             <Entity
               className="interactive"
@@ -446,7 +471,7 @@ class RootScene extends React.Component {
               material={{
                 color: 'rgb(19, 144, 249)',
                 shader: 'flat',
-                opacity: 0.7
+                opacity: 1
               }}
 
               position={[-2.60, 8.10, 8.4]}/>
@@ -529,7 +554,7 @@ class RootScene extends React.Component {
               material={{
                 color: 'rgb(19, 144, 249)',
                 shader: 'flat',
-                opacity: 0.7
+                opacity: 1
               }}
 
               position={[-2.6, 6.98, 8.4]} />
@@ -566,7 +591,8 @@ class RootScene extends React.Component {
             {/* BEGIN BROWSER WRAPPER */}
             <Entity
               id="browser-wrapper"
-              visible={this.state.browserRevealed}>
+              visible={this.state.browserRevealed}
+              position={[0, -1.3, 0]}>
 
             <Entity
               className="interactive"
@@ -583,7 +609,7 @@ class RootScene extends React.Component {
               material={{
                 color: '#fff',
                 shader: 'flat',
-                opacity: 0.7,
+                opacity: 1,
                 src: '#browser-texture'
               }}
 
