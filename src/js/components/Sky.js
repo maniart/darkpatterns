@@ -10,6 +10,8 @@ export default ({
     geometry={{
       primitive: 'sphere',
       radius: 100,
+      segmentsWidth: 2,
+      segmentsHeight: 4
 
     }}
 
