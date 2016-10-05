@@ -84,7 +84,7 @@ class RootScene extends React.Component {
 
   clock() {
     const self = this;
-    window.setInterval(() => {
+    this.clockRef = window.setInterval(() => {
       this.setState({
         elapsedSeconds: (this.state.elapsedSeconds + 1)
       });
@@ -94,14 +94,17 @@ class RootScene extends React.Component {
           elapsedSeconds: 0
         });
       }
-      console.log(this.state.elapsedSeconds);
-      console.log(this.state.elapsedMinutes);
+      if (this.state.elapsedMinutes === 3) {
+        window.clearInterval(self.clockRef);
+        alert('times up');
+        return;
+      }
+    }, 1000);
 
-
-    }, 10);
   }
 
   componentDidMount () {
+    this.clockRef = null;
     this.clock();
     const scene = document.querySelector('a-scene');
     const trentEmailTitle = document.querySelector('#ui-email-trent');
@@ -375,6 +378,13 @@ class RootScene extends React.Component {
               }}
 
               position={[-2.6, 7.91, 8.4]}/>
+
+              <Entity
+                id="clock-display"
+                position={[-2.56, 8.17, 9.06]}
+                scale={[1, 1, 1]}
+                rotation={[0, 90, 0]}
+                bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
 
             <Entity
               className="interactive"
