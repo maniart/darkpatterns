@@ -54,7 +54,11 @@ class RootScene extends React.Component {
       monitorTextIndex6: 1,
 
       elapsedSeconds: 0,
-      elapsedMinutes: 0
+      elapsedMinutes: 0,
+
+      smsScreenVisible: false,
+      trentSmsOneVisible: false,
+      trentSmsTwoVisible: false
 
     };
   }
@@ -67,15 +71,16 @@ class RootScene extends React.Component {
 
   updateMonitorText () {
     const self = this;
+    const getRandomIndex = () => Math.floor(Math.random() * (self.state.monitorText.length - 1));
     window.setInterval(() => {
       self.setState({
-        monitorTextIndex0: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
-        monitorTextIndex1: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
-        monitorTextIndex2: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
-        monitorTextIndex3: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
-        monitorTextIndex4: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
-        monitorTextIndex5: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
-        monitorTextIndex6: Math.floor(Math.random() * (self.state.monitorText.length - 1)),
+        monitorTextIndex0: getRandomIndex(),
+        monitorTextIndex1: getRandomIndex(),
+        monitorTextIndex2: getRandomIndex(),
+        monitorTextIndex3: getRandomIndex(),
+        monitorTextIndex4: getRandomIndex(),
+        monitorTextIndex5: getRandomIndex(),
+        monitorTextIndex6: getRandomIndex(),
       });
       // console.log('')
     }, 300);
@@ -117,6 +122,14 @@ class RootScene extends React.Component {
     }
     this.updateMonitorText();
     const cursor = document.querySelector('#cursor');
+
+    // SHOW SMS STUFF
+    const showSMSTimeout = window.setTimeout(()=> {
+      self.setState({
+        smsScreenVisible: true,
+        trentSmsOneVisible: true
+      });
+    }, 5000);
 
     // trentEmailTitle.addEventListener('mouseenter', ()=> {
     //   trentEmailTitle.setAttribute('position', '-1.85 6.54 1.63');
@@ -364,7 +377,7 @@ class RootScene extends React.Component {
               <Entity
                 className="interactive"
                 id="sms-screen"
-
+                visible={this.state.smsScreenVisible}
                 geometry={{
                   primitive: 'plane',
                   width: 4.81,
@@ -374,19 +387,29 @@ class RootScene extends React.Component {
                 rotation={[0, 90, 0]}
 
                 material={{
-                  color: '#42f465',
+                  color: '#43c17a',
                   shader: 'flat',
                   opacity: 0.7
                 }}
 
-                position={[-0.44, 8.9, -1.27]}>
+                position={[-0.44, 7.94, -7.43]}>
 
                 <Entity
                   id="sms-trent-1"
-                  position={[0, 0, 0.04]}
+                  visible={this.state.trentSmsOneVisible}
+                  position={[-1.98, 1.94, 0.04]}
                   scale={[1, 1, 1]}
-                  rotation={[0, , 0]}
-                  bmfont-text={{ color: 'white', text: '>> [Trent] Just sent you an email. '}} />
+                  rotation={[0, 0, 0]}
+                  bmfont-text={{ color: 'white', text: '>> [Trent]:  Just sent you an email. '}} />
+
+                <Entity
+                  id="sms-trent-2"
+                  visible={this.state.trentSmsTwoVisible}
+                  position={[-1.98, 2.2, 0.04]}
+                  scale={[1, 1, 1]}
+                  rotation={[0, 0, 0]}
+                  bmfont-text={{ color: 'white', text: '>> [Trent]:  ??? '}} />
+
 
               </Entity>
 
