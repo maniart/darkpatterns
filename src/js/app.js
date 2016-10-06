@@ -182,66 +182,66 @@ class RootScene extends React.Component {
     const agreeBtn = document.querySelector('#agree-button');
     const notif = document.querySelector('#notif-wrapper');
 
-    notif.addEventListener('click', () =>  {
-      self.setState({
-        notifActive: false
-      });
-      self.revealUI();
-    });
-
-    dlBtn.addEventListener('click', () => {
-      console.log('Download btn clicked');
-      this.setState({
-        docDownloaded: true
-      });
-    });
-
-    denyBtn.addEventListener('click', () =>  {
-      self.setState({
-        showCreditWarning: false
-      });
-    });
-
-    agreeBtn.addEventListener('click', () =>  {
-      self.setState({
-        credit: this.state.credit + 1000,
-        showCreditWarning: false
-      });
-    });
-
-    decryptBtn.addEventListener('click', () => {
-      if(self.state.credit < 7000) {
+    notif.addEventListener('mouseenter', () =>  {
+      cursor.addEventListener('click', () => {
         self.setState({
-          showCreditWarning: true
+          notifActive: false
         });
-      } else {
-
-        self.setState({
-          decrypted: true,
-          credit: this.state.credit - 7000
-        })
-      }
-
-    });
-
-    // KICK OFF ALL UI
-    // window.setTimeout(() => {
-    //
-    //   self.revealUI();
-    // }, 5000);
-
-    // trentEmailTitle.addEventListener('mouseenter', ()=> {
-    //   trentEmailTitle.setAttribute('position', '-1.85 6.54 1.63');
-    // });
-    //
-    // trentEmailTitle.addEventListener('mouseleave', ()=> {
-    //   trentEmailTitle.setAttribute('position', '-1.6 6.54 1.63');
-    // });
-    trentEmailTitle.addEventListener('click', ()=> {
-      self.setState({
-        encEmailVisible: true
+        self.revealUI();
       });
     });
+
+    dlBtn.addEventListener('mouseenter', () => {
+      cursor.addEventListener('click', () => {
+        console.log('Download btn clicked');
+        this.setState({
+          docDownloaded: true
+        });
+      });
+    });
+
+    denyBtn.addEventListener('mouseenter', () => {
+      cursor.addEventListener('click', () =>  {
+        self.setState({
+          showCreditWarning: false
+        });
+      });
+    });
+
+    agreeBtn.addEventListener('mouseenter', () => {
+      cursor.addEventListener('click', () =>  {
+        self.setState({
+          credit: this.state.credit + 1000,
+          showCreditWarning: false
+        });
+      });
+    });
+
+    decryptBtn.addEventListener('mouseenter', () => {
+      cursor.addEventListener('click', () => {
+        if(self.state.credit < 7000) {
+          self.setState({
+            showCreditWarning: true
+          });
+        } else {
+
+          self.setState({
+            decrypted: true,
+            credit: this.state.credit - 7000
+          })
+        }
+
+      });
+    });
+
+    trentEmailTitle.addEventListener('mouseenter', () => {
+      cursor.addEventListener('click', ()=> {
+        self.setState({
+          encEmailVisible: true
+        });
+      });
+    });
+
   }
   render () {
     return (
@@ -1481,7 +1481,7 @@ class RootScene extends React.Component {
             userHeight={5}
             velocity={[0, -83.08, 10]}>
 
-            <Cursor fuse={true} fuseTimeout={1000} />
+            <Cursor fuse={false} />
           </Camera>
 
 

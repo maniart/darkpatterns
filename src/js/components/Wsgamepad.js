@@ -35,6 +35,7 @@ AFRAME.registerComponent('ws-gamepad', {
    */
   init: function () {
     // state
+    this.cursor = document.querySelector('a-entity[cursor]');
     this.forward = false;
     this.backward = false;
     this.left = false;
@@ -70,8 +71,22 @@ AFRAME.registerComponent('ws-gamepad', {
     this.socket = io.connect(host, {reconnect: true});
     this.socket.on('connect', () => {
       console.log('gamepad connected to socket.io server');
+      self.socket.on('down', ({id, num, name}) => {
+        console.log(id, num, name);
+        if(num === 0 && name === 'down') {
+          console.log(this.cursor);
+          self.cursor.emit('click');
+        }
+        if(num === 1 && name === 'down') {
+
+        }
+      });
+
+      // self.socket.on('up', ({id, num, name}) => {
+      //     console.log(id, num, name);
+      // });
+
       self.socket.on('move', ({id, axis, value, name}) => {
-        // forward - backward movement
         if (axis === 1) {
           if (value === 1) {
             self.backward = true;
