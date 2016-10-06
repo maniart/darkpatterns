@@ -68,7 +68,7 @@ AFRAME.registerComponent('ws-gamepad', {
           }
         // left - right movement
         } else if(axis === 0) {
-          if (value === 1) {
+          if (value === -1) {
             self.right = true;
           } else if(value === -1) {
             self.left = true;
