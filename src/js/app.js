@@ -30,6 +30,7 @@ class RootScene extends React.Component {
     super(props);
     this.state =  {
       solved: false,
+      showEveSms:true,
       notifActive: true,
       showCreditWarning: false,
       encEmailVisible: false,
@@ -304,6 +305,9 @@ class RootScene extends React.Component {
                 <img id="ticker"
                   src="../assets/ui/ticker.gif" />
 
+                <img id="eve"
+                  src="../assets/ui/eve.png" />
+
 
 
 
@@ -496,6 +500,23 @@ class RootScene extends React.Component {
               </Entity>
             </Entity>
             {/* END SMS WRAPPER */}
+
+            <Entity
+              id="sms-eve"
+              visible={this.state.showEveSms}
+              position={[-0.94, 6.49, 5.85]}
+              material={{
+                shader: 'flat',
+                src: '#eve'
+              }}
+              rotation={[0, -90, 0]}
+
+              geometry={{
+                primitive: 'plane',
+                width: 4.6,
+                height: 2.55,
+                mergeTo: '#mergeto-target'
+              }} />
 
             {/* BEGIN IP WRAPPER */}
             <Entity
