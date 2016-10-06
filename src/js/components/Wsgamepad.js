@@ -52,10 +52,10 @@ AFRAME.registerComponent('ws-gamepad', {
     const host = this.data.endpoint;
     const self = this;
 
-    this.socket = var socket = io.connect(host, {reconnect: true});
+    this.socket = io.connect(host, {reconnect: true});
     this.socket.on('connect', () => {
       console.log('gamepad connected to socket.io server');
-      socket.on('move', ({id, axis, value, name}) => {
+      self.socket.on('move', ({id, axis, value, name}) => {
         // forward - backward movement
         if (axis === 1) {
           if (value === 1) {

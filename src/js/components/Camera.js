@@ -29,7 +29,7 @@ export default ({
         }}
         rotation={rotation}
         ws-gamepad={{
-          endpoint: "http://127.0.0.1:2323"
+          endpoint: "http://darkpatterns.io:2323/"
         }}
         look-controls=""
         universal-controls=""
