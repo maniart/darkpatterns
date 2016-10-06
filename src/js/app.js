@@ -119,7 +119,7 @@ class RootScene extends React.Component {
     this.initIP(); // kick off IP
     this.initBrowser(); // kick off Browser
     //this.initMonitor(); // kick off monitor
-    //this.initSMS(); // kick off SMS
+    this.initSMS(); // kick off SMS
   }
 
   initIP () {
@@ -325,6 +325,9 @@ class RootScene extends React.Component {
               <img id="passport-bottom"
                 src="../assets/ui/passport-bottom.png" />
 
+              <img id="sms-w-trent-title"
+                src="../assets/ui/sms-w-trent-title.png" />
+
 
 
 
@@ -523,10 +526,20 @@ class RootScene extends React.Component {
 
                 <Entity
                   id="sms-header"
-                  position={[-1.98, 1.35, 0.04]}
-                  scale={[1, 1, 1]}
-                  rotation={[0, 0, 0]}
-                  bmfont-text={{ color: 'white', text: 'SMS with Trent'}} />
+                  position={[0.07, 1.35, 0.04]}
+                  material={{
+                    shader: 'flat',
+                    src: '#sms-w-trent-title'
+                  }}
+
+                  geometry={{
+                    primitive: 'plane',
+                    width: 4.6,
+                    height: 0.57,
+                    mergeTo: '#mergeto-target'
+                  }} />
+
+
 
                 <Entity
                   id="sms-trent-1"
@@ -606,7 +619,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
               bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
 
-          
+
             <Entity
               id="credit-display"
               position={[-2.56, 6.77, 7.62]}
