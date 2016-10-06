@@ -74,9 +74,9 @@ class RootScene extends React.Component {
           elapsedSeconds: 0
         });
       }
-      if (this.state.elapsedMinutes === 3) {
+      if (this.state.elapsedMinutes === 1) {
         window.clearInterval(self.clockRef);
-        // alert('times up');
+        self.resetGame();
         return;
       }
     }, 1000);
@@ -88,6 +88,11 @@ class RootScene extends React.Component {
     this.initBrowser(); // kick off Browser
     this.initMonitor(); // kick off monitor
     this.initSMS(); // kick off SMS
+  }
+  resetGame() {
+    this.setState({
+      showEveSms: true
+    })
   }
 
   initIP () {
@@ -164,15 +169,17 @@ class RootScene extends React.Component {
 
     decryptBtn.addEventListener('click', () => {
       if(self.state.credit < 7000) {
-
+        console.log('not enough credit')
         self.setState({
           showCreditWarning: true
         });
       } else {
+
         self.setState({
           decrypted: true,
-          credit: credit - 7000
+          credit: this.state.credit - 7000
         })
+        console.log('woohoo')
       }
 
     });
@@ -194,7 +201,6 @@ class RootScene extends React.Component {
       self.setState({
         encEmailVisible: true
       });
-      console.log('open the enc email');
     });
   }
   render () {
@@ -816,7 +822,7 @@ class RootScene extends React.Component {
               }}
 
               rotation={[0, 90, 0]}
-              visible={true}
+              visible={this.state.decrypted}
               material={{
                 color: '#fff',
                 shader: 'flat',
@@ -838,7 +844,7 @@ class RootScene extends React.Component {
                 }}
 
                 rotation={[0, 90, 0]}
-                visible={true}
+                visible={this.state.decrypted}
                 material={{
                   color: '#fff',
                   shader: 'flat',
@@ -847,9 +853,9 @@ class RootScene extends React.Component {
                 }}
 
                 position={[-0.75, 5.02, 2]}/>
-
+              {/*
                 <Entity
-                  visible={this.state.docDownloaded}
+                  visible={this.state.decrypted && this.state.docDownloaded}
                   className="interactive"
                   id="ui-dl-complete"
 
@@ -869,7 +875,7 @@ class RootScene extends React.Component {
                     src: '#dl-complete'
                   }}
 
-                  position={[-0.64, 5.1, 1.94]}/>
+                  position={[-0.64, 5.1, 1.94]}/> */}
 
           </Entity>
           {/* END BROWSER WRAPPER */}
