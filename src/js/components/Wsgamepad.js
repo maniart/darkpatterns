@@ -1,5 +1,6 @@
 import {Entity} from 'aframe-react';
 import React    from 'react';
+var io = require('socket.io-client');
 
 const THREE = window.THREE;
 /* global AFRAME */
@@ -16,7 +17,7 @@ AFRAME.registerComponent('ws-gamepad', {
   schema: {
     endpoint: {
       type: 'string',
-      default: 'ws://127.0.0.1:7878'
+      default: 'http://127.0.0.1:2323'
     }
   },
 
@@ -50,34 +51,35 @@ AFRAME.registerComponent('ws-gamepad', {
     // this.axisState = [];
     const host = this.data.endpoint;
     const self = this;
-    this.ws = new WebSocket(host);
-    this.ws.onmessage = function({data}) {
-      //console.log(self.el.emit)
-      let parsedData = JSON.parse(data);
-      // console.log(JSON.parse(data));
 
-      // forward - backward movement
-      if (parsedData.axis === 1) {
-        if (parsedData.value === 1) {
-          self.backward = true;
-        } else if (parsedData.value === -1) {
-          self.forward = true;
-        } else {
-          self.forward = false;
-          self.backward = false;
+    this.socket = var socket = io.connect(host, {reconnect: true});
+    this.socket.on('connect', () => {
+      console.log('gamepad connected to socket.io server');
+      socket.on('move', ({id, axis, value, name}) => {
+        // forward - backward movement
+        if (axis === 1) {
+          if (value === 1) {
+            self.backward = true;
+          } else if (value === -1) {
+            self.forward = true;
+          } else {
+            self.forward = false;
+            self.backward = false;
+          }
+        // left - right movement
+        } else if(axis === 0) {
+          if (value === 1) {
+            self.right = true;
+          } else if(value === -1) {
+            self.left = true;
+          } else {
+            self.right = false;
+            self.left = false;
+          }
         }
-      // left - right movement
-      } else if(parsedData.axis === 0) {
-        if (parsedData.value === 1) {
-          self.right = true;
-        } else if(parsedData.value === -1) {
-          self.left = true;
-        } else {
-          self.right = false;
-          self.left = false;
-        }
-      }
-    };
+      });
+    });
+
   },
 
   /**
