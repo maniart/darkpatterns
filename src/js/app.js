@@ -849,7 +849,7 @@ class RootScene extends React.Component {
                 position={[-0.75, 5.02, 2]}/>
 
                 <Entity
-                  visible={true}
+                  visible={this.state.docDownloaded}
                   className="interactive"
                   id="ui-dl-complete"
 
@@ -869,7 +869,7 @@ class RootScene extends React.Component {
                     src: '#dl-complete'
                   }}
 
-                  position={[-0.76, 5.1, 1.94]}/>
+                  position={[-0.64, 5.1, 1.94]}/>
 
           </Entity>
           {/* END BROWSER WRAPPER */}
