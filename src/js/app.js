@@ -94,12 +94,16 @@ class RootScene extends React.Component {
     this.initSMS(); // kick off SMS
   }
   resetGame() {
+    const self = this;
     this.setState({
       showEveSms: true
     });
     let gameResetTimer = window.setTimeout(() => {
 
-      this.setState({
+      self.setState({
+        initialCamRotation: [20, 4, 0],
+        initialCamPosition: [10.85, 5, 21.5],
+
         docDownloaded: false,
         solved: false,
         showEveSms:false,
@@ -124,10 +128,11 @@ class RootScene extends React.Component {
         monitorRevealed: false
       });
 
+      window.clearTimeout(gameResetTimer);
+
     }, 5000);
 
 
-    gameResetTimer = null;
 
   }
 
