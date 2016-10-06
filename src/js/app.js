@@ -62,9 +62,14 @@ class RootScene extends React.Component {
   }
 
   onSceneReady () {
+    const self = this;
     this.setState({
       sceneReady: true
     });
+    window.setTimeout(() => {
+      self.scene.enterVR();
+    },1);
+
   }
 
 
@@ -83,7 +88,7 @@ class RootScene extends React.Component {
       if (this.state.elapsedMinutes === 5) {
         window.clearInterval(self.clockRef);
         self.clockRef = null;
-        self.resetGame();
+        // self.resetGame();
         return;
       }
     }, 10000);
@@ -101,39 +106,10 @@ class RootScene extends React.Component {
     this.setState({
       showEveSms: true
     });
-    let gameResetTimer = window.setTimeout(() => {
 
-      self.setState({
-        initialCamRotation: [20, 4, 0],
-        initialCamPosition: [10.85, 5, 21.5],
-
-        docDownloaded: false,
-        solved: false,
-        showEveSms:false,
-        notifActive: true,
-        showCreditWarning: false,
-        encEmailVisible: false,
-        decrypted: false,
-
-
-        elapsedSeconds: 0,
-        elapsedMinutes: 0,
-
-        credit: 6873,
-
-        trentSmsOneVisible: false,
-        trentSmsTwoVisible: false,
-
-        // unravelling the UI
-        browserRevealed: false,
-        ipRevealed: false,
-        smsRevealed: false,
-        monitorRevealed: false
-      });
-
-      window.clearTimeout(gameResetTimer);
-
-    }, 5000);
+    window.setTimeout(() => {
+      window.location.reload();
+    }, 10000);
 
 
 
@@ -144,7 +120,7 @@ class RootScene extends React.Component {
       ipRevealed: true
     });
     this.clockRef = null;
-    this.initClock();
+    //this.initClock();
   }
 
   initBrowser () {
@@ -202,11 +178,15 @@ class RootScene extends React.Component {
     });
 
     dlBtn.addEventListener('mouseenter', () => {
+      const self = this;
       cursor.addEventListener('click', () => {
         console.log('Download btn clicked');
         this.setState({
           docDownloaded: true
         });
+        window.setTimeout(() => {
+          self.resetGame();
+        }, 10000)
       });
     });
 
@@ -238,7 +218,7 @@ class RootScene extends React.Component {
           self.setState({
             decrypted: true,
             credit: this.state.credit - 7000
-          })
+          });
         }
 
       });
@@ -251,6 +231,7 @@ class RootScene extends React.Component {
         });
       });
     });
+
 
   }
   render () {
