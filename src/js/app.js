@@ -29,6 +29,7 @@ class RootScene extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {
+      docDownloaded: false,
       solved: false,
       showEveSms:true,
       notifActive: true,
@@ -129,7 +130,7 @@ class RootScene extends React.Component {
     }
 
     const cursor = document.querySelector('#cursor');
-
+    const dlBtn = document.querySelector('#ui-dl-btn');
     const decryptBtn = document.querySelector('#decrypt-button')
     const denyBtn = document.querySelector('#deny-button');
     const agreeBtn = document.querySelector('#agree-button');
@@ -140,6 +141,12 @@ class RootScene extends React.Component {
         notifActive: false
       });
       self.revealUI();
+    });
+
+    dlBtn.addEventListener('click', () => {
+      this.setState({
+        docDownloaded: true
+      });
     });
 
     denyBtn.addEventListener('click', () =>  {
@@ -311,6 +318,8 @@ class RootScene extends React.Component {
 
                 <img id="dl"
                     src="../assets/ui/dl.png" />
+                <img id="dl-complete"
+                  src="../assets/ui/dl-complete.png" />
 
 
 
@@ -838,6 +847,29 @@ class RootScene extends React.Component {
                 }}
 
                 position={[-0.75, 5.02, 2]}/>
+
+                <Entity
+                  visible={true}
+                  className="interactive"
+                  id="ui-dl-complete"
+
+                  geometry={{
+                    primitive: 'plane',
+                    width: 1.6,
+                    height: 0.4,
+                    mergeTo: '#mergeto-target'
+                  }}
+
+                  rotation={[0, 90, 0]}
+                  visible={true}
+                  material={{
+                    color: '#fff',
+                    shader: 'flat',
+                    opacity: .9,
+                    src: '#dl-complete'
+                  }}
+
+                  position={[-0.76, 5.1, 1.94]}/>
 
           </Entity>
           {/* END BROWSER WRAPPER */}
