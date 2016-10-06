@@ -29,6 +29,10 @@ class RootScene extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {
+
+      initialCamRotation: [20, 4, 0],
+      initialCamPosition: [10.85, 5, 21.5],
+
       docDownloaded: false,
       solved: false,
       showEveSms:false,
@@ -93,6 +97,38 @@ class RootScene extends React.Component {
     this.setState({
       showEveSms: true
     });
+    let gameResetTimer = window.setTimeout(() => {
+
+      this.setState({
+        docDownloaded: false,
+        solved: false,
+        showEveSms:false,
+        notifActive: true,
+        showCreditWarning: false,
+        encEmailVisible: false,
+        decrypted: false,
+
+
+        elapsedSeconds: 0,
+        elapsedMinutes: 0,
+
+        credit: 6873,
+
+        trentSmsOneVisible: false,
+        trentSmsTwoVisible: false,
+
+        // unravelling the UI
+        browserRevealed: false,
+        ipRevealed: false,
+        smsRevealed: false,
+        monitorRevealed: false
+      });
+
+    }, 5000);
+
+
+    gameResetTimer = null;
+
   }
 
   initIP () {
@@ -209,7 +245,6 @@ class RootScene extends React.Component {
         <Loader visible={!this.state.sceneReady} />
 
       <Scene
-          stats
           physics={{debug:false}}
           keyboard-shortcuts=""
           canvas=""
@@ -1436,8 +1471,8 @@ class RootScene extends React.Component {
           <Camera
             id="camera-kinetic"
             active={true}
-            rotation={[0, -80, 0]}
-            position={[-9.45, 5, 12.55]}
+            rotation={this.state.initialCamRotation}
+            position={this.state.initialCamPosition}
             userHeight={5}
             velocity={[0, -83.08, 10]}>
 
@@ -1456,15 +1491,6 @@ class RootScene extends React.Component {
             position={[-7.9, 19.3, 0]}
             angle={60} />
 
-          { /*
-          <Light
-            id="window-right"
-            type="point"
-            decay={0}
-            distance={0}
-            intensity={0.3}
-            position={[-18.48, 9.52, -4.59]}
-            angle={60} /> */}
 
           <Light
             id="light-moon"

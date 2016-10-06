@@ -7,7 +7,7 @@ export default ({
   id="camera",
   active="false",
   userHeight="4.8",
-  rotation=[0, 0, 0],
+  rotation=[0, 5, 0],
   far="10000",
   looksControlsEnabeld="true",
   fov="80",
@@ -16,7 +16,7 @@ export default ({
   ...props
 }) => (
 
-    <Entity position={[0, 5, 0]} static-body="">
+    <Entity position={position} static-body="">
       <Entity
         id={id}
         active={active}
