@@ -149,6 +149,7 @@ class RootScene extends React.Component {
     });
 
     dlBtn.addEventListener('click', () => {
+      console.log('Download btn clicked');
       this.setState({
         docDownloaded: true
       });
@@ -169,7 +170,6 @@ class RootScene extends React.Component {
 
     decryptBtn.addEventListener('click', () => {
       if(self.state.credit < 7000) {
-        console.log('not enough credit')
         self.setState({
           showCreditWarning: true
         });
@@ -179,7 +179,6 @@ class RootScene extends React.Component {
           decrypted: true,
           credit: this.state.credit - 7000
         })
-        console.log('woohoo')
       }
 
     });
@@ -523,12 +522,12 @@ class RootScene extends React.Component {
             <Entity
               id="sms-eve"
               visible={this.state.showEveSms}
-              position={[-0.94, 6.49, 5.85]}
+              position={[0.34, 6.74, -0.51]}
               material={{
                 shader: 'flat',
                 src: '#eve'
               }}
-              rotation={[0, -90, 0]}
+              rotation={[0, 90, 0]}
 
               geometry={{
                 primitive: 'plane',
@@ -853,9 +852,9 @@ class RootScene extends React.Component {
                 }}
 
                 position={[-0.75, 5.02, 2]}/>
-              {/*
+
                 <Entity
-                  visible={this.state.decrypted && this.state.docDownloaded}
+                  visible={this.state.docDownloaded}
                   className="interactive"
                   id="ui-dl-complete"
 
@@ -867,7 +866,6 @@ class RootScene extends React.Component {
                   }}
 
                   rotation={[0, 90, 0]}
-                  visible={true}
                   material={{
                     color: '#fff',
                     shader: 'flat',
@@ -875,7 +873,7 @@ class RootScene extends React.Component {
                     src: '#dl-complete'
                   }}
 
-                  position={[-0.64, 5.1, 1.94]}/> */}
+                  position={[-0.64, 5.1, 1.94]}/>
 
           </Entity>
           {/* END BROWSER WRAPPER */}
