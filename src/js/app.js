@@ -78,12 +78,13 @@ class RootScene extends React.Component {
           elapsedSeconds: 0
         });
       }
-      if (this.state.elapsedMinutes === 1) {
+      if (this.state.elapsedMinutes === 5) {
         window.clearInterval(self.clockRef);
+        self.clockRef = null;
         self.resetGame();
         return;
       }
-    }, 1000);
+    }, 3000);
 
   }
 
@@ -377,22 +378,13 @@ class RootScene extends React.Component {
 
             <Platform
               id="earth"
-              src="#starry-night-sky-texture"
-              width={200}
+              color="#000"
+              width={400}
               height={5}
-              depth={200}
+              depth={400}
               position={[0, -1.95, 0]} />
 
 
-          {/*
-            <Light
-              id="key-light"
-              type="point"
-              decay={0}
-              distance={0}
-              intensity={0.8}
-              position={[0, 38.5, 73.95]}
-              angle={60} />*/}
 
           </Entity>
 
@@ -470,7 +462,7 @@ class RootScene extends React.Component {
             id="floor mergeto-target"
             material={{
               shader: 'standard',
-              color: '#fff'
+              color: '#ccc'
             }}
             rotation={[-90, 0, -90]}
             position={[0, 0.06, 0]}
@@ -648,7 +640,7 @@ class RootScene extends React.Component {
             <Entity
               id="browser-wrapper"
               visible={this.state.browserRevealed}
-              position={[0, -0.5, 0]}>
+              position={[0, 1.39, 0]}>
 
             <Entity
               className="interactive"

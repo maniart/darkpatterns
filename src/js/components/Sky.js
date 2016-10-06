@@ -9,7 +9,7 @@ export default ({
   <Entity
     geometry={{
       primitive: 'sphere',
-      radius: 100,
+      radius: 150,
       segmentsWidth: 2,
       segmentsHeight: 4
 
