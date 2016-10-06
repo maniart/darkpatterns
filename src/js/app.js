@@ -116,7 +116,7 @@ class RootScene extends React.Component {
   }
 
   revealUI () {
-    //this.initIP(); // kick off IP
+    this.initIP(); // kick off IP
     this.initBrowser(); // kick off Browser
     //this.initMonitor(); // kick off monitor
     //this.initSMS(); // kick off SMS
@@ -318,6 +318,12 @@ class RootScene extends React.Component {
                 src="../assets/ui/agree-btn.png" />
               <img id="privacy-deny"
                 src="../assets/ui/deny-btn.png" />
+
+
+              <img id="passport-top"
+                src="../assets/ui/passport-top.png" />
+              <img id="passport-bottom"
+                src="../assets/ui/passport-bottom.png" />
 
 
 
@@ -563,79 +569,15 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
 
               material={{
-                color: 'rgb(19, 144, 249)',
+
                 shader: 'flat',
-                opacity: 1
+                opacity: 1,
+                src: '#passport-top'
               }}
 
               position={[-2.60, 8.10, 8.4]}/>
 
-            <Entity
-                id="ip-title"
-                position={[-2.56, 8.46, 10]}
-                scale={[1.3, 1.3, 1.3]}
-                rotation={[0, 90, 0]}
-                bmfont-text={{ color: 'white', text: 'Alice\'s Internet Passport'}} />
 
-            <Entity
-              id="ip-location"
-              position={[-2.56, 8.23, 10]}
-              scale={[1, 1, 1]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: 'Loc.: NY, NY'}} />
-
-              <Entity
-                id="ip-reg"
-                position={[-2.56, 7.99, 10]}
-                scale={[1, 1, 1]}
-                rotation={[0, 90, 0]}
-                bmfont-text={{ color: 'white', text: 'Reg.: Snerizon'}} />
-
-            <Entity
-              id="ip-enc-title"
-              position={[-2.56, 7.65, 10]}
-              scale={[1, 1, 1]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: '#ccc', text: 'Encrypted'}} />
-
-          <Entity
-              id="ip-unenc-title"
-              position={[-2.56, 7.65, 7.89]}
-              scale={[1, 1, 1]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: '#fff', text: 'Unencrypted'}} />
-
-            <Entity
-              position={[-2.56, 7.71, 8.5]}
-              rotation={[0, 90, 0]}
-              id="enc-toggle">
-              <Entity
-                id="enc-toggle-bg"
-                position={[0, 0, 0]}
-                geometry={{
-                  primitive: 'plane',
-                  width: 1,
-                  height: 0.2,
-                  mergeTo: '#mergeto-target'
-                }}
-                material= {{
-                  color: '#fff',
-                  shader: 'flat'
-                }} />
-              <Entity
-                id="enc-toggle-btn"
-                position={[0.4, 0, 0.02]}
-                geometry={{
-                  primitive: 'plane',
-                  width: 0.2,
-                  height: 0.2,
-                  mergeTo: '#mergeto-target'
-                }}
-                material= {{
-                  color: '#ccc',
-                  shader: 'flat'
-                }} />
-            </Entity>
 
             <Entity
               id="ip-stats"
@@ -649,19 +591,14 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
 
               material={{
-                color: 'rgb(19, 144, 249)',
                 shader: 'flat',
-                opacity: 1
+                opacity: 1,
+                src: '#passport-bottom'
               }}
 
               position={[-2.6, 6.98, 8.4]} />
 
-            <Entity
-              id="clock-title"
-              position={[-2.56, 7.2, 9.86]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: '#ccc', text: 'Time online'}} />
+
             <Entity
               id="clock-display"
               position={[-2.56, 6.77, 9.96]}
@@ -669,12 +606,7 @@ class RootScene extends React.Component {
               rotation={[0, 90, 0]}
               bmfont-text={{ color: 'white', text: `${this.state.elapsedMinutes} : ${this.state.elapsedSeconds}`}} />
 
-            <Entity
-              id="credit-title"
-              position={[-2.56, 7.2, 7.84]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: '#ccc', text: 'Browsing Credit'}} />
+          
             <Entity
               id="credit-display"
               position={[-2.56, 6.77, 7.62]}
