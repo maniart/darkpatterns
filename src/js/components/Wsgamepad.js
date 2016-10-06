@@ -70,7 +70,7 @@ AFRAME.registerComponent('ws-gamepad', {
         } else if(axis === 0) {
           if (value === -1) {
             self.right = true;
-          } else if(value === -1) {
+          } else if(value === 1) {
             self.left = true;
           } else {
             self.right = false;
