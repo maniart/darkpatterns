@@ -30,6 +30,8 @@ class RootScene extends React.Component {
     super(props);
     this.state =  {
 
+      paused: false,
+
       initialCamRotation: [20, 4, 0],
       initialCamPosition: [10.85, 5, 21.5],
 
@@ -84,7 +86,7 @@ class RootScene extends React.Component {
         self.resetGame();
         return;
       }
-    }, 3000);
+    }, 10000);
 
   }
 
@@ -175,7 +177,7 @@ class RootScene extends React.Component {
     } else {
       this.scene.addEventListener('loaded', this.onSceneReady.bind(this))
     }
-
+    const camera = document.querySelector('a-entity[camera]');
     const cursor = document.querySelector('#cursor');
     const dlBtn = document.querySelector('#ui-dl-btn');
     const decryptBtn = document.querySelector('#decrypt-button')
@@ -189,6 +191,13 @@ class RootScene extends React.Component {
           notifActive: false
         });
         self.revealUI();
+      });
+    });
+
+    camera.addEventListener('pause', ()=> {
+      console.log('_________ PAUSE')
+      self.setState({
+        paused: self.state.paused ? false : true
       });
     });
 
@@ -366,6 +375,8 @@ class RootScene extends React.Component {
                     src="../assets/ui/dl.png" />
                 <img id="dl-complete"
                   src="../assets/ui/dl-complete.png" />
+                <img id="pause"
+                  src="../assets/ui/pause.png" />
 
 
 
@@ -1472,6 +1483,29 @@ class RootScene extends React.Component {
             position={this.state.initialCamPosition}
             userHeight={5}
             velocity={[0, -83.08, 10]}>
+
+            {/* }<Entity
+              className="interactive"
+              visible={this.state.paused}
+              id="pause-screen"
+
+              geometry={{
+                primitive: 'plane',
+                width: 5.1,
+                height: 3,
+                mergeTo: '#mergeto-target'
+              }}
+
+              rotation={[0, 0,0]}
+              scale={[2.2, 2.2, 2.2]}
+              material={{
+                shader: 'flat',
+                src: '#pause',
+                opacity: 1,
+
+              }} */}
+
+              position={[-0, 0, -10]}/>
 
             <Cursor fuse={false} />
           </Camera>

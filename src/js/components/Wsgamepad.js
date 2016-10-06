@@ -80,6 +80,11 @@ AFRAME.registerComponent('ws-gamepad', {
         if(num === 1 && name === 'down') {
 
         }
+        if(num === 9 && name === 'down') {
+          // pause
+          console.log('pause')
+          self.el.emit('pause');
+        }
       });
 
       // self.socket.on('up', ({id, num, name}) => {
