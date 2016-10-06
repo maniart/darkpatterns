@@ -1,5 +1,5 @@
-// import 'aframe';
-// import 'aframe-extras';
+// import aframe from  'aframe';
+// import extras from 'aframe-extras';
 import 'babel-polyfill';
 import {
   Animation,
@@ -163,7 +163,8 @@ class RootScene extends React.Component {
         });
       } else {
         self.setState({
-          decrypted: true
+          decrypted: true,
+          credit: credit - 7000
         })
       }
 
@@ -308,6 +309,9 @@ class RootScene extends React.Component {
                 <img id="eve"
                   src="../assets/ui/eve.png" />
 
+                <img id="dl"
+                    src="../assets/ui/dl.png" />
+
 
 
 
@@ -379,7 +383,7 @@ class RootScene extends React.Component {
 
           }}
 
-          position={[-1.25, 6.43, -5.4]}/>
+          position={[-1.25, 7.36, -3.98]}/>
           {/* END monitor wrappr */}
 
 
@@ -803,7 +807,7 @@ class RootScene extends React.Component {
               }}
 
               rotation={[0, 90, 0]}
-              visible={this.state.decrypted}
+              visible={true}
               material={{
                 color: '#fff',
                 shader: 'flat',
@@ -812,6 +816,28 @@ class RootScene extends React.Component {
               }}
 
               position={[-1.39, 5.88, 2]}/>
+
+              <Entity
+                className="interactive"
+                id="ui-dl-btn"
+
+                geometry={{
+                  primitive: 'plane',
+                  width: 1,
+                  height: 0.4,
+                  mergeTo: '#mergeto-target'
+                }}
+
+                rotation={[0, 90, 0]}
+                visible={true}
+                material={{
+                  color: '#fff',
+                  shader: 'flat',
+                  opacity: .9,
+                  src: '#dl'
+                }}
+
+                position={[-0.75, 5.02, 2]}/>
 
           </Entity>
           {/* END BROWSER WRAPPER */}
