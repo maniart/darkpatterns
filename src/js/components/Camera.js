@@ -3,7 +3,7 @@ import React        from 'react';
 import Wsgamepad    from './Wsgamepad';
 
 export default ({
-  position=[0, 5, ],
+  position=[0, 5, 0],
   id="camera",
   active="false",
   userHeight="4.8",

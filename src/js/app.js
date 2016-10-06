@@ -1481,7 +1481,7 @@ class RootScene extends React.Component {
             userHeight={5}
             velocity={[0, -83.08, 10]}>
 
-            <Cursor fuse={true} />
+            <Cursor fuse={true} fuseTimeout={1000} />
           </Camera>
 
 

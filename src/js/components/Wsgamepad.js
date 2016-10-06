@@ -3,6 +3,8 @@ import React    from 'react';
 var io = require('socket.io-client');
 
 const THREE = window.THREE;
+const MAX_DELTA = 0.2; // ms
+const PI_2 = Math.PI / 2;
 /* global AFRAME */
 
 if (typeof AFRAME === 'undefined') {
@@ -38,9 +40,22 @@ AFRAME.registerComponent('ws-gamepad', {
     this.left = false;
     this.right = false;
 
+    this.heading = new THREE.Euler(0, 0, 0, 'YXZ');
+
+
     // cache
     const abs = Math.abs;
     const floor = Math.floor;
+
+    this.velocity = new THREE.Vector3();
+    // Rotation
+    this.pitch = new THREE.Object3D();
+    this.yaw = new THREE.Object3D();
+    this.yaw.position.y = 10;
+    this.yaw.add(this.pitch);
+    this.heading = new THREE.Euler(0, 0, 0, 'YXZ');
+
+
 
     // Movement
     //this.velocity = new THREE.Vector3(0, 0, 0);
@@ -91,32 +106,51 @@ AFRAME.registerComponent('ws-gamepad', {
   },
 
   tick: function(t, dt) {
+    if (!dt) { return; }
+    //const { x: degX, y: degY, z: degZ } = this.el.getAttribute('rotation');
     if (this.forward) {
-      this.updatePosition({dx: 0, dy: 0, dz: -0.1});
+      this.velocity.set(0, 0, -0.1);
+      //this.updatePosition({dx: 0, dy: 0, dz: -0.1});
     }
     if(this.backward) {
-      this.updatePosition({dx: 0, dy: 0, dz: 0.1});
+      this.velocity.set(0, 0, 0.1);
+      //this.updatePosition({dx: 0, dy: 0, dz: 0.1});
     }
     if (this.right) {
-      this.updatePosition({dx: -0.1, dy: 0, dz: 0});
+      this.velocity.set(-0.1, 0, 0);
+      //this.updatePosition({dx: -0.1, dy: 0, dz: 0});
     }
     if(this.left) {
-      this.updatePosition({dx: 0.1, dy: 0, dz: 0});
+      this.velocity.set(0.1, 0, 0);
+      //this.updatePosition({dx: 0.1, dy: 0, dz: 0});
     }
+    if(!this.left && !this.right && !this.forward && !this.backward) {
+      this.velocity.set(0, 0, 0);
+    }
+    this.updatePosition();
   },
 
 
-  updatePosition(value) {
+
+  updatePosition() {
+    // console.log('------ ', this.el.getAttribute('rotation'))
+    const { x: degX, y: degY, z: degZ } = this.el.getAttribute('rotation');
     const el = this.el;
+    this.heading.set(
+      THREE.Math.degToRad(degX),
+      THREE.Math.degToRad(degY),
+      0
+    );
+    // console.log(this.heading);
     const position = el.getComputedAttribute('position');
-
     let { x, y, z } = position;
-    let { dx, dy, dz } = value;
-
+    // let { dx, dy, dz } = value;
+    const pos = this.velocity.applyEuler(this.heading);
+    // console.log(pos)
     el.setAttribute('position', {
-      x: x + dx,
-      y: y + dy,
-      z: z + dz
+      x: (x + pos.x),
+      y: (y),
+      z: (z + pos.z)
     });
 
   },
