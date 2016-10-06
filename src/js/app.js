@@ -146,7 +146,8 @@ class RootScene extends React.Component {
   initSMS () {
     this.setState({
       smsRevealed: true,
-      trentSmsOneVisible: true
+      trentSmsOneVisible: true,
+      trentSmsTwoVisible: true
     });
   }
 
@@ -327,6 +328,13 @@ class RootScene extends React.Component {
 
               <img id="sms-w-trent-title"
                 src="../assets/ui/sms-w-trent-title.png" />
+              <img id="sms-w-trent-one"
+                src="../assets/ui/sms-trent-1.png" />
+              <img id="sms-w-trent-two"
+                src="../assets/ui/sms-trent-2.png" />
+
+              <img id="notif"
+                  src="../assets/ui/message-notif.png" />
 
 
 
@@ -455,33 +463,22 @@ class RootScene extends React.Component {
             visible={this.state.notifActive}
             position={[-2.64, 7.8, 0]}>
 
-          <Entity
-            className="interactive"
-            id="notif-bg"
-
-            geometry={{
-              primitive: 'plane',
-              width: 3.46,
-              height: 0.7,
-              mergeTo: '#mergeto-target'
-            }}
-
-            rotation={[0, 90, 0]}
-
-            material={{
-              color: 'rgb(19, 144, 249)',
-              shader: 'flat',
-              opacity: 1
-            }}
-
-            position={[-0, 0, 0]}/>
 
             <Entity
-              id="notif-text"
-              position={[0, 0, 1.14]}
-              scale={[0.7, 0.7, 0.7]}
+              id="notif"
+              material={{
+                shader: 'standard',
+                color: '#fff',
+                src: '#notif'
+              }}
               rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: 'You have 1 new message. Click to read.'}} />
+              position={[0, 1.26, 0]}
+              geometry={{
+                primitive: 'plane',
+                width: 5.08,
+                height: 1,
+                mergeTo: '#mergeto-target'
+              }} />
         </Entity>
 
           <Entity
@@ -539,23 +536,39 @@ class RootScene extends React.Component {
                     mergeTo: '#mergeto-target'
                   }} />
 
-
-
                 <Entity
                   id="sms-trent-1"
                   visible={this.state.trentSmsOneVisible}
-                  position={[-1.98, 0.84, 0.04]}
-                  scale={[0.8, 0.8, 0.8]}
-                  rotation={[0, 0, 0]}
-                  bmfont-text={{ color: 'white', text: '>> [Trent]:  Just sent you an email. '}} />
+                  position={[-0.04, 0.84, 0.04]}
+                  material={{
+                    shader: 'flat',
+                    src: '#sms-w-trent-one'
+                  }}
+
+                  geometry={{
+                    primitive: 'plane',
+                    width: 4.6,
+                    height: 0.57,
+                    mergeTo: '#mergeto-target'
+                  }} />
 
                 <Entity
                   id="sms-trent-2"
                   visible={this.state.trentSmsTwoVisible}
-                  position={[-1.98, 2.2, 0.04]}
-                  scale={[1, 1, 1]}
-                  rotation={[0, 0, 0]}
-                  bmfont-text={{ color: 'white', text: '>> [Trent]:  ??? '}} />
+                  position={[-0.04, 0.34, 0.04]}
+                  material={{
+                    shader: 'flat',
+                    src: '#sms-w-trent-two'
+                  }}
+
+                  geometry={{
+                    primitive: 'plane',
+                    width: 4.6,
+                    height: 0.57,
+                    mergeTo: '#mergeto-target'
+                  }} />
+
+
 
 
               </Entity>
