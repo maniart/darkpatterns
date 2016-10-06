@@ -31,7 +31,7 @@ class RootScene extends React.Component {
     this.state =  {
       docDownloaded: false,
       solved: false,
-      showEveSms:true,
+      showEveSms:false,
       notifActive: true,
       showCreditWarning: false,
       encEmailVisible: false,
@@ -92,7 +92,7 @@ class RootScene extends React.Component {
   resetGame() {
     this.setState({
       showEveSms: true
-    })
+    });
   }
 
   initIP () {
