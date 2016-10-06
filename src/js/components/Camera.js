@@ -16,7 +16,7 @@ export default ({
   ...props
 }) => (
 
-    <Entity position={position} static-body="">
+    <Entity position={[0, 5, 0]} static-body="">
       <Entity
         id={id}
         active={active}
