@@ -29,7 +29,7 @@ export default ({
         }}
         rotation={rotation}
         ws-gamepad={{
-          endpoint: "ws://192.168.0.9:7878"
+          endpoint: "ws://127.0.0.1:7878"
         }}
         wasd-controls=""
         look-controls=""

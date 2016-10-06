@@ -10,7 +10,7 @@ if (typeof AFRAME === 'undefined') {
 
 
 /**
- * Example component for A-Frame.
+ * WebSocket gamepad component
  */
 AFRAME.registerComponent('ws-gamepad', {
   schema: {
@@ -27,22 +27,27 @@ AFRAME.registerComponent('ws-gamepad', {
 
   ws: null,
 
-
   /**
    * Called once when component is attached. Generally for initial setup.
    */
   init: function () {
+    // state
     this.forward = false;
     this.backward = false;
     this.left = false;
     this.right = false;
-    // console.log('_____ WS GAME PAD INIT. Endpoint is: ', this);
+
+    // cache
+    const abs = Math.abs;
+    const floor = Math.floor;
+
     // Movement
-    this.velocity = new THREE.Vector3(0, 0, 0);
-    this.direction = new THREE.Vector3(0, 0, 0);
+    //this.velocity = new THREE.Vector3(0, 0, 0);
+    //this.direction = new THREE.Vector3(0, 0, 0);
+
     // setup websockets
-    this.buttonStates = {};
-    this.axisState = [];
+    // this.buttonStates = {};
+    // this.axisState = [];
     const host = this.data.endpoint;
     const self = this;
     this.ws = new WebSocket(host);
@@ -50,22 +55,28 @@ AFRAME.registerComponent('ws-gamepad', {
       //console.log(self.el.emit)
       let parsedData = JSON.parse(data);
       // console.log(JSON.parse(data));
-      if (parsedData.name === 'move' && parsedData.value === 1 && parsedData.axis === 1) {
-        console.log('Vetical arrow Backward')
-        self.backward = true;
-      }
-      if (parsedData.name === 'move' && parsedData.value === -1 && parsedData.axis === 1) {
-        console.log('Vetical arrow Forward')
-        self.forward = true
-      }
-      // stopped moving back and forth
-      if (parsedData.name === 'move' && Math.floor(Math.abs(parsedData.value)) ===  0 && parsedData.axis === 1) {
-        console.log('Stopped')
-        self.backward = false;
-        self.forward = false;
-      }
 
-
+      // forward - backward movement
+      if (parsedData.axis === 1) {
+        if (parsedData.value === 1) {
+          self.backward = true;
+        } else if (parsedData.value === -1) {
+          self.forward = true;
+        } else {
+          self.forward = false;
+          self.backward = false;
+        }
+      // left - right movement
+      } else if(parsedData.axis === 0) {
+        if (parsedData.value === 1) {
+          self.right = true;
+        } else if(parsedData.value === -1) {
+          self.left = true;
+        } else {
+          self.right = false;
+          self.left = false;
+        }
+      }
     };
   },
 
@@ -84,28 +95,22 @@ AFRAME.registerComponent('ws-gamepad', {
     if(this.backward) {
       this.updatePosition({dx: 0, dy: 0, dz: 0.1});
     }
-
-    // this.updatePosition(dt);
-    // this.updateButtonState();
-    //this.updatePosition();
-    //var mesh = this.el.getObject3D('mesh');
-    //if (!mesh) { return; }
-    //if (mesh.update) { mesh.update(delta / 1000); }
-    //this.updatePose();
-    //this.updateButtons();
+    if (this.right) {
+      this.updatePosition({dx: -0.1, dy: 0, dz: 0});
+    }
+    if(this.left) {
+      this.updatePosition({dx: 0.1, dy: 0, dz: 0});
+    }
   },
 
 
   updatePosition(value) {
-    const data = this.data;
-    // const { acceleration, easing, rollAxis, pitchAxis } = data;
-    // console.log(acceleration, easing, rollAxis, pitchAxis);
-
     const el = this.el;
     const position = el.getComputedAttribute('position');
-    let { x, y, z} = position;
-    let { dx, dy, dz} = value;
-    console.log(dx, dy, dz);
+
+    let { x, y, z } = position;
+    let { dx, dy, dz } = value;
+
     el.setAttribute('position', {
       x: x + dx,
       y: y + dy,

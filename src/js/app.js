@@ -116,10 +116,10 @@ class RootScene extends React.Component {
   }
 
   revealUI () {
-    this.initIP(); // kick off IP
+    //this.initIP(); // kick off IP
     this.initBrowser(); // kick off Browser
-    this.initMonitor(); // kick off monitor
-    this.initSMS(); // kick off SMS
+    //this.initMonitor(); // kick off monitor
+    //this.initSMS(); // kick off SMS
   }
 
   initIP () {
@@ -152,7 +152,6 @@ class RootScene extends React.Component {
 
   componentDidMount () {
     this.scene = document.querySelector('a-scene');
-    console.log('scene b is: ', this.scene.behaviors);
     const trentEmailTitle = document.querySelector('#ui-email-trent');
     //const encToggle = document.querySelector('#enc-toggle');
     const self = this;
@@ -230,7 +229,7 @@ class RootScene extends React.Component {
         <Loader visible={!this.state.sceneReady} />
 
       <Scene
-
+          stats
           physics={{debug:false}}
           keyboard-shortcuts=""
           canvas=""
