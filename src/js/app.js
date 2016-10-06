@@ -19,7 +19,7 @@ import Wall         from './components/Wall';
 import Loader       from './components/Loader';
 import { scale }    from './utils';
 import AframeTextComponent from 'aframe-bmfont-text-component';
-
+import AframeGifComponent from 'aframe-gif-shader';
 
 
 /*
@@ -34,25 +34,7 @@ class RootScene extends React.Component {
       showCreditWarning: false,
       encEmailVisible: false,
       decrypted: false,
-      monitorText: [
-        'ny-gov-dept-antipiracy-346fg',
-        'us-state-antiabuseregulation-5670nnn23',
-        'wif4_regula_traffic_friasd2df',
-        'bk_nyc_gov_datamanagement5d2d2-',
-        'snerizon-antivirus_firewall00w12',
-        'slamazon_cookies_add_9r89wjf',
-        'alice_laptop_c0nnectsnerizon',
-        'alice_smartwallE_sneriz_5673fjslkaf',
-        'alice_fridg4_sneriz_77fkladl'
-      ],
 
-      monitorTextIndex0: 0,
-      monitorTextIndex1: 2,
-      monitorTextIndex2: 4,
-      monitorTextIndex3: 2,
-      monitorTextIndex4: 7,
-      monitorTextIndex5: 3,
-      monitorTextIndex6: 1,
 
       elapsedSeconds: 0,
       elapsedMinutes: 0,
@@ -77,22 +59,6 @@ class RootScene extends React.Component {
     });
   }
 
-  updateMonitorText () {
-    const self = this;
-    const getRandomIndex = () => Math.floor(Math.random() * (self.state.monitorText.length - 1));
-    window.setInterval(() => {
-      self.setState({
-        monitorTextIndex0: getRandomIndex(),
-        monitorTextIndex1: getRandomIndex(),
-        monitorTextIndex2: getRandomIndex(),
-        monitorTextIndex3: getRandomIndex(),
-        monitorTextIndex4: getRandomIndex(),
-        monitorTextIndex5: getRandomIndex(),
-        monitorTextIndex6: getRandomIndex(),
-      });
-    }, 1000);
-
-  }
 
   initClock() {
     const self = this;
@@ -118,7 +84,7 @@ class RootScene extends React.Component {
   revealUI () {
     this.initIP(); // kick off IP
     this.initBrowser(); // kick off Browser
-    //this.initMonitor(); // kick off monitor
+    this.initMonitor(); // kick off monitor
     this.initSMS(); // kick off SMS
   }
 
@@ -140,7 +106,6 @@ class RootScene extends React.Component {
     this.setState({
       monitorRevealed: true
     });
-    this.updateMonitorText();
   }
 
   initSMS () {
@@ -336,6 +301,9 @@ class RootScene extends React.Component {
               <img id="notif"
                   src="../assets/ui/message-notif.png" />
 
+                <img id="ticker"
+                  src="../assets/ui/ticker.gif" />
+
 
 
 
@@ -385,74 +353,29 @@ class RootScene extends React.Component {
               position={[0, 22.14, 0]} />
 
             {/* BEGIN activity monitor wrapper */}
-            <Entity
-              id="activity-monitor-wrapper"
-              visible={this.state.monitorRevealed}>
 
-            <Entity
-              className="interactive"
-              id="activity-monitor mergeto-target"
+        <Entity
+          className="interactive"
+          visible={this.state.monitorRevealed}
+          id="ticker"
 
-              geometry={{
-                primitive: 'plane',
-                width: 3.3,
-                height: 1.81,
-                mergeTo: '#mergeto-target'
-              }}
+          geometry={{
+            primitive: 'plane',
+            width: 4,
+            height: 2,
+            mergeTo: '#mergeto-target'
+          }}
 
-              rotation={[0, 90, 0]}
+          rotation={[0, 90, 0]}
 
-              material={{
-                color: 'rgb(19, 144, 249)',
-                shader: 'flat',
-                opacity: 1,
-                side: 'double'
-              }}
+          material={{
+            shader: 'gif',
+            src: '#ticker',
+            opacity: 1,
 
-              position={[-1.25, 6.43, -4.25]}/>
-            <Entity
-              id="line-0-monitor"
-              position={[-1.2, 7, -3.06]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex0]}} />
-            <Entity
-              id="line-1-monitor"
-              position={[-1.2, 6.8, -3.06]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex1]}} />
-            <Entity
-              id="line-2-monitor"
-              position={[-1.2, 6.6, -3.06]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex2]}} />
-            <Entity
-              id="line-3-monitor"
-              position={[-1.2, 6.4, -3.06]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex3]}} />
-            <Entity
-              id="line-4-monitor"
-              position={[-1.2, 6.2, -3.06]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex4]}} />
-            <Entity
-              id="line-5-monitor"
-              position={[-1.20, 6, -3.06]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex5]}} />
-            <Entity
-              id="line-6-monitor"
-              position={[-1.2, 5.8, -3.06]}
-              scale={[0.7, 0.7, 0.7]}
-              rotation={[0, 90, 0]}
-              bmfont-text={{ color: 'white', text: this.state.monitorText[this.state.monitorTextIndex6]}} />
-          </Entity>
+          }}
+
+          position={[-1.25, 6.43, -5.4]}/>
           {/* END monitor wrappr */}
 
 
@@ -482,7 +405,7 @@ class RootScene extends React.Component {
         </Entity>
 
           <Entity
-            id="floor"
+            id="floor mergeto-target"
             material={{
               shader: 'standard',
               color: '#fff'
@@ -493,7 +416,6 @@ class RootScene extends React.Component {
               primitive: 'plane',
               width: 34,
               height: 31,
-              mergeTo: '#mergeto-target'
             }} />
 
           {/* BEGIN SMS WRAPPER */}
@@ -503,7 +425,7 @@ class RootScene extends React.Component {
 
               <Entity
                 className="interactive"
-                id="sms-screen"
+                id="sms-screen mergeto-target"
                 geometry={{
                   primitive: 'plane',
                   width: 4.81,
@@ -1436,8 +1358,7 @@ class RootScene extends React.Component {
             userHeight={5}
             velocity={[0, -83.08, 10]}>
 
-            <Cursor fuse="false" />
-
+            <Cursor fuse={true} />
           </Camera>
 
 
